@@ -153,13 +153,11 @@
 
         /* Second heading */
         .second-heading {
-            position: fixed;
-            top: 50vh;
-            left: 0;
-            right: 0;
+            position: relative;
             font-size: 48px;
             font-weight: 300;
             letter-spacing: -1px;
+            margin: 0 auto 300px auto;
             width: 100%;
             text-align: center;
             line-height: 1.2;
@@ -169,7 +167,6 @@
             white-space: nowrap;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(-50%);
         }
 
         .second-heading.white {
@@ -437,10 +434,10 @@
         <!-- Main heading with character spans -->
         <h1 class="main-heading" id="mainHeading">Where magnetic brands are born.</h1>
 
+        <div class="scroll-space"></div>
+
         <!-- Second heading that appears as main heading scrolls -->
         <h2 class="second-heading" id="secondHeading">Who we are</h2>
-
-        <div class="scroll-space"></div>
 
         <!-- Who we are section -->
         <section class="section">
