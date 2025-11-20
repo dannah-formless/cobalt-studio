@@ -560,13 +560,13 @@
         function toggleSecondHeading() {
             const mainHeadingRect = mainHeading.getBoundingClientRect();
             const mainHeadingTop = mainHeadingRect.top;
-            const windowHeight = window.innerHeight;
+            const navHeight = document.querySelector('nav').offsetHeight;
 
-            // Show second heading as main heading scrolls up
-            if (mainHeadingTop < 0) {
-                // Main heading has scrolled past top, show second heading
-                const fadeRange = windowHeight * 0.5;
-                const scrollProgress = Math.min(1, Math.abs(mainHeadingTop) / fadeRange);
+            // Show second heading as main heading hits the menu bar
+            if (mainHeadingTop <= navHeight) {
+                // Main heading has reached the menu bar, show second heading
+                const fadeRange = navHeight;
+                const scrollProgress = Math.min(1, Math.abs(mainHeadingTop - navHeight) / fadeRange);
                 const opacity = Math.min(1, scrollProgress);
                 secondHeading.style.opacity = opacity;
                 secondHeading.style.visibility = 'visible';
