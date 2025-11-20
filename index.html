@@ -563,12 +563,13 @@
             const windowHeight = window.innerHeight;
 
             // Show second heading as main heading scrolls up
-            if (mainHeadingTop < windowHeight * 0.5) {
+            if (mainHeadingTop < 0) {
+                // Main heading has scrolled past top, show second heading
                 const fadeRange = windowHeight * 0.5;
-                const scrollProgress = (windowHeight * 0.5 - mainHeadingTop) / fadeRange;
-                const opacity = Math.min(1, Math.max(0, scrollProgress));
+                const scrollProgress = Math.min(1, Math.abs(mainHeadingTop) / fadeRange);
+                const opacity = Math.min(1, scrollProgress);
                 secondHeading.style.opacity = opacity;
-                secondHeading.style.visibility = opacity > 0 ? 'visible' : 'hidden';
+                secondHeading.style.visibility = 'visible';
             } else {
                 secondHeading.style.opacity = 0;
                 secondHeading.style.visibility = 'hidden';
