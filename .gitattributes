@@ -1,0 +1,6 @@
+images/*.png !text !filter !merge !diff
+images/*.jpg !text !filter !merge !diff
+images/*.jpeg !text !filter !merge !diff
+images/*.svg !text !filter !merge !diff
+images/*.gif !text !filter !merge !diff
+images/*.webp !text !filter !merge !diff

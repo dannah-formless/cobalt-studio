@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cobalt Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Neue+Regrade&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Calivorne';
+            src: url('./fonts/calivorne.ttf') format('truetype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Calivorne', 'Didot', 'Bodoni MT', serif;
+            background-color: #f5f5f5;
+            color: #000;
+            overflow-x: hidden;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M 8 10 Q 8 6 12 6 Q 16 6 16 10 M 16 10 Q 16 6 20 6 Q 24 6 24 10" stroke="black" stroke-width="2" fill="none" stroke-linecap="round"/><text x="10" y="20" font-size="8" font-weight="bold" fill="black">−</text><text x="20" y="20" font-size="10" font-weight="bold" fill="black">+</text></svg>') 16 16, auto;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: #f5f5f5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #000;
+        }
+
+        .logo {
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        /* Main content area */
+        .container {
+            position: relative;
+            padding: 0 30px;
+            z-index: 20;
+            margin: 0 auto;
+            max-width: 100%;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .scroll-space {
+            height: 400px;
+        }
+
+        /* Hero section with images */
+        .hero {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .image-1 {
+            position: fixed;
+            top: 100px;
+            left: 200px;
+            width: 300px;
+            height: 220px;
+            object-fit: cover;
+            z-index: 5;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-2 {
+            position: fixed;
+            top: 280px;
+            right: 0;
+            width: 400px;
+            height: 280px;
+            object-fit: cover;
+            z-index: 10;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-3 {
+            position: fixed;
+            top: 450px;
+            left: 0;
+            width: 350px;
+            height: 220px;
+            object-fit: cover;
+            z-index: 5;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Heading */
+        .main-heading {
+            position: relative;
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: -1px;
+            margin: 0 auto 300px auto;
+            padding-top: 50vh;
+            width: 100%;
+            text-align: center;
+            line-height: 1.2;
+            color: #000;
+            transition: color 0.3s ease;
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        .main-heading.white {
+            color: #fff;
+        }
+
+        .heading-char {
+            margin-right: 0.05em;
+        }
+
+        /* Section spacing */
+        .section {
+            position: relative;
+            padding: 60px 0 30px 0;
+        }
+
+        .section-title {
+            font-size: 38px;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            margin-bottom: 0px;
+            margin-left: 70px;
+        }
+
+        /* Who we are section */
+        .who-we-are {
+            display: block;
+            margin-bottom: 0;
+        }
+
+        .image-4 {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            object-fit: contain;
+            justify-self: end;
+        }
+
+        .who-we-are-text {
+            font-family: 'Neue Regrade', serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #000;
+            max-width: 500px;
+            margin-left: 180px;
+            margin-top: 20px;
+        }
+
+        .curved-text-svg {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+            margin-bottom: 0;
+            display: block;
+            box-sizing: border-box;
+            text-anchor: middle;
+        }
+
+        /* Blue section */
+        .blue-section {
+            background-color: #b8d4f1;
+            padding: 100px 30px;
+            margin: 100px 0 0 0;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .blue-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            letter-spacing: 0.3px;
+        }
+
+        .btn {
+            border: 1px solid #000;
+            padding: 12px 30px;
+            font-size: 14px;
+            background-color: transparent;
+            color: #000;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .cta-btn {
+            border: 1px solid #000;
+            padding: 12px 30px;
+            font-size: 14px;
+            background-color: transparent;
+            color: #000;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            font-family: 'Neue Regrade', serif;
+        }
+
+        .cta-btn:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f5f5f5;
+            color: #000;
+            padding: 80px 30px 30px;
+            margin-top: 120px;
+            border-top: 1px solid #000;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            margin-bottom: 60px;
+            max-width: 100%;
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h4 {
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .footer-section p {
+            font-family: 'Neue Regrade', serif;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #000;
+            text-decoration: none;
+            font-family: 'Neue Regrade', serif;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 0.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #000;
+            padding-top: 30px;
+            text-align: center;
+            font-family: 'Neue Regrade', serif;
+            font-size: 12px;
+            color: #000;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 30px 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .main-heading {
+                font-size: 48px;
+                width: 100%;
+                margin: 100px 0 200px 0;
+            }
+
+            .image-1, .image-2, .image-3 {
+                position: relative;
+                width: 100% !important;
+                max-width: 300px;
+                height: auto;
+                aspect-ratio: 16/9;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                margin: 40px 0;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .who-we-are {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .image-4 {
+                justify-self: auto;
+                max-width: 100%;
+            }
+
+            .blue-section {
+                margin: 100px -20px 0 -20px;
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <span class="logo">COBALT STUDIO</span>
+        <ul class="nav-links">
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#cases">CASE STUDIES</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <!-- Fixed images -->
+    <section class="hero">
+        <img src="./images/new_image.png" alt="Back portrait" class="image-1">
+        <img src="./images/image-2.png" alt="Gold sphere" class="image-2">
+        <img src="./images/image-3.png" alt="Materials" class="image-3">
+    </section>
+
+    <!-- Main container -->
+    <div class="container">
+        <!-- Main heading with character spans -->
+        <h1 class="main-heading" id="mainHeading">Where magnetic brands are born.</h1>
+
+        <div class="scroll-space"></div>
+
+        <!-- Who we are section -->
+        <section class="section">
+            <h2 class="section-title">Who we are</h2>
+            <div class="who-we-are">
+                <svg class="curved-text-svg" viewBox="0 0 20000 3000" preserveAspectRatio="none">
+                    <defs>
+                        <path id="curve" d="M 100,1000 C 1500,800 2500,600 4000,1200 C 5500,1600 6500,1400 8000,900 C 9500,500 10500,500 12000,1000 C 13500,1400 14500,1600 16000,1200 C 17500,800 18500,600 19900,1000" fill="none"/>
+                    </defs>
+                    <text font-family="Neue Regrade, serif" font-size="312" fill="#000" lengthAdjust="spacing" word-spacing="35" letter-spacing="8">
+                        <textPath href="#curve" startOffset="50%" endOffset="100%" text-anchor="middle">
+                            A full-stack creative marketing agency devoted to telling stories that <tspan font-weight="600">connect</tspan> and <tspan font-weight="600">convert</tspan>.
+                        </textPath>
+                    </text>
+                </svg>
+                <button class="cta-btn">Book a discovery call</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>COBALT STUDIO</h3>
+                <p>A full-stack creative marketing agency devoted to crafting brands that matter.</p>
+            </div>
+            <div class="footer-section">
+                <h4>EXPLORE</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#cases">Case Studies</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>CONNECT</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Email</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>CONTACT</h4>
+                <p>hello@cobaltstudio.com</p>
+                <p>+1 (555) 000-0000</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Designed by Dannah Cahn</p>
+        </div>
+    </footer>
+
+    <script>
+        const mainHeading = document.getElementById('mainHeading');
+        const image1 = document.querySelector('.image-1');
+        const image2 = document.querySelector('.image-2');
+        const image3 = document.querySelector('.image-3');
+
+        // Split heading text into character spans
+        function splitHeadingIntoSpans() {
+            const text = mainHeading.textContent;
+            mainHeading.innerHTML = '';
+
+            for (let i = 0; i < text.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = text[i];
+                span.style.color = '#000';
+                span.className = 'heading-char';
+                mainHeading.appendChild(span);
+            }
+        }
+
+        function checkCharactersOverImages() {
+            const chars = document.querySelectorAll('.heading-char');
+            const mainImages = [image1, image2, image3];
+
+            chars.forEach(char => {
+                const charRect = char.getBoundingClientRect();
+                const charCenterX = charRect.left + charRect.width / 2;
+                const charCenterY = charRect.top + charRect.height / 2;
+
+                let isOverImage = false;
+
+                // Check if character center is over any image
+                mainImages.forEach(img => {
+                    if (img) {
+                        const imgRect = img.getBoundingClientRect();
+                        if (charCenterX >= imgRect.left &&
+                            charCenterX <= imgRect.right &&
+                            charCenterY >= imgRect.top &&
+                            charCenterY <= imgRect.bottom) {
+                            isOverImage = true;
+                        }
+                    }
+                });
+
+                // Set color based on whether over image
+                char.style.color = isOverImage ? '#fff' : '#000';
+            });
+        }
+
+        // Fade out images when scrolling to "Who we are" section
+        function fadeImagesOnScroll() {
+            const sectionTitle = document.querySelector('.section-title');
+            if (!sectionTitle) return;
+
+            const sectionTitleTop = sectionTitle.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            // When "Who we are" section title enters viewport, start fading images
+            if (sectionTitleTop < windowHeight) {
+                // Calculate opacity based on how far section title has scrolled into view
+                const fadeRange = windowHeight * 0.5; // Fade happens over 50% of viewport
+                const scrollProgress = (windowHeight - sectionTitleTop) / fadeRange;
+                const opacity = Math.max(0, 1 - scrollProgress);
+
+                image1.style.opacity = opacity;
+                image2.style.opacity = opacity;
+                image3.style.opacity = opacity;
+
+                // Fade background color from #f5f5f5 to #E8EAE7
+                const startColor = [245, 245, 245]; // #f5f5f5
+                const endColor = [232, 234, 231]; // #E8EAE7
+
+                const r = Math.round(startColor[0] + (endColor[0] - startColor[0]) * scrollProgress);
+                const g = Math.round(startColor[1] + (endColor[1] - startColor[1]) * scrollProgress);
+                const b = Math.round(startColor[2] + (endColor[2] - startColor[2]) * scrollProgress);
+
+                document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            } else {
+                // Keep images fully visible until section title appears
+                image1.style.opacity = 1;
+                image2.style.opacity = 1;
+                image3.style.opacity = 1;
+                document.body.style.backgroundColor = '#f5f5f5';
+            }
+        }
+
+        // Initialize
+        splitHeadingIntoSpans();
+
+        // Listen to scroll events
+        window.addEventListener('scroll', () => {
+            checkCharactersOverImages();
+            fadeImagesOnScroll();
+        });
+        window.addEventListener('resize', checkCharactersOverImages);
+
+        // Initial check
+        checkCharactersOverImages();
+        fadeImagesOnScroll();
+    </script>
+</body>
+</html>
