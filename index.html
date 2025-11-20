@@ -151,6 +151,32 @@
             margin-right: 0.05em;
         }
 
+        /* Second heading */
+        .second-heading {
+            position: relative;
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: -1px;
+            margin: 0 auto 300px auto;
+            width: 100%;
+            text-align: center;
+            line-height: 1.2;
+            color: #000;
+            transition: color 0.3s ease;
+            z-index: 10;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .second-heading.white {
+            color: #fff;
+        }
+
+        .second-heading-char {
+            margin-right: 0.05em;
+        }
+
         /* Section spacing */
         .section {
             position: relative;
@@ -408,6 +434,9 @@
         <!-- Main heading with character spans -->
         <h1 class="main-heading" id="mainHeading">Where magnetic brands are born.</h1>
 
+        <!-- Second heading that appears as main heading scrolls -->
+        <h2 class="second-heading" id="secondHeading">Who we are</h2>
+
         <div class="scroll-space"></div>
 
         <!-- Who we are section -->
@@ -465,6 +494,7 @@
 
     <script>
         const mainHeading = document.getElementById('mainHeading');
+        const secondHeading = document.getElementById('secondHeading');
         const image1 = document.querySelector('.image-1');
         const image2 = document.querySelector('.image-2');
         const image3 = document.querySelector('.image-3');
@@ -483,8 +513,22 @@
             }
         }
 
+        // Split second heading text into character spans
+        function splitSecondHeadingIntoSpans() {
+            const text = secondHeading.textContent;
+            secondHeading.innerHTML = '';
+
+            for (let i = 0; i < text.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = text[i];
+                span.style.color = '#000';
+                span.className = 'second-heading-char';
+                secondHeading.appendChild(span);
+            }
+        }
+
         function checkCharactersOverImages() {
-            const chars = document.querySelectorAll('.heading-char');
+            const chars = document.querySelectorAll('.heading-char, .second-heading-char');
             const mainImages = [image1, image2, image3];
 
             chars.forEach(char => {
@@ -510,6 +554,25 @@
                 // Set color based on whether over image
                 char.style.color = isOverImage ? '#fff' : '#000';
             });
+        }
+
+        // Show/hide second heading based on main heading scroll position
+        function toggleSecondHeading() {
+            const mainHeadingRect = mainHeading.getBoundingClientRect();
+            const mainHeadingTop = mainHeadingRect.top;
+            const windowHeight = window.innerHeight;
+
+            // Show second heading as main heading scrolls up
+            if (mainHeadingTop < windowHeight * 0.5) {
+                const fadeRange = windowHeight * 0.5;
+                const scrollProgress = (windowHeight * 0.5 - mainHeadingTop) / fadeRange;
+                const opacity = Math.min(1, Math.max(0, scrollProgress));
+                secondHeading.style.opacity = opacity;
+                secondHeading.style.visibility = opacity > 0 ? 'visible' : 'hidden';
+            } else {
+                secondHeading.style.opacity = 0;
+                secondHeading.style.visibility = 'hidden';
+            }
         }
 
         // Fade out images when scrolling to "Who we are" section
@@ -551,17 +614,20 @@
 
         // Initialize
         splitHeadingIntoSpans();
+        splitSecondHeadingIntoSpans();
 
         // Listen to scroll events
         window.addEventListener('scroll', () => {
             checkCharactersOverImages();
             fadeImagesOnScroll();
+            toggleSecondHeading();
         });
         window.addEventListener('resize', checkCharactersOverImages);
 
         // Initial check
         checkCharactersOverImages();
         fadeImagesOnScroll();
+        toggleSecondHeading();
     </script>
 </body>
 </html>
