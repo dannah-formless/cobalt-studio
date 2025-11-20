@@ -559,18 +559,16 @@
         // Show/hide second heading based on main heading scroll position
         function toggleSecondHeading() {
             const mainHeadingRect = mainHeading.getBoundingClientRect();
-            const mainHeadingTop = mainHeadingRect.top;
-            const navHeight = document.querySelector('nav').offsetHeight;
+            const mainHeadingBottom = mainHeadingRect.bottom;
+            const windowHeight = window.innerHeight;
 
-            // Show second heading as main heading hits the menu bar
-            if (mainHeadingTop <= navHeight) {
-                // Main heading has reached the menu bar, show second heading
-                const fadeRange = navHeight;
-                const scrollProgress = Math.min(1, Math.abs(mainHeadingTop - navHeight) / fadeRange);
-                const opacity = Math.min(1, scrollProgress);
-                secondHeading.style.opacity = opacity;
+            // When main heading scrolls out of view, show second heading
+            if (mainHeadingBottom < 0) {
+                // Main heading has completely scrolled out, show second heading
+                secondHeading.style.opacity = 1;
                 secondHeading.style.visibility = 'visible';
-            } else {
+            } else if (mainHeadingBottom > 0) {
+                // Main heading is still visible, hide second heading
                 secondHeading.style.opacity = 0;
                 secondHeading.style.visibility = 'hidden';
             }
