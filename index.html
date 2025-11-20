@@ -153,11 +153,13 @@
 
         /* Second heading */
         .second-heading {
-            position: relative;
+            position: fixed;
+            top: 50vh;
+            left: 0;
+            right: 0;
             font-size: 48px;
             font-weight: 300;
             letter-spacing: -1px;
-            margin: 0 auto 300px auto;
             width: 100%;
             text-align: center;
             line-height: 1.2;
@@ -167,6 +169,7 @@
             white-space: nowrap;
             opacity: 0;
             visibility: hidden;
+            transform: translateY(-50%);
         }
 
         .second-heading.white {
