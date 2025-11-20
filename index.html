@@ -560,17 +560,18 @@
         function toggleSecondHeading() {
             const mainHeadingRect = mainHeading.getBoundingClientRect();
             const mainHeadingBottom = mainHeadingRect.bottom;
-            const windowHeight = window.innerHeight;
 
             // When main heading scrolls out of view, show second heading
-            if (mainHeadingBottom < 0) {
+            if (mainHeadingBottom <= 0) {
                 // Main heading has completely scrolled out, show second heading
                 secondHeading.style.opacity = 1;
                 secondHeading.style.visibility = 'visible';
-            } else if (mainHeadingBottom > 0) {
+                secondHeading.style.pointerEvents = 'auto';
+            } else {
                 // Main heading is still visible, hide second heading
                 secondHeading.style.opacity = 0;
                 secondHeading.style.visibility = 'hidden';
+                secondHeading.style.pointerEvents = 'none';
             }
         }
 
