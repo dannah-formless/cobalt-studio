@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cobalt Studio</title>
     <link href="https://fonts.googleapis.com/css2?family=Neue+Regrade&display=swap" rel="stylesheet">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
         @font-face {
             font-family: 'Calivorne';
@@ -767,6 +768,16 @@
         checkCharactersOverImages();
         fadeImagesOnScroll();
         toggleSecondHeading();
+    </script>
+
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.open("login");
+                }
+            });
+        }
     </script>
 </body>
 </html>
