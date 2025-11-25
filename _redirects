@@ -1,5 +1,3 @@
-# Redirect admin to the CMS
-/admin/*  /public/admin/index.html  200
-
-# Redirect netlify functions
-/.netlify/functions/:name  /.netlify/functions/:name  200
+# Netlify CMS routing - serve admin/index.html for /admin paths
+/admin  /admin/index.html  200
+/admin/*  /admin/index.html  200
