@@ -1,0 +1,5 @@
+# Redirect admin to the CMS
+/admin/*  /public/admin/index.html  200
+
+# Redirect netlify functions
+/.netlify/functions/:name  /.netlify/functions/:name  200

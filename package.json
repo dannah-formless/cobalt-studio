@@ -1,0 +1,25 @@
+{
+  "name": "cobalt-studio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "python3 -m http.server 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannah-formless/cobalt-studio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dannah-formless/cobalt-studio/issues"
+  },
+  "homepage": "https://github.com/dannah-formless/cobalt-studio#readme",
+  "dependencies": {
+    "playwright": "^1.56.1"
+  }
+}

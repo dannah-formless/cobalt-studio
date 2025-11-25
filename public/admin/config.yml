@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: main
+  squash_merges: true
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Home Page"
+        file: "content/home.md"
+        fields:
+          - { label: "Main Heading", name: "main_heading", widget: "string", default: "Where magnetic brands are born." }
+          - { label: "Second Heading", name: "second_heading", widget: "string", default: "Who we are" }
+          - { label: "Subheading", name: "subheading", widget: "text", default: "At Cobalt Studio, we're a brand consultancy helping agencies, creatives during rapid moments, return to, and share." }
+          - { label: "Curved Text", name: "curved_text", widget: "string", default: "Become a brand that people talk about, return to, and share." }
+          - { label: "CTA Button Text", name: "cta_text", widget: "string", default: "Start a discussion →" }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "content/settings.md"
+        fields:
+          - { label: "Site Title", name: "site_title", widget: "string", default: "Cobalt Studio" }
+          - { label: "Background Color", name: "background_color", widget: "color", default: "#F8F8F8" }
+          - { label: "Text Color", name: "text_color", widget: "color", default: "#000000" }
+          - { label: "Light Text Color", name: "light_text_color", widget: "color", default: "#F8F8F8" }
