@@ -19,7 +19,7 @@
 
         body {
             font-family: 'Calivorne', 'Didot', 'Bodoni MT', serif;
-            background-color: #f5f5f5;
+            background-color: #F8F8F8;
             color: #000;
             overflow-x: hidden;
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M 8 10 Q 8 6 12 6 Q 16 6 16 10 M 16 10 Q 16 6 20 6 Q 24 6 24 10" stroke="black" stroke-width="2" fill="none" stroke-linecap="round"/><text x="10" y="20" font-size="8" font-weight="bold" fill="black">−</text><text x="20" y="20" font-size="10" font-weight="bold" fill="black">+</text></svg>') 16 16, auto;
@@ -31,7 +31,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 30px;
-            background-color: #f5f5f5;
+            background-color: #F8F8F8;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -65,7 +65,7 @@
         /* Main content area */
         .container {
             position: relative;
-            padding: 0 30px;
+            padding: 0 130px;
             z-index: 20;
             margin: 0 auto;
             max-width: 100%;
@@ -93,10 +93,10 @@
         .image-1 {
             position: fixed;
             top: 100px;
-            left: 200px;
+            left: 300px;
             width: 300px;
-            height: 220px;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
             z-index: 5;
             opacity: 1;
             transition: opacity 0.3s ease;
@@ -105,7 +105,7 @@
         .image-2 {
             position: fixed;
             top: 280px;
-            right: 0;
+            right: 100px;
             width: 400px;
             height: 280px;
             object-fit: cover;
@@ -117,7 +117,7 @@
         .image-3 {
             position: fixed;
             top: 450px;
-            left: 0;
+            left: 100px;
             width: 350px;
             height: 220px;
             object-fit: cover;
@@ -129,7 +129,7 @@
         /* Heading */
         .main-heading {
             position: relative;
-            font-size: 48px;
+            font-size: 56px;
             font-weight: 300;
             letter-spacing: -1px;
             margin: 0 auto 300px auto;
@@ -144,7 +144,7 @@
         }
 
         .main-heading.white {
-            color: #fff;
+            color: #F8F8F8;
         }
 
         .heading-char {
@@ -154,7 +154,7 @@
         /* Second heading */
         .second-heading {
             position: relative;
-            font-size: 48px;
+            font-size: 40px;
             font-weight: 300;
             letter-spacing: -1px;
             margin: 0 auto 300px auto;
@@ -170,11 +170,41 @@
         }
 
         .second-heading.white {
-            color: #fff;
+            color: #F8F8F8;
         }
 
         .second-heading-char {
             margin-right: 0.05em;
+        }
+
+        .second-heading-text-char {
+            display: inline;
+            margin-right: 0;
+        }
+
+        .second-heading-text {
+            margin: -260px auto 300px auto;
+            width: 100%;
+            text-align: center;
+            font-family: "Neue Regrade", serif !important;
+            font-size: 16px;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings: 'slnt' 0;
+            line-height: 1.8;
+            color: #000;
+            opacity: 0;
+            visibility: hidden;
+            max-width: 600px;
+        }
+
+        .second-heading-text * {
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .semi-bold {
+            font-weight: 600;
         }
 
         /* Section spacing */
@@ -219,13 +249,9 @@
             width: 100%;
             max-width: 100%;
             height: auto;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 30px;
-            margin-bottom: 0;
+            margin: 0 auto 80px auto;
             display: block;
             box-sizing: border-box;
-            text-anchor: middle;
         }
 
         /* Blue section */
@@ -260,7 +286,7 @@
 
         .btn:hover {
             background-color: #000;
-            color: #fff;
+            color: #F8F8F8;
         }
 
         .cta-btn {
@@ -272,7 +298,7 @@
             cursor: pointer;
             transition: all 0.3s;
             letter-spacing: 0.5px;
-            margin-top: 20px;
+            margin-top: -40px;
             margin-left: auto;
             margin-right: auto;
             display: block;
@@ -281,7 +307,7 @@
 
         .cta-btn:hover {
             background-color: #000;
-            color: #fff;
+            color: #F8F8F8;
         }
 
         /* Footer */
@@ -356,11 +382,15 @@
         /* Responsive */
         @media (max-width: 768px) {
             nav {
-                padding: 30px 20px;
+                padding: 15px 20px;
             }
 
             .nav-links {
-                gap: 20px;
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
             }
 
             .container {
@@ -368,21 +398,48 @@
             }
 
             .main-heading {
-                font-size: 48px;
+                font-size: 28px;
                 width: 100%;
-                margin: 100px 0 200px 0;
+                margin: 50px 0 100px 0;
+                padding-top: 30vh;
+                white-space: normal;
+            }
+
+            .second-heading {
+                font-size: 28px;
+                margin: 0 auto 150px auto;
+                white-space: normal;
+            }
+
+            .second-heading-text {
+                font-size: 14px;
+                margin: -200px auto 150px auto;
             }
 
             .image-1, .image-2, .image-3 {
                 position: relative;
-                width: 100% !important;
-                max-width: 300px;
+                width: 90% !important;
+                max-width: 250px;
                 height: auto;
-                aspect-ratio: 16/9;
                 top: auto !important;
                 left: auto !important;
                 right: auto !important;
-                margin: 40px 0;
+                margin: 30px auto;
+                display: block;
+            }
+
+            .curved-text-svg {
+                margin: 0 auto 40px auto;
+            }
+
+            .curved-text-svg text {
+                font-size: 16px !important;
+            }
+
+            .cta-btn {
+                margin-top: -30px;
+                padding: 10px 25px;
+                font-size: 12px;
             }
 
             .hero {
@@ -400,8 +457,12 @@
             }
 
             .blue-section {
-                margin: 100px -20px 0 -20px;
-                padding: 60px 20px;
+                margin: 50px -20px 0 -20px;
+                padding: 40px 20px;
+            }
+
+            .footer-bottom {
+                font-size: 11px;
             }
 
             .section-title {
@@ -424,7 +485,7 @@
 
     <!-- Fixed images -->
     <section class="hero">
-        <img src="./images/new_image.png" alt="Back portrait" class="image-1">
+        <img src="./images/new_image.jpg" alt="Back portrait" class="image-1">
         <img src="./images/image-2.png" alt="Gold sphere" class="image-2">
         <img src="./images/image-3.png" alt="Materials" class="image-3">
     </section>
@@ -434,22 +495,23 @@
         <!-- Main heading with character spans -->
         <h1 class="main-heading" id="mainHeading">Where magnetic brands are born.</h1>
 
+        <div class="scroll-space"></div>
+
         <!-- Second heading that scrolls in from below -->
         <h2 class="second-heading" id="secondHeading">Who we are</h2>
-
-        <div class="scroll-space"></div>
+        <p class="second-heading-text">A full-stack creative marketing agency devoted<br>to telling stories that <span class="semi-bold">connect</span> and <span class="semi-bold">convert</span>.</p>
 
         <!-- Who we are section -->
         <section class="section">
-            <h2 class="section-title">Who we are</h2>
+            <h2 class="section-title"></h2>
             <div class="who-we-are">
-                <svg class="curved-text-svg" viewBox="0 0 20000 3000" preserveAspectRatio="none">
+                <svg class="curved-text-svg" viewBox="0 0 1000 200" preserveAspectRatio="none">
                     <defs>
-                        <path id="curve" d="M 100,1000 C 1500,800 2500,600 4000,1200 C 5500,1600 6500,1400 8000,900 C 9500,500 10500,500 12000,1000 C 13500,1400 14500,1600 16000,1200 C 17500,800 18500,600 19900,1000" fill="none"/>
+                        <path id="wavyPath" d="M 0,100 Q 125,40 250,100 Q 375,160 500,100 Q 625,40 750,100 Q 875,160 1000,100" fill="none"/>
                     </defs>
-                    <text font-family="Neue Regrade, serif" font-size="312" fill="#000" lengthAdjust="spacing" word-spacing="35" letter-spacing="8">
-                        <textPath href="#curve" startOffset="50%" endOffset="100%" text-anchor="middle">
-                            A full-stack creative marketing agency devoted to telling stories that <tspan font-weight="600">connect</tspan> and <tspan font-weight="600">convert</tspan>.
+                    <text font-family="'Neue Regrade', serif" font-size="20" fill="#000" word-spacing="4">
+                        <textPath href="#wavyPath" startOffset="50%" text-anchor="middle">
+                            Become  a  brand  that  people  talk  about,  return  to,  and  share.
                         </textPath>
                     </text>
                 </svg>
@@ -527,11 +589,40 @@
             }
         }
 
+        // Split second heading text (subtext) into character spans, preserving line breaks
+        function splitSecondHeadingTextIntoSpans() {
+            const secondHeadingText = document.querySelector('.second-heading-text');
+            if (!secondHeadingText) return;
+
+            const html = secondHeadingText.innerHTML;
+            const parts = html.split('<br>');
+            secondHeadingText.innerHTML = '';
+
+            parts.forEach((part, partIndex) => {
+                const text = new DOMParser().parseFromString(part, 'text/html').body.textContent;
+
+                for (let i = 0; i < text.length; i++) {
+                    const span = document.createElement('span');
+                    span.textContent = text[i];
+                    span.style.color = '#000';
+                    span.className = 'second-heading-text-char';
+                    secondHeadingText.appendChild(span);
+                }
+
+                // Add <br> back if not the last part
+                if (partIndex < parts.length - 1) {
+                    secondHeadingText.appendChild(document.createElement('br'));
+                }
+            });
+        }
+
         function checkCharactersOverImages() {
-            const chars = document.querySelectorAll('.heading-char, .second-heading-char');
+            const headingChars = document.querySelectorAll('.heading-char, .second-heading-char');
+            const textChars = document.querySelectorAll('.second-heading-text-char');
             const mainImages = [image1, image2, image3];
 
-            chars.forEach(char => {
+            // Check heading characters (h1 and h2)
+            headingChars.forEach(char => {
                 const charRect = char.getBoundingClientRect();
                 const charCenterX = charRect.left + charRect.width / 2;
                 const charCenterY = charRect.top + charRect.height / 2;
@@ -552,7 +643,38 @@
                 });
 
                 // Set color based on whether over image
-                char.style.color = isOverImage ? '#fff' : '#000';
+                char.style.color = isOverImage ? '#F8F8F8' : '#000';
+            });
+
+            // Check subheading text characters
+            textChars.forEach(char => {
+                const charRect = char.getBoundingClientRect();
+
+                // Skip if character has no size (whitespace, line breaks)
+                if (charRect.width === 0 || charRect.height === 0) {
+                    return;
+                }
+
+                const charCenterX = charRect.left + charRect.width / 2;
+                const charCenterY = charRect.top + charRect.height / 2;
+
+                let isOverImage = false;
+
+                // Check if character center is over any image
+                mainImages.forEach(img => {
+                    if (img) {
+                        const imgRect = img.getBoundingClientRect();
+                        if (charCenterX >= imgRect.left &&
+                            charCenterX <= imgRect.right &&
+                            charCenterY >= imgRect.top &&
+                            charCenterY <= imgRect.bottom) {
+                            isOverImage = true;
+                        }
+                    }
+                });
+
+                // Set color based on whether over image
+                char.style.color = isOverImage ? '#F8F8F8' : '#000';
             });
         }
 
@@ -560,18 +682,23 @@
         function toggleSecondHeading() {
             const mainHeadingRect = mainHeading.getBoundingClientRect();
             const mainHeadingBottom = mainHeadingRect.bottom;
+            const secondHeadingText = document.querySelector('.second-heading-text');
 
             // When main heading scrolls out of view, show second heading
             if (mainHeadingBottom <= 0) {
                 // Main heading has completely scrolled out, show second heading
-                secondHeading.style.opacity = 1;
                 secondHeading.style.visibility = 'visible';
                 secondHeading.style.pointerEvents = 'auto';
+                if (secondHeadingText) {
+                    secondHeadingText.style.visibility = 'visible';
+                }
             } else {
                 // Main heading is still visible, hide second heading
-                secondHeading.style.opacity = 0;
                 secondHeading.style.visibility = 'hidden';
                 secondHeading.style.pointerEvents = 'none';
+                if (secondHeadingText) {
+                    secondHeadingText.style.visibility = 'hidden';
+                }
             }
         }
 
@@ -582,6 +709,7 @@
 
             const sectionTitleTop = sectionTitle.getBoundingClientRect().top;
             const windowHeight = window.innerHeight;
+            const secondHeadingText = document.querySelector('.second-heading-text');
 
             // When "Who we are" section title enters viewport, start fading images
             if (sectionTitleTop < windowHeight) {
@@ -593,6 +721,12 @@
                 image1.style.opacity = opacity;
                 image2.style.opacity = opacity;
                 image3.style.opacity = opacity;
+
+                // Fade heading and subtext along with images
+                secondHeading.style.opacity = opacity;
+                if (secondHeadingText) {
+                    secondHeadingText.style.opacity = opacity;
+                }
 
                 // Fade background color from #f5f5f5 to #E8EAE7
                 const startColor = [245, 245, 245]; // #f5f5f5
@@ -608,6 +742,10 @@
                 image1.style.opacity = 1;
                 image2.style.opacity = 1;
                 image3.style.opacity = 1;
+                secondHeading.style.opacity = 1;
+                if (secondHeadingText) {
+                    secondHeadingText.style.opacity = 1;
+                }
                 document.body.style.backgroundColor = '#f5f5f5';
             }
         }
@@ -615,6 +753,7 @@
         // Initialize
         splitHeadingIntoSpans();
         splitSecondHeadingIntoSpans();
+        splitSecondHeadingTextIntoSpans();
 
         // Listen to scroll events
         window.addEventListener('scroll', () => {
