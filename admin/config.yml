@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: dannah-formless/cobalt-studio
   branch: main
   squash_merges: true
 
