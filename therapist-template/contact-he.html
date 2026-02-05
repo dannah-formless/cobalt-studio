@@ -294,23 +294,6 @@
             background-color: #D1D1A7;
         }
 
-        .success-message {
-            display: none;
-            padding: 16px 20px;
-            background-color: rgba(56, 0, 1, 0.05);
-            border: 1px solid #380001;
-            border-radius: 4px;
-            margin-top: 20px;
-            font-size: 16px;
-            font-weight: 300;
-            color: #380001;
-            text-align: center;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
         /* Footer */
         footer {
             background-color: #380001;
@@ -546,7 +529,7 @@
         <div class="contact-container">
             <h2>צרו קשר</h2>
             <p>אם יש לכם שאלות על אחד מהשירותים שלי, אל תהססו לפנות אלי</p>
-            <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <form class="contact-form" name="contact" method="POST" action="/success-he.html" data-netlify="true" netlify-honeypot="bot-field">
                 <input type="hidden" name="form-name" value="contact" />
                 <input type="hidden" name="bot-field" />
                 <div class="form-group">
@@ -567,9 +550,6 @@
                 </div>
                 <button type="submit" class="submit-btn">שלחו הודעה</button>
             </form>
-            <div class="success-message" id="success-message">
-                תודה על הודעתך! אחזור אליך בקרוב.
-            </div>
         </div>
     </section>
 
@@ -637,39 +617,6 @@
             } else {
                 nav.classList.remove('scrolled');
             }
-        });
-
-        // Form submission success message
-        const contactForm = document.querySelector('.contact-form');
-        const successMessage = document.getElementById('success-message');
-
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // Submit the form using fetch to keep user on page
-            const formData = new FormData(contactForm);
-
-            fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString()
-            })
-            .then(() => {
-                // Show success message
-                successMessage.classList.add('show');
-                contactForm.reset();
-
-                // Scroll to success message
-                successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    successMessage.classList.remove('show');
-                }, 5000);
-            })
-            .catch((error) => {
-                alert('אופס! הייתה שגיאה בשליחת הטופס. נסה שוב.');
-            });
         });
     </script>
 </body>
