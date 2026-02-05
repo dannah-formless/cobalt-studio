@@ -289,12 +289,16 @@
 
         .event-image {
             width: 100%;
-            height: 250px;
+            padding-top: 133.33%; /* 3:4 aspect ratio (4/3 * 100) */
+            position: relative;
             overflow: hidden;
             background-color: #946A4E;
         }
 
         .event-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -360,6 +364,172 @@
             font-weight: 300;
             color: #380001;
             line-height: 1.6;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+        }
+
+        .event-description.collapsed {
+            -webkit-line-clamp: 3;
+        }
+
+        .event-description.expanded {
+            -webkit-line-clamp: unset;
+        }
+
+        .read-more-btn {
+            font-size: 14px;
+            font-weight: 300;
+            color: #380001;
+            text-decoration: underline;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            margin-top: 4px;
+        }
+
+        .read-more-btn:hover {
+            opacity: 0.7;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 16px;
+            font-weight: 300;
+            color: #380001;
+            line-height: 1.6;
+        }
+
+        .empty-state a {
+            color: #380001;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .empty-state a:hover {
+            opacity: 0.7;
+        }
+
+        /* Contact Modal */
+        .contact-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            overflow-y: auto;
+        }
+
+        .contact-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .contact-modal-content {
+            background-color: #F5F0D5;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .contact-modal-close {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #380001;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .contact-modal-close:hover {
+            opacity: 0.7;
+        }
+
+        .contact-modal h2 {
+            font-family: 'Assistant', sans-serif;
+            font-size: 24px;
+            font-weight: 400;
+            color: #380001;
+            margin-bottom: 20px;
+        }
+
+        .contact-modal p {
+            font-size: 16px;
+            font-weight: 300;
+            color: #380001;
+            margin-bottom: 30px;
+        }
+
+        .contact-modal .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-modal .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .contact-modal .form-group label {
+            font-size: 16px;
+            font-weight: 300;
+            color: #380001;
+            opacity: 0.7;
+        }
+
+        .contact-modal .form-group input,
+        .contact-modal .form-group textarea {
+            padding: 12px 16px;
+            border: 1px solid #380001;
+            border-radius: 4px;
+            font-family: 'Assistant', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            color: #380001;
+            background-color: #F5F0D5;
+        }
+
+        .contact-modal .form-group input:focus,
+        .contact-modal .form-group textarea:focus {
+            outline: none;
+            border-color: #D1D1A7;
+        }
+
+        .contact-modal .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-modal .submit-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #380001;
+            color: #F5F0D5;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 300;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+        .contact-modal .submit-btn:hover {
+            background-color: #D1D1A7;
         }
 
         /* Newsletter Section */
@@ -757,6 +927,10 @@
                 <h1 style="font-family: 'Hofesh', serif; letter-spacing: 0.1em;">אירועים קרובים</h1>
             </div>
 
+            <div class="empty-state" id="empty-state" style="display: none;">
+                אין אירועים מתוכננים כרגע. <a href="#" id="join-mailing-list">הצטרפו לרשימת התפוצה</a> או <a href="#" id="send-message">שלחו לנו הודעה</a> ונעדכן אתכם על האירועים הבאים.
+            </div>
+
             <div class="events-grid" id="upcoming-events">
                 <!-- Event Card Template -->
                 <div class="event-card" data-date="2024-03-17" data-recurring="false">
@@ -768,6 +942,7 @@
                         <div class="event-meta">
                             <span>תאריך: 15-17 מרץ, 2024</span>
                             <span>מיקום: הגליל, ישראל</span>
+                            <span>שפה: עברית ואנגלית</span>
                         </div>
                         <p class="event-description">ריטריט סוף שבוע מעורר השראה בטבע. נתרגל מדיטציה בישיבה ובהליכה, נעסוק בתנועה מודעת, ונחקור את תורות הבודהיזם הזן.</p>
                         <a href="#" class="event-link">הרשמה</a>
@@ -784,6 +959,7 @@
                         <div class="event-meta">
                             <span>תאריך: כל יום שלישי, 19:00</span>
                             <span>מיקום: סטודיו תל אביב / אונליין</span>
+                            <span>שפה: עברית ואנגלית</span>
                         </div>
                         <p class="event-description">מבוא ידידותי למתחילים לתרגול מדיטציה. למדו טכניקות בסיסיות, יציבה ונשימה כדי להקים תרגול אישי.</p>
                         <a href="#" class="event-link">הרשמה</a>
@@ -800,6 +976,7 @@
                         <div class="event-meta">
                             <span>תאריך: ראשון ראשון בחודש, 10:00</span>
                             <span>מיקום: סטודיו תל אביב</span>
+                            <span>שפה: עברית</span>
                         </div>
                         <p class="event-description">הרצאות חודשיות העוסקות בפילוסופיה ובתרגול של הבודהיזם הזן. כל מפגש מתמקד בהוראה שונה, עם זמן לשאלות ולדיון.</p>
                         <a href="#" class="event-link">הרשמה</a>
@@ -861,6 +1038,36 @@
 
     <div class="cursor-glow"></div>
 
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" id="modal-close">&times;</button>
+            <h2>צרו קשר</h2>
+            <p>אנא פנו אלינו ונחזור אליכם בהקדם האפשרי.</p>
+            <form class="contact-form" name="contact" method="POST" action="/success-he.html" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="bot-field" />
+                <div class="form-group">
+                    <label for="modal-name">שם</label>
+                    <input type="text" id="modal-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="modal-email">אימייל</label>
+                    <input type="email" id="modal-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="modal-phone">טלפון</label>
+                    <input type="tel" id="modal-phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="modal-message">הודעה</label>
+                    <textarea id="modal-message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">שלחו הודעה</button>
+            </form>
+        </div>
+    </div>
+
     <script>
         // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
@@ -894,16 +1101,19 @@
             const upcomingGrid = document.getElementById('upcoming-events');
             const pastGrid = document.getElementById('past-events');
             const pastSection = document.getElementById('past-events-section');
+            const emptyState = document.getElementById('empty-state');
             const eventCards = document.querySelectorAll('.event-card');
 
             let hasPastEvents = false;
+            let hasUpcomingEvents = 0;
 
             eventCards.forEach(card => {
                 const dateStr = card.getAttribute('data-date');
                 const isRecurring = card.getAttribute('data-recurring') === 'true';
 
-                // Skip recurring events - they always stay in upcoming
+                // Count recurring events as upcoming
                 if (isRecurring || !dateStr) {
+                    hasUpcomingEvents++;
                     return;
                 }
 
@@ -920,6 +1130,8 @@
                     }
                     pastGrid.appendChild(card);
                     hasPastEvents = true;
+                } else {
+                    hasUpcomingEvents++;
                 }
             });
 
@@ -927,10 +1139,85 @@
             if (hasPastEvents) {
                 pastSection.style.display = 'block';
             }
+
+            // Show empty state if no upcoming events
+            if (hasUpcomingEvents === 0) {
+                emptyState.style.display = 'block';
+                upcomingGrid.style.display = 'none';
+            }
+        }
+
+        // Read more functionality
+        function initReadMore() {
+            const descriptions = document.querySelectorAll('.event-description');
+
+            descriptions.forEach(desc => {
+                // Check if text exceeds 3 lines
+                const lineHeight = parseInt(window.getComputedStyle(desc).lineHeight);
+                const maxHeight = lineHeight * 3;
+
+                if (desc.scrollHeight > maxHeight) {
+                    desc.classList.add('collapsed');
+
+                    const readMoreBtn = document.createElement('button');
+                    readMoreBtn.className = 'read-more-btn';
+                    readMoreBtn.textContent = 'קרא עוד';
+
+                    desc.parentNode.insertBefore(readMoreBtn, desc.nextSibling);
+
+                    readMoreBtn.addEventListener('click', () => {
+                        if (desc.classList.contains('collapsed')) {
+                            desc.classList.remove('collapsed');
+                            desc.classList.add('expanded');
+                            readMoreBtn.textContent = 'קרא פחות';
+                        } else {
+                            desc.classList.remove('expanded');
+                            desc.classList.add('collapsed');
+                            readMoreBtn.textContent = 'קרא עוד';
+                        }
+                    });
+                }
+            });
+        }
+
+        // Contact modal
+        const contactModal = document.getElementById('contact-modal');
+        const modalClose = document.getElementById('modal-close');
+        const sendMessageLink = document.getElementById('send-message');
+
+        if (sendMessageLink) {
+            sendMessageLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                contactModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        modalClose.addEventListener('click', () => {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) {
+                contactModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Scroll to newsletter
+        const joinMailingLink = document.getElementById('join-mailing-list');
+        if (joinMailingLink) {
+            joinMailingLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const newsletterSection = document.querySelector('.newsletter-section');
+                newsletterSection.scrollIntoView({ behavior: 'smooth' });
+            });
         }
 
         // Run on page load
         sortEvents();
+        initReadMore();
 
         // Navbar opacity on scroll
         const nav = document.querySelector('nav');
