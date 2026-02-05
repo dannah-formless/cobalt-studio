@@ -1328,7 +1328,9 @@
         <div class="newsletter-container">
             <h2>יצירת קשר</h2>
             <p>אל תהססו לפנות אלי בקשר לטיפול או בקשר לתרגול מדיטציה. מבטיחה לקרוא ולענות לכל פנייה.</p>
-            <form class="newsletter-form">
+            <form class="newsletter-form" name="contact" method="POST" action="/success-he.html" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="bot-field" />
                 <div class="form-group">
                     <label for="name">שם</label>
                     <input type="text" id="name" name="name" required>

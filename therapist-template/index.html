@@ -1330,7 +1330,9 @@
         <div class="newsletter-container">
             <h2>get in touch</h2>
             <p>Please reach out to schedule a therapy session or register for a meditation event. I personally read and respond to each and every message.</p>
-            <form class="newsletter-form">
+            <form class="newsletter-form" name="contact" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="bot-field" />
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
