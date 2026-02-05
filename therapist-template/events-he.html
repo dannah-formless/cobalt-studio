@@ -284,7 +284,16 @@
         .event-card {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
+        }
+
+        .event-title {
+            font-family: 'Hofesh', serif;
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            color: #380001;
+            margin: 0;
         }
 
         .event-image {
@@ -932,54 +941,20 @@
             </div>
 
             <div class="events-grid" id="upcoming-events">
-                <!-- Event Card Template -->
-                <div class="event-card" data-date="2024-03-17" data-recurring="false">
+                <!-- Event Card -->
+                <div class="event-card" data-date="2026-02-28" data-recurring="false">
+                    <h2 class="event-title">אהימסה - אי אלימות, שבת מדיטציה במרכז לויג'נאנה</h2>
                     <div class="event-image">
-                        <img src="images/retreat-space.jpg" alt="תמונת אירוע">
+                        <img src="images/event.png" alt="תמונת אירוע">
                     </div>
                     <div class="event-content">
-                        <h2 class="event-title">ריטריט מדיטציה בסוף שבוע</h2>
                         <div class="event-meta">
-                            <span>תאריך: 15-17 מרץ, 2024</span>
-                            <span>מיקום: הגליל, ישראל</span>
-                            <span>שפה: עברית ואנגלית</span>
-                        </div>
-                        <p class="event-description">ריטריט סוף שבוע מעורר השראה בטבע. נתרגל מדיטציה בישיבה ובהליכה, נעסוק בתנועה מודעת, ונחקור את תורות הבודהיזם הזן.</p>
-                        <a href="#" class="event-link">הרשמה</a>
-                    </div>
-                </div>
-
-                <!-- Event Card 2 -->
-                <div class="event-card" data-recurring="true">
-                    <div class="event-image">
-                        <img src="images/meditation-cushions.jpg" alt="תמונת אירוע">
-                    </div>
-                    <div class="event-content">
-                        <h2 class="event-title">מבוא למדיטציה</h2>
-                        <div class="event-meta">
-                            <span>תאריך: כל יום שלישי, 19:00</span>
-                            <span>מיקום: סטודיו תל אביב / אונליין</span>
-                            <span>שפה: עברית ואנגלית</span>
-                        </div>
-                        <p class="event-description">מבוא ידידותי למתחילים לתרגול מדיטציה. למדו טכניקות בסיסיות, יציבה ונשימה כדי להקים תרגול אישי.</p>
-                        <a href="#" class="event-link">הרשמה</a>
-                    </div>
-                </div>
-
-                <!-- Event Card 3 -->
-                <div class="event-card" data-recurring="true">
-                    <div class="event-image">
-                        <img src="images/lecture.png" alt="תמונת אירוע">
-                    </div>
-                    <div class="event-content">
-                        <h2 class="event-title">סדרת הרצאות זן</h2>
-                        <div class="event-meta">
-                            <span>תאריך: ראשון ראשון בחודש, 10:00</span>
-                            <span>מיקום: סטודיו תל אביב</span>
+                            <span>תאריך: 28.2.26</span>
+                            <span>מיקום: מאז״ה 22, תל אביב</span>
                             <span>שפה: עברית</span>
                         </div>
-                        <p class="event-description">הרצאות חודשיות העוסקות בפילוסופיה ובתרגול של הבודהיזם הזן. כל מפגש מתמקד בהוראה שונה, עם זמן לשאלות ולדיון.</p>
-                        <a href="#" class="event-link">הרשמה</a>
+                        <p class="event-description">אהימסה הוא העקרון של אי-פגיעה. זו אינה עמדה פסיבית, אלא עמדה אקטיבית של פעולה הנטועה במה שקרוי "שתי כנפי התרגול" – חמלה ותובנה. הפעולה הלא אלימה הזו מתחילה קודם כל בתוכנו וכלפי עצמנו. על פי תיך נאת האן, מורה הזן ומי שהיה גם פעיל שלום בזמן מלחמת וייטנאם, השינוי האמיתי מתחיל בתוכנו וביכולת להתעלות מעבר לקטבים, לצדדים ולמחנות. מתוך התבוננות לעומק, אנחנו רוצים ללמוד איך להתמיר פחד, ייאוש, שנאה ועוינות בתוכנו, ולעזור לאחרים לעשות את אותו הדבר, מתוך כבוד לחיים. בתרגול הזה אין ציפייה למוחלט – אנחנו עושים כמיטב יכולתנו בהתאם לנסיבות. את כל זאת נחקור יחד במדיטציה בישיבה, בתנועה, באכילה ובלימוד משותף במפגש מדיטציה עם מורת הדהרמה חגית הרמון.</p>
+                        <a href="https://yogatlv.co.il/meditation/" target="_blank" class="event-link">הרשמה</a>
                     </div>
                 </div>
             </div>
@@ -1098,6 +1073,10 @@
             const today = new Date();
             today.setHours(0, 0, 0, 0); // Reset time to beginning of day
 
+            const oneYearAgo = new Date();
+            oneYearAgo.setFullYear(today.getFullYear() - 1);
+
+            const eventsSection = document.querySelector('.events-section');
             const upcomingGrid = document.getElementById('upcoming-events');
             const pastGrid = document.getElementById('past-events');
             const pastSection = document.getElementById('past-events-section');
@@ -1106,10 +1085,24 @@
 
             let hasPastEvents = false;
             let hasUpcomingEvents = 0;
+            let hasEventsInPastYear = false;
 
             eventCards.forEach(card => {
                 const dateStr = card.getAttribute('data-date');
                 const isRecurring = card.getAttribute('data-recurring') === 'true';
+
+                // Check if any events in past year
+                if (isRecurring) {
+                    hasEventsInPastYear = true;
+                } else if (dateStr) {
+                    const eventDate = new Date(dateStr);
+                    eventDate.setHours(0, 0, 0, 0);
+
+                    // Check if event is within past year (includes future events)
+                    if (eventDate >= oneYearAgo) {
+                        hasEventsInPastYear = true;
+                    }
+                }
 
                 // Count recurring events as upcoming
                 if (isRecurring || !dateStr) {
@@ -1134,6 +1127,12 @@
                     hasUpcomingEvents++;
                 }
             });
+
+            // Hide entire section if no events in past year
+            if (!hasEventsInPastYear) {
+                eventsSection.style.display = 'none';
+                return; // Exit early
+            }
 
             // Show past events section if there are any past events
             if (hasPastEvents) {

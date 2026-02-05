@@ -252,7 +252,17 @@
         .event-card {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
+        }
+
+        .event-title {
+            font-family: 'LT Staircase', serif;
+            font-size: 24px;
+            font-weight: 400;
+            font-style: italic;
+            text-transform: lowercase;
+            color: #380001;
+            margin: 0;
         }
 
         .event-image {
@@ -872,54 +882,20 @@
             </div>
 
             <div class="events-grid" id="upcoming-events">
-                <!-- Event Card Template -->
-                <div class="event-card" data-date="2024-03-17" data-recurring="false">
+                <!-- Event Card -->
+                <div class="event-card" data-date="2026-02-28" data-recurring="false">
+                    <h2 class="event-title">ahimsa - non-violence, meditation saturday at loygiana center</h2>
                     <div class="event-image">
-                        <img src="images/retreat-space.jpg" alt="Event image">
+                        <img src="images/event.png" alt="Event image">
                     </div>
                     <div class="event-content">
-                        <h2 class="event-title">weekend meditation retreat</h2>
                         <div class="event-meta">
-                            <span>Date: March 15-17, 2024</span>
-                            <span>Location: Galilee, Israel</span>
-                            <span>Language: Hebrew & English</span>
-                        </div>
-                        <p class="event-description">A transformative weekend retreat in nature. We'll practice sitting and walking meditation, engage in mindful movement, and explore the teachings of Zen Buddhism.</p>
-                        <a href="#" class="event-link">Register</a>
-                    </div>
-                </div>
-
-                <!-- Event Card 2 -->
-                <div class="event-card" data-recurring="true">
-                    <div class="event-image">
-                        <img src="images/meditation-cushions.jpg" alt="Event image">
-                    </div>
-                    <div class="event-content">
-                        <h2 class="event-title">intro to meditation</h2>
-                        <div class="event-meta">
-                            <span>Date: Every Tuesday, 7:00 PM</span>
-                            <span>Location: Tel Aviv Studio / Online</span>
-                            <span>Language: Hebrew & English</span>
-                        </div>
-                        <p class="event-description">A beginner-friendly introduction to Zen meditation practice. Learn basic techniques, posture, and breathing to establish your personal practice.</p>
-                        <a href="#" class="event-link">Register</a>
-                    </div>
-                </div>
-
-                <!-- Event Card 3 -->
-                <div class="event-card" data-recurring="true">
-                    <div class="event-image">
-                        <img src="images/lecture.png" alt="Event image">
-                    </div>
-                    <div class="event-content">
-                        <h2 class="event-title">zen lecture series</h2>
-                        <div class="event-meta">
-                            <span>Date: First Sunday of each month, 10:00 AM</span>
-                            <span>Location: Tel Aviv Studio</span>
+                            <span>Date: February 28, 2026</span>
+                            <span>Location: Maza 22, Tel Aviv</span>
                             <span>Language: Hebrew</span>
                         </div>
-                        <p class="event-description">Monthly lectures exploring Zen Buddhist philosophy and practice. Each session focuses on a different teaching, with time for questions and discussion.</p>
-                        <a href="#" class="event-link">Register</a>
+                        <p class="event-description">Ahimsa is the principle of non-harm. It is not a passive stance, but an active position rooted in what is called "the two wings of practice" - compassion and insight. This non-violent action begins first within ourselves and towards ourselves. According to Thich Nhat Hanh, the Zen teacher and peace activist during the Vietnam War, true change begins within us and in our ability to rise above polarities, sides, and camps. Through deep observation, we want to learn how to transform fear, despair, hatred and hostility within us, and help others do the same, out of respect for life. In this practice there is no expectation of absolute - we do our best according to the circumstances. All of this we will explore together through sitting meditation, movement, eating and shared learning in a meditation session with Dharma teacher Hagit Harmon.</p>
+                        <a href="https://yogatlv.co.il/meditation/" target="_blank" class="event-link">Register</a>
                     </div>
                 </div>
             </div>
@@ -1036,6 +1012,10 @@
             const today = new Date();
             today.setHours(0, 0, 0, 0); // Reset time to beginning of day
 
+            const oneYearAgo = new Date();
+            oneYearAgo.setFullYear(today.getFullYear() - 1);
+
+            const eventsSection = document.querySelector('.events-section');
             const upcomingGrid = document.getElementById('upcoming-events');
             const pastGrid = document.getElementById('past-events');
             const pastSection = document.getElementById('past-events-section');
@@ -1044,10 +1024,24 @@
 
             let hasPastEvents = false;
             let hasUpcomingEvents = 0;
+            let hasEventsInPastYear = false;
 
             eventCards.forEach(card => {
                 const dateStr = card.getAttribute('data-date');
                 const isRecurring = card.getAttribute('data-recurring') === 'true';
+
+                // Check if any events in past year
+                if (isRecurring) {
+                    hasEventsInPastYear = true;
+                } else if (dateStr) {
+                    const eventDate = new Date(dateStr);
+                    eventDate.setHours(0, 0, 0, 0);
+
+                    // Check if event is within past year (includes future events)
+                    if (eventDate >= oneYearAgo) {
+                        hasEventsInPastYear = true;
+                    }
+                }
 
                 // Count recurring events as upcoming
                 if (isRecurring || !dateStr) {
@@ -1072,6 +1066,12 @@
                     hasUpcomingEvents++;
                 }
             });
+
+            // Hide entire section if no events in past year
+            if (!hasEventsInPastYear) {
+                eventsSection.style.display = 'none';
+                return; // Exit early
+            }
 
             // Show past events section if there are any past events
             if (hasPastEvents) {
