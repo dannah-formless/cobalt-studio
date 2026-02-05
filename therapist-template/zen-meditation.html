@@ -928,8 +928,10 @@
         <div class="newsletter-container">
             <h2>stay connected</h2>
             <p>Leave your email below to receive updates on future offerings, including mindfulness days, retreats, and meditation courses (both in-person and online).</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="your email" required>
+            <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="newsletter" />
+                <input type="hidden" name="bot-field" />
+                <input type="email" name="email" placeholder="your email" required>
                 <button type="submit">subscribe</button>
             </form>
         </div>
