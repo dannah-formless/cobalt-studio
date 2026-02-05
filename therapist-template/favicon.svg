@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Lotus flower favicon -->
+  <style>
+    .petal { fill: #946A4E; }
+    .center { fill: #F7FEBA; }
+  </style>
+
+  <!-- Center petals -->
+  <ellipse class="petal" cx="50" cy="55" rx="8" ry="20" transform="rotate(0 50 55)"/>
+  <ellipse class="petal" cx="50" cy="55" rx="8" ry="20" transform="rotate(45 50 55)"/>
+  <ellipse class="petal" cx="50" cy="55" rx="8" ry="20" transform="rotate(90 50 55)"/>
+  <ellipse class="petal" cx="50" cy="55" rx="8" ry="20" transform="rotate(135 50 55)"/>
+
+  <!-- Outer petals -->
+  <ellipse class="petal" cx="50" cy="55" rx="6" ry="25" transform="rotate(22.5 50 55)"/>
+  <ellipse class="petal" cx="50" cy="55" rx="6" ry="25" transform="rotate(67.5 50 55)"/>
+  <ellipse class="petal" cx="50" cy="55" rx="6" ry="25" transform="rotate(112.5 50 55)"/>
+  <ellipse class="petal" cx="50" cy="55" rx="6" ry="25" transform="rotate(157.5 50 55)"/>
+
+  <!-- Center circle -->
+  <circle class="center" cx="50" cy="55" r="10"/>
+</svg>
