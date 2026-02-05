@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen Meditation - Hagit Harmon</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=block" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Shree Devanagari 714';
+            src: url('images/Shree714.ttc') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'LT Staircase';
+            src: url('fonts/LT Staircase.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'LT Staircase';
+            src: url('fonts/LT Staircase Italic.otf') format('opentype');
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            font-weight: 300;
+            color: #380001;
+            background-color: #D1D1A7;
+            position: relative;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Lotus flower background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/lotus 2.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.25;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        p {
+            font-weight: 300;
+        }
+
+        h2 {
+            font-family: 'Shree Devanagari 714', serif;
+            font-size: 80px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        h5 {
+            font-family: 'LT Staircase', serif;
+            font-size: 18px;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            background-color: rgba(245, 240, 213, 0.15);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(56, 0, 1, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background-color: rgba(245, 240, 213, 0.75);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+        }
+
+        .logo {
+            text-decoration: none;
+            display: block;
+        }
+
+        .logo img {
+            height: 14px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #380001;
+            font-size: 13px;
+            font-weight: 300;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        .nav-links .hebrew-btn {
+            padding: 8px 20px;
+            border: 1px solid #380001;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav-links .hebrew-btn:hover {
+            background-color: #380001;
+            color: #F5F0D5;
+            opacity: 1;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: #380001;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Dropdown menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            padding-bottom: 15px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+            background-color: #F5F0D5;
+            border: 1px solid #380001;
+            min-width: 180px;
+            padding: 10px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #380001;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 300;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: rgba(56, 0, 1, 0.05);
+            opacity: 1;
+        }
+
+        .nav-links .hebrew-btn {
+            padding: 8px 20px;
+            border: 1px solid #380001;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav-links .hebrew-btn:hover {
+            background-color: #380001;
+            color: #F5F0D5;
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .page-hero {
+            background-color: transparent;
+            padding: 120px 80px;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #380001;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h2 {
+            font-family: 'Shree Devanagari 714', serif;
+            font-size: 64px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            margin-bottom: 40px;
+            color: #380001;
+            text-transform: uppercase;
+        }
+
+        .hero-content .subtitle {
+            font-family: 'LT Staircase', serif;
+            font-size: 18px;
+            font-weight: 400;
+            font-style: italic;
+            color: #380001;
+            line-height: 1.6;
+        }
+
+        /* Content Section */
+        .content-section {
+            background-color: transparent;
+            padding: 50px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .content-section h3 {
+            font-family: 'LT Staircase', serif;
+            font-size: 24px;
+            font-weight: 400;
+            font-style: italic;
+            color: #380001;
+            margin-bottom: 40px;
+        }
+
+        .content-section .content-text p {
+            margin-bottom: 30px;
+            font-size: 14px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .content-section .content-text p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* Events Section */
+        .events-section {
+            background-color: transparent;
+            padding: 120px 80px;
+            min-height: 80vh;
+            position: relative;
+            z-index: 10;
+        }
+
+        .events-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .events-header {
+            margin-bottom: 80px;
+        }
+
+        .events-header h3 {
+            font-family: 'LT Staircase', serif;
+            font-size: 24px;
+            font-weight: 400;
+            font-style: italic;
+            text-transform: lowercase;
+            color: #380001;
+            margin-bottom: 20px;
+            letter-spacing: normal;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        .event-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .event-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            background-color: #946A4E;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .event-card:hover .event-image img {
+            transform: scale(1.05);
+        }
+
+        .event-content {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .event-title {
+            font-family: 'LT Staircase', serif;
+            font-size: 18px !important;
+            font-weight: 400;
+            font-style: italic;
+            color: #380001;
+            text-transform: uppercase;
+            letter-spacing: normal !important;
+            margin: 0 !important;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 0;
+        }
+
+        .event-meta span {
+            font-size: 12px;
+            font-weight: 300;
+            color: #380001;
+            opacity: 0.7;
+        }
+
+        .event-link {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: transparent;
+            color: #380001;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 300;
+            border: 1px solid #380001;
+            border-radius: 4px;
+            transition: all 0.3s;
+            margin-top: 8px;
+        }
+
+        .event-link:hover {
+            background-color: #380001;
+            color: #F5F0D5;
+        }
+
+        .event-description {
+            font-size: 14px;
+            font-weight: 300;
+            color: #380001;
+            line-height: 1.6;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background-color: #946A4E;
+            padding: 100px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (min-width: 769px) {
+            .newsletter-section {
+                padding: 100px 80px;
+            }
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .newsletter-container h2 {
+            font-family: 'LT Staircase', serif;
+            font-size: 24px;
+            font-weight: 400;
+            font-style: italic;
+            text-transform: lowercase;
+            color: #F7FEBA;
+            margin-bottom: 20px;
+            letter-spacing: normal;
+        }
+
+        .newsletter-container p {
+            font-size: 14px;
+            font-weight: 300;
+            color: #F7FEBA;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 12px 16px;
+            border: 1px solid #F7FEBA;
+            border-radius: 4px;
+            font-family: 'Lexend', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            color: #F7FEBA;
+            background-color: #946A4E;
+            flex: 1;
+            max-width: 350px;
+            transition: border-color 0.3s;
+        }
+
+        .newsletter-form input[type="email"]:focus {
+            outline: none;
+            border-color: #D1D1A7;
+        }
+
+        .newsletter-form input[type="email"]::placeholder {
+            color: #F7FEBA;
+            opacity: 0.7;
+        }
+
+        .newsletter-form button {
+            padding: 12px 24px;
+            background-color: #380001;
+            color: #F5F0D5;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #D1D1A7;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #380001;
+            padding: 40px 80px 25px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 100px;
+            align-items: start;
+            margin-bottom: 40px;
+        }
+
+        .footer-left {
+            justify-self: start;
+        }
+
+        .footer-right {
+            justify-self: end;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .footer-logo .logo-text {
+            font-family: 'Lexend', sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            color: #F5F0D5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .footer-logo .logo-subtitle {
+            font-family: 'Lexend', sans-serif;
+            font-size: 11px;
+            font-weight: 300;
+            color: #F5F0D5;
+            opacity: 0.8;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            font-size: 14px;
+            font-weight: 300;
+            color: #F5F0D5;
+            text-decoration: underline;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            opacity: 0.6;
+        }
+
+        .footer-content .footer-links:last-of-type {
+            text-align: right;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            transition: opacity 0.3s;
+        }
+
+        .social-icons a:hover {
+            opacity: 0.7;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 20px;
+            text-align: center;
+            border-top: 1px solid rgba(245, 240, 213, 0.2);
+        }
+
+        .footer-bottom p {
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: #F5F0D5;
+            opacity: 0.5;
+            font-weight: 300;
+        }
+
+
+        /* Cursor glow effect */
+        .cursor-glow {
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(218, 165, 32, 1) 0%, rgba(139, 69, 19, 0.6) 40%, rgba(139, 69, 19, 0) 100%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            mix-blend-mode: screen;
+            filter: blur(60px);
+        }
+
+        /* Make sure text is above glow */
+        h1, h2, h3, h4, h5, h6, p, a, ul, li, .card {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Images stay below glow */
+        img {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px 30px;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                height: 67px;
+            }
+
+            .hamburger {
+                display: flex;
+                position: absolute;
+                left: 30px;
+            }
+
+            .logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .logo img {
+                height: 13px;
+            }
+
+            .lang-switch-mobile {
+                display: block;
+                position: absolute;
+                right: 30px;
+            }
+
+            .nav-links .hebrew-btn {
+                display: none;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 67px;
+                left: 0;
+                right: 0;
+                background-color: #F5F0D5;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                display: none;
+                border-bottom: 1px solid #380001;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                border: none;
+                padding: 10px 0 10px 20px;
+                background-color: transparent;
+                display: none;
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-toggle {
+                padding-bottom: 0;
+            }
+
+            .page-hero {
+                padding: 50px 30px;
+                min-height: auto;
+            }
+
+            .hero-content h2 {
+                font-size: 42px;
+                margin-bottom: 20px;
+            }
+
+            .hero-content .subtitle {
+                margin-bottom: 0;
+            }
+
+            .content-section {
+                padding: 40px 30px;
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .content-section h3 {
+                margin-bottom: 15px;
+            }
+
+            .events-section {
+                padding: 50px 30px;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .events-header {
+                margin-bottom: 40px;
+            }
+
+            .newsletter-section {
+                padding: 50px 30px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input[type="email"] {
+                max-width: 100%;
+            }
+
+            footer {
+                padding: 50px 30px 30px;
+            }
+
+            .footer-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 30px 20px;
+                align-items: start;
+                margin-bottom: 30px;
+            }
+
+            .footer-logo {
+                grid-column: 1 / -1;
+                grid-row: 1;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            .footer-logo .logo-text {
+                font-size: 18px;
+            }
+
+            .footer-left {
+                grid-column: 1;
+                grid-row: 2;
+                justify-self: start;
+            }
+
+            .footer-right {
+                grid-column: 2;
+                grid-row: 2;
+                justify-self: end;
+                align-items: flex-end;
+            }
+
+            .footer-left ul {
+                text-align: left;
+            }
+
+            .footer-right ul {
+                text-align: right;
+            }
+
+            .social-icons {
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="index.html" class="logo"><img src="images/HAGIT HARMON logo.svg" alt="Hagit Harmon" /></a>
+        <a href="zen-meditation-he.html" class="lang-switch-mobile">עבר</a>
+        <ul class="nav-links">
+            <li><a href="about.html">about</a></li>
+            <li><a href="zen-meditation.html">zen meditation</a></li>
+            <li><a href="therapy.html">therapy (IFS)</a></li>
+            <li><a href="events.html">events</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="hero-content">
+            <h2>ZEN BUDDHIST<br>MEDITATION</h2>
+            <p class="subtitle">cultivating presence,<br>awareness & inner peace</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div>
+            <h3>The Practice</h3>
+        </div>
+        <div class="content-text">
+            <p>
+                Zen meditation, specifically the tradition of Thich Nhat Hanh, is the practice of being fully present and alive in the moment. Each step, each breath, each daily action is an opportunity to deeply experience peace, clarity and aliveness. It is also an opportunity to gain insight into the nature of our suffering and joy, so we can live freely and without fear.
+            </p>
+        </div>
+    </section>
+
+    <!-- Lineage Section -->
+    <section class="content-section">
+        <div>
+            <h3>The Lineage</h3>
+        </div>
+        <div class="content-text">
+            <p>
+                Zen Buddhism focuses on directly experiencing reality through meditation and mindfulness. I follow the lineage of Thich Nhat Hanh who was my teacher for many years. He emphasized being in the present moment, cultivating compassion for the self and others, and inviting a sense of joy and wonder. His lineage carried Zen out of the monastery and into the world where meditation becomes a way of living, not a retreat from life.
+            </p>
+
+            <p>
+                This tradition combines practice with classic Zen texts such as the Heart Sutra with early Buddhist texts such as the Anapanasati Sutra. It encourages creativity and engaged practice that is aware of the needs of society and the time.
+            </p>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <!-- NOTE: In production, event data should be pulled from events.html (mother page) -->
+    <section class="events-section">
+        <div class="events-container">
+            <div class="events-header">
+                <h3>Upcoming Events</h3>
+            </div>
+
+            <div class="events-grid">
+                <!-- Event 1 - Recurring event from events.html -->
+                <div class="event-card" data-recurring="true">
+                    <div class="event-image">
+                        <img src="images/meditation-cushions.jpg" alt="Event image">
+                    </div>
+                    <div class="event-content">
+                        <h2 class="event-title">intro to zen meditation</h2>
+                        <div class="event-meta">
+                            <span>Date: Every Tuesday, 7:00 PM</span>
+                            <span>Location: Tel Aviv Studio / Online</span>
+                        </div>
+                        <p class="event-description">A beginner-friendly introduction to Zen meditation practice. Learn basic techniques, posture, and breathing to establish your personal practice.</p>
+                        <a href="#" class="event-link">Register</a>
+                    </div>
+                </div>
+
+                <!-- Event 2 - Recurring event from events.html -->
+                <div class="event-card" data-recurring="true">
+                    <div class="event-image">
+                        <img src="images/lecture.png" alt="Event image">
+                    </div>
+                    <div class="event-content">
+                        <h2 class="event-title">zen lecture series</h2>
+                        <div class="event-meta">
+                            <span>Date: First Sunday of each month, 10:00 AM</span>
+                            <span>Location: Tel Aviv Studio</span>
+                        </div>
+                        <p class="event-description">Monthly lectures exploring Zen Buddhist philosophy and practice. Each session focuses on a different teaching, with time for questions and discussion.</p>
+                        <a href="#" class="event-link">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <h2>stay connected</h2>
+            <p>Leave your email below to receive updates on future offerings, including mindfulness days, retreats, and meditation courses (both in-person and online).</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="your email" required>
+                <button type="submit">subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links footer-left">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="therapy.html">Therapy (IFS)</a></li>
+                    <li><a href="zen-meditation.html">Zen Meditation</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+            <div class="footer-logo">
+                <img src="images/HAGIT HARMON logo light.svg" alt="Hagit Harmon" style="height: 18px; width: auto; margin-bottom: 8px;" />
+                <div class="logo-subtitle">IFS Therapist & Zen Meditation Teacher</div>
+            </div>
+            <div class="footer-links footer-right">
+                <ul>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/hagitharmon/" target="_blank" aria-label="Facebook"><svg width="32" height="32" viewBox="0 0 24 24" fill="#F5F0D5"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    <a href="https://www.instagram.com/hagitharmon/" target="_blank" aria-label="Instagram"><svg width="32" height="32" viewBox="0 0 24 24" fill="#F5F0D5"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Hagit Harmon. All rights reserved. Designed by Dannah Cahn</p>
+        </div>
+    </footer>
+
+    <div class="cursor-glow"></div>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({behavior: 'smooth'});
+                }
+            });
+        });
+
+        // Mouse glow trail
+        const glow = document.querySelector('.cursor-glow');
+        document.addEventListener('mousemove', (e) => {
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
+
+        // Navbar opacity on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 0) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shree+Devanagari+714:wght@400;700&family=Lexend:wght@300;400;500&display=block" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'LT Staircase';
+            src: url('fonts/LT%20Staircase.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'LT Staircase';
+            src: url('fonts/LT%20Staircase%20Italic.otf') format('opentype');
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: white;
+            color: black;
+        }
+
+        .test-block {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 2px solid #ccc;
+        }
+
+        .test-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .shree-test {
+            font-family: 'Shree Devanagari 714', serif;
+            font-size: 32px;
+            font-weight: 400;
+        }
+
+        .shree-bold-test {
+            font-family: 'Shree Devanagari 714', serif;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .lt-normal-test {
+            font-family: 'LT Staircase', serif;
+            font-size: 32px;
+            font-style: normal;
+        }
+
+        .lt-italic-test {
+            font-family: 'LT Staircase', serif;
+            font-size: 32px;
+            font-style: italic;
+        }
+
+        .lexend-test {
+            font-family: 'Lexend', sans-serif;
+            font-size: 32px;
+            font-weight: 300;
+        }
+
+        .fallback-test {
+            font-family: Georgia, serif;
+            font-size: 32px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Font Loading Test Page</h1>
+    <p>Open browser console (inspect element) and check the Network tab to see if fonts are loading.</p>
+
+    <div class="test-block">
+        <div class="test-title">1. Shree Devanagari 714 (Normal) - Google Font</div>
+        <div class="shree-test">HAGIT HARMON - The Quick Brown Fox</div>
+    </div>
+
+    <div class="test-block">
+        <div class="test-title">2. Shree Devanagari 714 (Bold) - Google Font</div>
+        <div class="shree-bold-test">HAGIT HARMON - The Quick Brown Fox</div>
+    </div>
+
+    <div class="test-block">
+        <div class="test-title">3. LT Staircase (Normal) - Local Font</div>
+        <div class="lt-normal-test">Hagit Harmon - The Quick Brown Fox</div>
+    </div>
+
+    <div class="test-block">
+        <div class="test-title">4. LT Staircase (Italic) - Local Font</div>
+        <div class="lt-italic-test">Hagit Harmon - The Quick Brown Fox</div>
+    </div>
+
+    <div class="test-block">
+        <div class="test-title">5. Lexend (Light) - Google Font</div>
+        <div class="lexend-test">The quick brown fox jumps over the lazy dog</div>
+    </div>
+
+    <div class="test-block">
+        <div class="test-title">6. Georgia Fallback (for comparison)</div>
+        <div class="fallback-test">Hagit Harmon - The Quick Brown Fox</div>
+    </div>
+
+    <script>
+        // Check if fonts are loaded
+        document.fonts.ready.then(function() {
+            console.log('All fonts loaded');
+
+            // Check each font
+            const fonts = [
+                'Shree Devanagari 714',
+                'LT Staircase',
+                'Lexend'
+            ];
+
+            fonts.forEach(font => {
+                const loaded = document.fonts.check(`16px "${font}"`);
+                console.log(`${font}: ${loaded ? 'LOADED' : 'NOT LOADED'}`);
+            });
+        });
+
+        // List all loaded fonts
+        document.fonts.forEach(font => {
+            console.log('Font available:', font.family, font.style, font.weight);
+        });
+    </script>
+</body>
+</html>

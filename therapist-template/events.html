@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Hagit Harmon</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shree+Devanagari+714:wght@400;700&family=Lexend:wght@300;400;500&display=block" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'LT Staircase';
+            src: url('fonts/LT Staircase.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'LT Staircase';
+            src: url('fonts/LT Staircase Italic.otf') format('opentype');
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            font-weight: 300;
+            color: #380001;
+            background-color: #9CAF88;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        p {
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            background-color: rgba(245, 240, 213, 0.15);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(56, 0, 1, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background-color: rgba(245, 240, 213, 0.75);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+        }
+
+        .logo {
+            text-decoration: none;
+            display: block;
+        }
+
+        .logo img {
+            height: 14px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #380001;
+            font-size: 13px;
+            font-weight: 300;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        .nav-links .hebrew-btn {
+            padding: 8px 20px;
+            border: 1px solid #380001;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav-links .hebrew-btn:hover {
+            background-color: #380001;
+            color: #F5F0D5;
+            opacity: 1;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: #380001;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Dropdown menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            padding-bottom: 15px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+            background-color: #F5F0D5;
+            border: 1px solid #380001;
+            min-width: 180px;
+            padding: 10px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #380001;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 300;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: rgba(56, 0, 1, 0.05);
+            opacity: 1;
+        }
+
+        /* Events Section */
+        .events-section {
+            background-color: #F5F0D5;
+            padding: 120px 80px;
+            min-height: 80vh;
+        }
+
+        .events-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .events-header {
+            margin-bottom: 80px;
+        }
+
+        .events-header h1 {
+            font-family: 'LT Staircase', serif;
+            font-size: 24px;
+            font-weight: 400;
+            font-style: italic;
+            text-transform: lowercase;
+            color: #380001;
+            margin-bottom: 20px;
+            letter-spacing: normal;
+        }
+
+        .events-header p {
+            font-size: 14px;
+            font-weight: 300;
+            color: #380001;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        .past-events-section {
+            margin-top: 80px;
+            padding-top: 80px;
+            border-top: 1px solid #380001;
+        }
+
+        .past-events-section h2 {
+            font-family: 'LT Staircase', serif;
+            font-size: 24px;
+            font-weight: 400;
+            font-style: italic;
+            text-transform: lowercase;
+            color: #380001;
+            margin-bottom: 60px;
+            letter-spacing: normal;
+        }
+
+        .past-events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 60px;
+        }
+
+        .event-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .event-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            background-color: #946A4E;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .event-card:hover .event-image img {
+            transform: scale(1.05);
+        }
+
+        .event-content {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .event-title {
+            font-family: 'LT Staircase', serif;
+            font-size: 18px !important;
+            font-weight: 400;
+            font-style: italic;
+            color: #380001;
+            text-transform: uppercase;
+            letter-spacing: normal !important;
+            margin: 0 !important;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 0;
+        }
+
+        .event-meta span {
+            font-size: 12px;
+            font-weight: 300;
+            color: #380001;
+            opacity: 0.7;
+        }
+
+        .event-link {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: transparent;
+            color: #380001;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 300;
+            border: 1px solid #380001;
+            border-radius: 4px;
+            transition: all 0.3s;
+            margin-top: 8px;
+        }
+
+        .event-link:hover {
+            background-color: #380001;
+            color: #F5F0D5;
+        }
+
+        .event-description {
+            font-size: 14px;
+            font-weight: 300;
+            color: #380001;
+            line-height: 1.6;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background-color: #946A4E;
+            padding: 100px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (min-width: 769px) {
+            .newsletter-section {
+                padding: 100px 80px;
+            }
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .newsletter-container h2 {
+            font-family: 'LT Staircase', serif;
+            font-size: 24px;
+            font-weight: 400;
+            font-style: italic;
+            text-transform: lowercase;
+            color: #F7FEBA;
+            margin-bottom: 20px;
+            letter-spacing: normal;
+        }
+
+        .newsletter-container p {
+            font-size: 14px;
+            font-weight: 300;
+            color: #F7FEBA;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 12px 16px;
+            border: 1px solid #F7FEBA;
+            border-radius: 4px;
+            font-family: 'Lexend', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            color: #F7FEBA;
+            background-color: #946A4E;
+            flex: 1;
+            max-width: 350px;
+            transition: border-color 0.3s;
+        }
+
+        .newsletter-form input[type="email"]:focus {
+            outline: none;
+            border-color: #D1D1A7;
+        }
+
+        .newsletter-form input[type="email"]::placeholder {
+            color: #F7FEBA;
+            opacity: 0.7;
+        }
+
+        .newsletter-form button {
+            padding: 12px 24px;
+            background-color: #380001;
+            color: #F5F0D5;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #D1D1A7;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #380001;
+            padding: 40px 80px 25px;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 100px;
+            align-items: start;
+            margin-bottom: 40px;
+        }
+
+        .footer-left {
+            justify-self: start;
+        }
+
+        .footer-right {
+            justify-self: end;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .footer-logo .logo-text {
+            font-family: 'Lexend', sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            color: #F5F0D5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .footer-logo .logo-subtitle {
+            font-family: 'Lexend', sans-serif;
+            font-size: 11px;
+            font-weight: 300;
+            color: #F5F0D5;
+            opacity: 0.8;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            font-size: 14px;
+            font-weight: 300;
+            color: #F5F0D5;
+            text-decoration: underline;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            opacity: 0.6;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            transition: opacity 0.3s;
+        }
+
+        .social-icons a:hover {
+            opacity: 0.7;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 20px;
+            text-align: center;
+            border-top: 1px solid rgba(245, 240, 213, 0.2);
+        }
+
+        .footer-bottom p {
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: #F5F0D5;
+            opacity: 0.5;
+            font-weight: 300;
+        }
+
+        /* Grain effect */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.15;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Cursor glow effect */
+        .cursor-glow {
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(218, 165, 32, 1) 0%, rgba(139, 69, 19, 0.6) 40%, rgba(139, 69, 19, 0) 100%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            mix-blend-mode: screen;
+            filter: blur(60px);
+        }
+
+        /* Make sure text is above glow */
+        h1, h2, h3, h4, h5, h6, p, a, ul, li {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px 30px;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                height: 67px;
+            }
+
+            .hamburger {
+                display: flex;
+                position: absolute;
+                left: 30px;
+            }
+
+            .logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .logo img {
+                height: 13px;
+            }
+
+            .lang-switch-mobile {
+                display: block;
+                position: absolute;
+                right: 30px;
+            }
+
+            .nav-links .hebrew-btn {
+                display: none;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 67px;
+                left: 0;
+                right: 0;
+                background-color: #F5F0D5;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                display: none;
+                border-bottom: 1px solid #380001;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                border: none;
+                padding: 10px 0 10px 20px;
+                background-color: transparent;
+                display: none;
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-toggle {
+                padding-bottom: 0;
+            }
+
+            .events-section {
+                padding: 80px 30px;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-section {
+                padding: 80px 30px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input[type="email"] {
+                max-width: 100%;
+            }
+
+            footer {
+                padding: 60px 30px 30px;
+            }
+
+            .footer-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                text-align: left;
+                margin-bottom: 30px;
+            }
+
+            .footer-logo {
+                grid-column: 1 / -1;
+                text-align: center;
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="index.html" class="logo"><img src="images/HAGIT HARMON logo.svg" alt="Hagit Harmon" /></a>
+        <a href="events-he.html" class="lang-switch-mobile">עבר</a>
+        <ul class="nav-links">
+            <li><a href="about.html">about</a></li>
+            <li><a href="zen-meditation.html">zen meditation</a></li>
+            <li><a href="therapy.html">therapy (IFS)</a></li>
+            <li><a href="events.html">events</a></li>
+        </ul>
+    </nav>
+
+    <!-- Events Section -->
+    <section class="events-section">
+        <div class="events-container">
+            <div class="events-header">
+                <h1>upcoming events</h1>
+            </div>
+
+            <div class="events-grid" id="upcoming-events">
+                <!-- Event Card Template -->
+                <div class="event-card" data-date="2024-03-17" data-recurring="false">
+                    <div class="event-image">
+                        <img src="images/retreat-space.jpg" alt="Event image">
+                    </div>
+                    <div class="event-content">
+                        <h2 class="event-title">weekend meditation retreat</h2>
+                        <div class="event-meta">
+                            <span>Date: March 15-17, 2024</span>
+                            <span>Location: Galilee, Israel</span>
+                        </div>
+                        <p class="event-description">A transformative weekend retreat in nature. We'll practice sitting and walking meditation, engage in mindful movement, and explore the teachings of Zen Buddhism.</p>
+                        <a href="#" class="event-link">Register</a>
+                    </div>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="event-card" data-recurring="true">
+                    <div class="event-image">
+                        <img src="images/meditation-cushions.jpg" alt="Event image">
+                    </div>
+                    <div class="event-content">
+                        <h2 class="event-title">intro to zen meditation</h2>
+                        <div class="event-meta">
+                            <span>Date: Every Tuesday, 7:00 PM</span>
+                            <span>Location: Tel Aviv Studio / Online</span>
+                        </div>
+                        <p class="event-description">A beginner-friendly introduction to Zen meditation practice. Learn basic techniques, posture, and breathing to establish your personal practice.</p>
+                        <a href="#" class="event-link">Register</a>
+                    </div>
+                </div>
+
+                <!-- Event Card 3 -->
+                <div class="event-card" data-recurring="true">
+                    <div class="event-image">
+                        <img src="images/lecture.png" alt="Event image">
+                    </div>
+                    <div class="event-content">
+                        <h2 class="event-title">zen lecture series</h2>
+                        <div class="event-meta">
+                            <span>Date: First Sunday of each month, 10:00 AM</span>
+                            <span>Location: Tel Aviv Studio</span>
+                        </div>
+                        <p class="event-description">Monthly lectures exploring Zen Buddhist philosophy and practice. Each session focuses on a different teaching, with time for questions and discussion.</p>
+                        <a href="#" class="event-link">Register</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="past-events-section" id="past-events-section" style="display: none;">
+                <h2>past events</h2>
+                <div class="past-events-grid" id="past-events"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <h2>stay connected</h2>
+            <p>Leave your email below to receive updates on future offerings, including mindfulness days, retreats, and meditation courses (both in-person and online).</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="your email" required>
+                <button type="submit">subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <ul>
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="zen-meditation.html">zen meditation</a></li>
+                    <li><a href="therapy.html">therapy (IFS)</a></li>
+                    <li><a href="events.html">events</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="resources.html">resources</a></li>
+                    <li><a href="contact.html">contact</a></li>
+                    <li><a href="https://www.instagram.com/hagitharmon/" target="_blank">instagram</a></li>
+                    <li><a href="https://www.facebook.com/hagitharmon/" target="_blank">facebook</a></li>
+                </ul>
+            </div>
+            <div class="footer-logo">
+                <img src="images/HAGIT HARMON logo light.svg" alt="Hagit Harmon" style="height: 18px; width: auto; margin-bottom: 8px;" />
+                <div class="logo-subtitle">IFS Therapist & Zen Meditation Teacher</div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Hagit Harmon. All rights reserved. Designed by Dannah Cahn</p>
+        </div>
+    </footer>
+
+    <div class="cursor-glow"></div>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Mouse glow trail
+        const glow = document.querySelector('.cursor-glow');
+        document.addEventListener('mousemove', (e) => {
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
+
+        // Move past events automatically
+        function sortEvents() {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0); // Reset time to beginning of day
+
+            const upcomingGrid = document.getElementById('upcoming-events');
+            const pastGrid = document.getElementById('past-events');
+            const pastSection = document.getElementById('past-events-section');
+            const eventCards = document.querySelectorAll('.event-card');
+
+            let hasPastEvents = false;
+
+            eventCards.forEach(card => {
+                const dateStr = card.getAttribute('data-date');
+                const isRecurring = card.getAttribute('data-recurring') === 'true';
+
+                // Skip recurring events - they always stay in upcoming
+                if (isRecurring || !dateStr) {
+                    return;
+                }
+
+                const eventDate = new Date(dateStr);
+                eventDate.setHours(0, 0, 0, 0);
+
+                // If event date has passed, move to past events
+                if (eventDate < today) {
+                    card.classList.add('past');
+                    // Remove the learn more button
+                    const learnMoreBtn = card.querySelector('.event-link');
+                    if (learnMoreBtn) {
+                        learnMoreBtn.remove();
+                    }
+                    pastGrid.appendChild(card);
+                    hasPastEvents = true;
+                }
+            });
+
+            // Show past events section if there are any past events
+            if (hasPastEvents) {
+                pastSection.style.display = 'block';
+            }
+        }
+
+        // Run on page load
+        sortEvents();
+
+        // Navbar opacity on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 0) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

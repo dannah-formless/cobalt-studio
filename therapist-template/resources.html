@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Hagit Harmon</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=block" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Shree Devanagari 714';
+            src: url('images/Shree714.ttc') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'LT Staircase';
+            src: url('fonts/LT Staircase.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'LT Staircase';
+            src: url('fonts/LT Staircase Italic.otf') format('opentype');
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            font-weight: 300;
+            color: #380001;
+            background-color: #F5F0D5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        p {
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            background-color: rgba(245, 240, 213, 0.15);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(56, 0, 1, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background-color: rgba(245, 240, 213, 0.75);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+        }
+
+        .logo {
+            text-decoration: none;
+            display: block;
+        }
+
+        .logo img {
+            height: 14px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #380001;
+            font-size: 13px;
+            font-weight: 300;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        .nav-links .hebrew-btn {
+            padding: 8px 20px;
+            border: 1px solid #380001;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav-links .hebrew-btn:hover {
+            background-color: #380001;
+            color: #F5F0D5;
+            opacity: 1;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: #380001;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Dropdown menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            padding-bottom: 15px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+            background-color: #F5F0D5;
+            border: 1px solid #380001;
+            min-width: 180px;
+            padding: 10px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #380001;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 300;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: rgba(56, 0, 1, 0.05);
+            opacity: 1;
+        }
+
+        /* Resources Section */
+        .resources-section {
+            background-color: #F5F0D5;
+            padding: 120px 80px;
+            min-height: 80vh;
+        }
+
+        .resources-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .resources-header {
+            margin-bottom: 80px;
+        }
+
+        .resources-header h1 {
+            font-family: 'LT Staircase', serif;
+            font-size: 32px;
+            font-weight: 400;
+            font-style: italic;
+            text-transform: lowercase;
+            color: #380001;
+            margin-bottom: 20px;
+            letter-spacing: normal;
+        }
+
+        .resources-header p {
+            font-size: 14px;
+            font-weight: 300;
+            color: #380001;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .resource-category {
+            margin-bottom: 60px;
+        }
+
+        .resource-category h2 {
+            font-family: 'LT Staircase', serif;
+            font-size: 24px;
+            font-weight: 400;
+            font-style: italic;
+            text-transform: lowercase;
+            color: #380001;
+            margin-bottom: 30px;
+            letter-spacing: normal;
+        }
+
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .resource-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 20px;
+            border: 1px solid rgba(56, 0, 1, 0.1);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .resource-item:hover {
+            border-color: #380001;
+            background-color: rgba(56, 0, 1, 0.02);
+        }
+
+        .resource-item h3 {
+            font-family: 'Lexend', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #380001;
+            margin-bottom: 5px;
+        }
+
+        .resource-item p {
+            font-size: 13px;
+            font-weight: 300;
+            color: #380001;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .resource-item a {
+            font-size: 13px;
+            font-weight: 300;
+            color: #380001;
+            text-decoration: underline;
+            transition: opacity 0.3s;
+        }
+
+        .resource-item a:hover {
+            opacity: 0.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #380001;
+            padding: 40px 80px 25px;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 150px;
+            margin-bottom: 25px;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+            align-self: center;
+        }
+
+        .footer-logo .logo-text {
+            font-family: 'Shree Devanagari 714', serif;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: #F5F0D5;
+        }
+
+        .footer-logo .logo-subtitle {
+            font-family: 'Lexend', sans-serif;
+            font-size: 11px;
+            font-weight: 300;
+            color: #F5F0D5;
+            text-transform: lowercase;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a {
+            font-size: 12px;
+            font-weight: 300;
+            color: #F5F0D5;
+            text-decoration: underline;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            opacity: 0.6;
+        }
+
+        .footer-content .footer-links:last-of-type {
+            text-align: right;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 15px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #F5F0D5;
+            opacity: 0.4;
+        }
+
+        /* Grain effect */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.15;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Cursor glow effect */
+        .cursor-glow {
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(218, 165, 32, 1) 0%, rgba(139, 69, 19, 0.6) 40%, rgba(139, 69, 19, 0) 100%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            mix-blend-mode: screen;
+            filter: blur(60px);
+        }
+
+        /* Make sure text is above glow */
+        h1, h2, h3, h4, h5, h6, p, a, ul, li {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px 30px;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                height: 67px;
+            }
+
+            .hamburger {
+                display: flex;
+                position: absolute;
+                left: 30px;
+            }
+
+            .logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .logo img {
+                height: 13px;
+            }
+
+            .lang-switch-mobile {
+                display: block;
+                position: absolute;
+                right: 30px;
+            }
+
+            .nav-links .hebrew-btn {
+                display: none;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 67px;
+                left: 0;
+                right: 0;
+                background-color: #F5F0D5;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                display: none;
+                border-bottom: 1px solid #380001;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                border: none;
+                padding: 10px 0 10px 20px;
+                background-color: transparent;
+                display: none;
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-toggle {
+                padding-bottom: 0;
+            }
+
+            .resources-section {
+                padding: 80px 30px;
+            }
+
+            footer {
+                padding: 60px 30px 30px;
+            }
+
+            .footer-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                text-align: left;
+                margin-bottom: 30px;
+            }
+
+            .footer-logo {
+                grid-column: 1 / -1;
+                text-align: center;
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="index.html" class="logo"><img src="images/HAGIT HARMON logo.svg" alt="Hagit Harmon" /></a>
+        <a href="resources-he.html" class="lang-switch-mobile">עבר</a>
+        <ul class="nav-links">
+            <li><a href="about.html">about</a></li>
+            <li><a href="zen-meditation.html">zen meditation</a></li>
+            <li><a href="therapy.html">therapy (IFS)</a></li>
+            <li><a href="events.html">events</a></li>
+            <li><a href="index-he.html" class="hebrew-btn">עבר</a></li>
+        </ul>
+    </nav>
+
+    <!-- Resources Section -->
+    <section class="resources-section">
+        <div class="resources-container">
+            <div class="resources-header">
+                <h1>resources</h1>
+                <p>A collection of helpful links, articles, books, and practices to support your journey.</p>
+            </div>
+
+            <div class="resource-category">
+                <h2>links</h2>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <h3>Plum Village</h3>
+                        <p>The practice center founded by Thich Nhat Hanh, offering teachings, retreats, and guided meditations.</p>
+                        <a href="https://plumvillage.org" target="_blank">visit website →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-category">
+                <h2>books</h2>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <h3>Radical Books - Zen Collection (Hebrew)</h3>
+                        <p>Hebrew translations of Zen and meditation books.</p>
+                        <a href="https://radical.org.il/product/zen/" target="_blank">visit website →</a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>Bodhi Safra - Thich Nhat Hanh Collection</h3>
+                        <p>Books and teachings by Thich Nhat Hanh.</p>
+                        <a href="https://bodhisafra.com/product/thich-nhat-hanh/" target="_blank">visit website →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <ul>
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="zen-meditation.html">zen meditation</a></li>
+                    <li><a href="therapy.html">therapy (IFS)</a></li>
+                    <li><a href="events.html">events</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="resources.html">resources</a></li>
+                    <li><a href="contact.html">contact</a></li>
+                    <li><a href="https://www.instagram.com/hagitharmon/" target="_blank">instagram</a></li>
+                    <li><a href="https://www.facebook.com/hagitharmon/" target="_blank">facebook</a></li>
+                </ul>
+            </div>
+            <div class="footer-logo">
+                <img src="images/HAGIT HARMON logo light.svg" alt="Hagit Harmon" style="height: 18px; width: auto; margin-bottom: 8px;" />
+                <div class="logo-subtitle">IFS Therapist & Zen Meditation Teacher</div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Hagit Harmon. All rights reserved. Designed by Dannah Cahn</p>
+        </div>
+    </footer>
+
+    <div class="cursor-glow"></div>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Mouse glow trail
+        const glow = document.querySelector('.cursor-glow');
+        document.addEventListener('mousemove', (e) => {
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
+
+        // Navbar opacity on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 0) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
