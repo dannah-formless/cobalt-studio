@@ -1,6 +1,13 @@
-*.svg filter=lfs diff=lfs merge=lfs -text
-*.png filter=lfs diff=lfs merge=lfs -text
-*.jpg filter=lfs diff=lfs merge=lfs -text
-*.jpeg filter=lfs diff=lfs merge=lfs -text
-*.gif filter=lfs diff=lfs merge=lfs -text
-*.webp filter=lfs diff=lfs merge=lfs -text
+# Disable LFS for images uploaded via Netlify CMS
+# This ensures CMS uploads work properly without LFS pointer issues
+images/*.png !filter !diff !merge
+images/*.jpg !filter !diff !merge
+images/*.jpeg !filter !diff !merge
+images/*.gif !filter !diff !merge
+images/*.webp !filter !diff !merge
+images/*.svg !filter !diff !merge
+
+# Keep LFS for other image locations if needed
+# (Uncomment and adjust paths if you have images elsewhere)
+# *.png filter=lfs diff=lfs merge=lfs -text
+# *.jpg filter=lfs diff=lfs merge=lfs -text
