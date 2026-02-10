@@ -3,11 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meditation - Hagit Harmon</title>
+    <title>Zen Buddhist Meditation in Tel Aviv | Thich Nhat Hanh Tradition | Hagit Harmon</title>
+    <meta name="description" content="Learn Zen meditation with Hagit Harmon in Tel Aviv. Mindfulness practice in the Thich Nhat Hanh tradition. Cultivate presence, awareness, and inner peace through guided meditation.">
+
+    <!-- Canonical & Language -->
+    <link rel="canonical" href="https://hagitharmon.com/zen-meditation.html">
+    <link rel="alternate" hreflang="en" href="https://hagitharmon.com/zen-meditation.html">
+    <link rel="alternate" hreflang="he" href="https://hagitharmon.com/zen-meditation-he.html">
+    <link rel="alternate" hreflang="x-default" href="https://hagitharmon.com/zen-meditation.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hagitharmon.com/zen-meditation.html">
+    <meta property="og:title" content="Zen Buddhist Meditation | Thich Nhat Hanh Tradition | Hagit Harmon">
+    <meta property="og:description" content="Learn Zen meditation with Hagit Harmon in Tel Aviv. Mindfulness practice in the Thich Nhat Hanh tradition. Cultivate presence, awareness, and inner peace.">
+    <meta property="og:image" content="https://hagitharmon.com/images/profile.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="he_IL">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zen Buddhist Meditation | Thich Nhat Hanh Tradition | Hagit Harmon">
+    <meta name="twitter:description" content="Learn Zen meditation with Hagit Harmon in Tel Aviv. Mindfulness practice in the Thich Nhat Hanh tradition.">
+    <meta name="twitter:image" content="https://hagitharmon.com/images/profile.jpg">
+
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=block" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "name": "Hagit Harmon Zen Meditation Teaching",
+          "description": "Zen Buddhist meditation instruction in the Thich Nhat Hanh tradition, focusing on mindfulness, presence, and compassion",
+          "url": "https://hagitharmon.com/zen-meditation.html",
+          "serviceType": [
+            "Zen Meditation Instruction",
+            "Mindfulness Teaching",
+            "Buddhist Meditation",
+            "Thich Nhat Hanh Tradition"
+          ],
+          "provider": {
+            "@type": "Person",
+            "name": "Hagit Harmon",
+            "jobTitle": "Meditation Teacher"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Tel Aviv"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Hagit Harmon",
+          "jobTitle": "Meditation Teacher",
+          "url": "https://hagitharmon.com",
+          "image": "https://hagitharmon.com/images/profile.jpg",
+          "sameAs": [
+            "https://www.facebook.com/hagitharmon/",
+            "https://www.instagram.com/hagitharmon/"
+          ]
+        }
+      ]
+    }
+    </script>
     <style>
         @font-face {
             font-family: 'Shree Devanagari 714';
@@ -40,7 +104,7 @@
         }
 
         html {
-            overflow-x: hidden;
+            overflow-x: clip;
         }
 
         body {
@@ -50,8 +114,7 @@
             font-weight: 300;
             color: #380001;
             background-color: #D1D1A7;
-            position: relative;
-            overflow-x: hidden;
+            overflow-x: clip;
             width: 100%;
         }
 
@@ -99,17 +162,15 @@
             padding: 20px 80px;
             background-color: rgba(245, 240, 213, 0.15);
             backdrop-filter: blur(10px);
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(56, 0, 1, 0.2);
             transition: all 0.3s ease;
         }
 
         nav.scrolled {
-            background-color: rgba(245, 240, 213, 0.75);
+            background-color: rgba(245, 240, 213, 0.4);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
         }
@@ -157,12 +218,31 @@
             opacity: 1;
         }
 
+        .lang-switch-mobile {
+            display: none;
+            text-decoration: none;
+            color: #380001;
+            padding: 4px 12px;
+            border: 1px solid #380001;
+            border-radius: 4px;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .lang-switch-mobile:hover {
+            background-color: #380001;
+            color: #F5F0D5;
+        }
+
         /* Hamburger Menu */
         .hamburger {
             display: none;
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
+            background: none;
+            border: none;
+            padding: 0;
         }
 
         .hamburger span {
@@ -312,10 +392,11 @@
         /* Events Section */
         .events-section {
             background-color: transparent;
-            padding: 120px 80px;
+            padding: 80px 80px;
             min-height: 80vh;
             position: relative;
             z-index: 10;
+            border-top: 1px solid #380001;
         }
 
         .events-container {
@@ -324,7 +405,7 @@
         }
 
         .events-header {
-            margin-bottom: 80px;
+            margin-bottom: 40px;
         }
 
         .events-header h3 {
@@ -342,23 +423,27 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 60px;
-            margin-bottom: 100px;
+            margin-bottom: 40px;
         }
 
         .event-card {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
 
         .event-image {
             width: 100%;
-            height: 250px;
+            padding-top: 133.33%; /* 3:4 aspect ratio (4/3 * 100) */
+            position: relative;
             overflow: hidden;
             background-color: #946A4E;
         }
 
         .event-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -378,7 +463,17 @@
 
         .event-title {
             font-family: 'LT Staircase', serif;
-            font-size: 18px !important;
+            font-size: 20px;
+            font-weight: 400;
+            font-style: italic;
+            text-transform: lowercase;
+            color: #380001;
+            margin: 0;
+        }
+
+        .event-title {
+            font-family: 'LT Staircase', serif;
+            font-size: 16px !important;
             font-weight: 400;
             font-style: italic;
             color: #380001;
@@ -425,6 +520,33 @@
             font-weight: 300;
             color: #380001;
             line-height: 1.6;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+        }
+
+        .event-description.collapsed {
+            -webkit-line-clamp: 3;
+        }
+
+        .event-description.expanded {
+            -webkit-line-clamp: unset;
+        }
+
+        .read-more-btn {
+            font-size: 12px;
+            font-weight: 300;
+            color: #380001;
+            text-decoration: underline;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            margin-top: 4px;
+        }
+
+        .read-more-btn:hover {
+            opacity: 0.7;
         }
 
         /* Newsletter Section */
@@ -662,7 +784,6 @@
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
-                position: relative;
                 height: 67px;
             }
 
@@ -751,16 +872,13 @@
             }
 
             .events-section {
-                padding: 50px 30px;
+                padding: 60px 30px;
             }
 
             .events-grid {
                 grid-template-columns: 1fr;
             }
 
-            .events-header {
-                margin-bottom: 40px;
-            }
 
             .newsletter-section {
                 padding: 50px 30px;
@@ -787,28 +905,28 @@
                 margin-bottom: 30px;
             }
 
-            .footer-logo {
-                grid-column: 1 / -1;
-                grid-row: 1;
-                text-align: center;
-                margin-bottom: 10px;
-            }
-
-            .footer-logo .logo-text {
-                font-size: 18px;
-            }
-
             .footer-left {
                 grid-column: 1;
-                grid-row: 2;
+                grid-row: 1;
                 justify-self: start;
             }
 
             .footer-right {
                 grid-column: 2;
-                grid-row: 2;
+                grid-row: 1;
                 justify-self: end;
                 align-items: flex-end;
+            }
+
+            .footer-logo {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .footer-logo .logo-text {
+                font-size: 18px;
             }
 
             .footer-left ul {
@@ -823,122 +941,109 @@
                 justify-content: flex-end;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <div class="hamburger">
+    <nav role="navigation" aria-label="Main navigation">
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
-        </div>
-        <a href="index.html" class="logo"><img src="images/HAGIT HARMON logo.svg" alt="Hagit Harmon" /></a>
-        <a href="zen-meditation-he.html" class="lang-switch-mobile">עבר</a>
+        </button>
+        <a href="index.html" class="logo" aria-label="Hagit Harmon Home"><img src="images/HAGIT HARMON logo.svg" alt="Hagit Harmon logo" width="100" height="14" decoding="async" /></a>
+        <a href="zen-meditation-he.html" class="lang-switch-mobile" lang="he" aria-label="Switch to Hebrew">עבר</a>
         <ul class="nav-links">
             <li><a href="about.html">about</a></li>
-            <li><a href="zen-meditation.html">meditation</a></li>
+            <li><a href="zen-meditation.html" aria-current="page">meditation</a></li>
             <li><a href="therapy.html">therapy (IFS)</a></li>
             <li><a href="events.html">events</a></li>
+            <li><a href="zen-meditation-he.html" class="hebrew-btn" lang="he" aria-label="Switch to Hebrew">עבר</a></li>
         </ul>
     </nav>
 
     <!-- Hero Section -->
-    <section class="page-hero">
+    <section class="page-hero" aria-labelledby="hero-heading">
         <div class="hero-content">
-            <h2>ZEN BUDDHIST<br>MEDITATION</h2>
+            <h2 id="hero-heading">ZEN BUDDHIST<br>MEDITATION</h2>
             <p class="subtitle">cultivating presence,<br>awareness & inner peace</p>
         </div>
     </section>
 
     <!-- Content Section -->
-    <section class="content-section">
+    <section class="content-section" aria-labelledby="practice-heading">
         <div>
-            <h3>The Practice</h3>
+            <h3 id="practice-heading">The Practice</h3>
         </div>
         <div class="content-text">
             <p>
-                Zen meditation, specifically the tradition of Thich Nhat Hanh, is the practice of being fully present and alive in the moment. Each step, each breath, each daily action is an opportunity to deeply experience peace, clarity and aliveness. It is also an opportunity to gain insight into the nature of our suffering and joy, so we can live freely and without fear.
+                The practice of Zen meditation asks us to return again and again to the present moment, which is mindfulness, so we can meet life as it is.
+            </p>
+            <p>
+                We bring gentle attention to the breath, the body, and the senses. Thoughts, feelings, and distractions are noticed without judgment, allowing them to come and go naturally. We may practice in seated meditation, in movement (walking meditation), or bring this awareness into the movements of our daily lives (mindfulness).
+            </p>
+            <p>
+                The practice is threefold: mindfulness, concentration, and insight.
+            </p>
+            <p>
+                We cultivate mindfulness (being present), concentration (staying with it), and investigate with curiosity and patience, so that the flower of insight can bloom, and we can be more free. Free to enjoy the precious gifts of life. Free to meet pain and suffering without fear and be able to find meaning in them. Free to bring about transformation at the root.
             </p>
         </div>
     </section>
 
     <!-- Lineage Section -->
-    <section class="content-section">
+    <section class="content-section" aria-labelledby="lineage-heading">
         <div>
-            <h3>The Lineage</h3>
+            <h3 id="lineage-heading">The Lineage</h3>
         </div>
         <div class="content-text">
             <p>
-                Zen Buddhism focuses on directly experiencing reality through meditation and mindfulness. I follow the lineage of Thich Nhat Hanh who was my teacher for many years. He emphasized being in the present moment, cultivating compassion for the self and others, and inviting a sense of joy and wonder. His lineage carried Zen out of the monastery and into the world where meditation becomes a way of living, not a retreat from life.
+                Zen Buddhism focuses on directly experiencing reality through meditation and mindfulness. I follow the lineage of Thich Nhat Hanh who was my teacher for many years. He emphasized being in the present moment, cultivating compassion for the self and others, inviting a sense of joy and wonder, and living the understanding of interbeing, interconnectedness. His lineage carried Zen out of the monastery and into the world where meditation becomes a way of living, not a retreat from life.
             </p>
 
             <p>
-                This tradition combines practice with classic Zen texts such as the Heart Sutra with early Buddhist texts such as the Anapanasati Sutra. It encourages creativity and engaged practice that is aware of the needs of society and the time.
+                This tradition combines practice with classic Zen texts such as the Heart Sutra with early Buddhist texts such as the Anapanasati Sutra. It encourages creativity and engaged practice that is aware of the needs of society and the time. Thich Nhat Hanh encouraged us to practice as part of a community, so that we can support each other.
             </p>
         </div>
     </section>
 
     <!-- Upcoming Events Section -->
-    <!-- NOTE: In production, event data should be pulled from events.html (mother page) -->
-    <section class="events-section">
+    <section class="events-section" id="meditation-events-section" aria-labelledby="events-heading">
         <div class="events-container">
             <div class="events-header">
-                <h3>Upcoming Events</h3>
+                <h3 id="events-heading">Upcoming Events</h3>
             </div>
 
-            <div class="events-grid">
-                <!-- Event 1 - Recurring event from events.html -->
-                <div class="event-card" data-recurring="true">
-                    <div class="event-image">
-                        <img src="images/meditation-cushions.jpg" alt="Event image">
-                    </div>
-                    <div class="event-content">
-                        <h2 class="event-title">intro to meditation</h2>
-                        <div class="event-meta">
-                            <span>Date: Every Tuesday, 7:00 PM</span>
-                            <span>Location: Tel Aviv Studio / Online</span>
-                        </div>
-                        <p class="event-description">A beginner-friendly introduction to Zen meditation practice. Learn basic techniques, posture, and breathing to establish your personal practice.</p>
-                        <a href="#" class="event-link">Register</a>
-                    </div>
-                </div>
-
-                <!-- Event 2 - Recurring event from events.html -->
-                <div class="event-card" data-recurring="true">
-                    <div class="event-image">
-                        <img src="images/lecture.png" alt="Event image">
-                    </div>
-                    <div class="event-content">
-                        <h2 class="event-title">zen lecture series</h2>
-                        <div class="event-meta">
-                            <span>Date: First Sunday of each month, 10:00 AM</span>
-                            <span>Location: Tel Aviv Studio</span>
-                        </div>
-                        <p class="event-description">Monthly lectures exploring Zen Buddhist philosophy and practice. Each session focuses on a different teaching, with time for questions and discussion.</p>
-                        <a href="#" class="event-link">Register</a>
-                    </div>
-                </div>
+            <div class="events-grid" id="meditation-events-grid">
+                <!-- Events will be loaded dynamically from canonical source -->
             </div>
         </div>
     </section>
 
     <!-- Newsletter Section -->
-    <section class="newsletter-section">
+    <section class="newsletter-section" aria-labelledby="newsletter-heading">
         <div class="newsletter-container">
-            <h2>stay connected</h2>
+            <h2 id="newsletter-heading">stay connected</h2>
             <p>Leave your email below to receive updates on future offerings, including mindfulness days, retreats, and meditation courses (both in-person and online).</p>
-            <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-label="Newsletter subscription form">
                 <input type="hidden" name="form-name" value="newsletter" />
                 <input type="hidden" name="bot-field" />
-                <input type="email" name="email" placeholder="your email" required>
-                <button type="submit">subscribe</button>
+                <input type="email" name="email" placeholder="your email" required aria-required="true" aria-label="Email address">
+                <button type="submit" aria-label="Subscribe to newsletter">subscribe</button>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-content">
             <div class="footer-links footer-left">
                 <ul>
@@ -949,7 +1054,7 @@
                 </ul>
             </div>
             <div class="footer-logo">
-                <img src="images/HAGIT HARMON logo light.svg" alt="Hagit Harmon" style="height: 18px; width: auto; margin-bottom: 8px;" />
+                <img src="images/HAGIT HARMON logo light.svg" alt="Hagit Harmon logo" style="height: 18px; width: auto; margin-bottom: 8px;" width="100" height="18" decoding="async" loading="lazy" />
                 <div class="logo-subtitle">IFS Therapist & Meditation Teacher</div>
             </div>
             <div class="footer-links footer-right">
@@ -968,7 +1073,7 @@
         </div>
     </footer>
 
-    <div class="cursor-glow"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
 
     <script>
         // Hamburger menu toggle
@@ -976,6 +1081,8 @@
         const navLinks = document.querySelector('.nav-links');
 
         hamburger.addEventListener('click', () => {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
@@ -983,6 +1090,7 @@
         // Close menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
+                hamburger.setAttribute('aria-expanded', 'false');
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
             });
@@ -1015,6 +1123,100 @@
                 nav.classList.remove('scrolled');
             }
         });
+
+        // Upcoming Events - Load from canonical source
+        function loadUpcomingEvents() {
+            // Canonical event data source (matches events.html)
+            const events = [
+                {
+                    title: "ahimsa - non-violence, meditation saturday at loygiana center",
+                    date: "2026-02-28",
+                    recurring: false,
+                    image: "images/event.png",
+                    meta: [
+                        "Date: February 28, 2026",
+                        "Location: Maza 22, Tel Aviv",
+                        "Language: Hebrew"
+                    ],
+                    description: "Ahimsa is the principle of non-harm. It is not a passive stance, but an active position rooted in what is called \"the two wings of practice\" - compassion and insight. This non-violent action begins first within ourselves and towards ourselves. According to Thich Nhat Hanh, the Zen teacher and peace activist during the Vietnam War, true change begins within us and in our ability to rise above polarities, sides, and camps. Through deep observation, we want to learn how to transform fear, despair, hatred and hostility within us, and help others do the same, out of respect for life. In this practice there is no expectation of absolute - we do our best according to the circumstances. All of this we will explore together through sitting meditation, movement, eating and shared learning in a meditation session with Dharma teacher Hagit Harmon.",
+                    link: "https://yogatlv.co.il/meditation/"
+                }
+            ];
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            const upcomingEvents = events.filter(event => {
+                if (event.recurring) return true;
+                if (!event.date) return true;
+
+                const eventDate = new Date(event.date);
+                eventDate.setHours(0, 0, 0, 0);
+                return eventDate >= today;
+            });
+
+            const section = document.getElementById('meditation-events-section');
+            const grid = document.getElementById('meditation-events-grid');
+
+            if (upcomingEvents.length === 0) {
+                section.style.display = 'none';
+                return;
+            }
+
+            grid.innerHTML = upcomingEvents.map(event => `
+                <div class="event-card" data-date="${event.date || ''}" data-recurring="${event.recurring}">
+                    <h2 class="event-title">${event.title}</h2>
+                    <div class="event-image">
+                        <img src="${event.image}" alt="Event image">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-meta">
+                            ${event.meta.map(m => `<span>${m}</span>`).join('')}
+                        </div>
+                        <p class="event-description">${event.description}</p>
+                        <a href="${event.link}" target="_blank" class="event-link">Register</a>
+                    </div>
+                </div>
+            `).join('');
+
+            // Initialize read more functionality after events are loaded
+            initReadMore();
+        }
+
+        // Read more functionality (copied from events.html)
+        function initReadMore() {
+            const descriptions = document.querySelectorAll('.event-description');
+
+            descriptions.forEach(desc => {
+                // Check if text exceeds 3 lines
+                const lineHeight = parseInt(window.getComputedStyle(desc).lineHeight);
+                const maxHeight = lineHeight * 3;
+
+                if (desc.scrollHeight > maxHeight) {
+                    desc.classList.add('collapsed');
+
+                    const readMoreBtn = document.createElement('button');
+                    readMoreBtn.className = 'read-more-btn';
+                    readMoreBtn.textContent = 'Read more';
+
+                    desc.parentNode.insertBefore(readMoreBtn, desc.nextSibling);
+
+                    readMoreBtn.addEventListener('click', () => {
+                        if (desc.classList.contains('collapsed')) {
+                            desc.classList.remove('collapsed');
+                            desc.classList.add('expanded');
+                            readMoreBtn.textContent = 'Read less';
+                        } else {
+                            desc.classList.remove('expanded');
+                            desc.classList.add('collapsed');
+                            readMoreBtn.textContent = 'Read more';
+                        }
+                    });
+                }
+            });
+        }
+
+        loadUpcomingEvents();
     </script>
 </body>
 </html>

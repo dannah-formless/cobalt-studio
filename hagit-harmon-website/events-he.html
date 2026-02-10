@@ -3,11 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אירועים - חגית הרמון</title>
+    <title>אירועי מדיטציה ומיינדפולנס בתל אביב | חגית הרמון</title>
+    <meta name="description" content="הצטרפו לאירועי מדיטציה ומיינדפולנס עם חגית הרמון בתל אביב. מפגשי מדיטציית זן, סדנאות מיינדפולנס ומפגשי קהילה במסורת תיך נאט האן.">
+
+    <!-- Canonical & Language -->
+    <link rel="canonical" href="https://hagitharmon.com/events-he.html">
+    <link rel="alternate" hreflang="he" href="https://hagitharmon.com/events-he.html">
+    <link rel="alternate" hreflang="en" href="https://hagitharmon.com/events.html">
+    <link rel="alternate" hreflang="x-default" href="https://hagitharmon.com/events.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hagitharmon.com/events-he.html">
+    <meta property="og:title" content="אירועי מדיטציה ומיינדפולנס | חגית הרמון">
+    <meta property="og:description" content="הצטרפו לאירועי מדיטציה ומיינדפולנס עם חגית הרמון בתל אביב. מפגשי מדיטציית זן, סדנאות מיינדפולנס ומפגשי קהילה.">
+    <meta property="og:image" content="https://hagitharmon.com/images/profile.jpg">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="אירועי מדיטציה ומיינדפולנס | חגית הרמון">
+    <meta name="twitter:description" content="הצטרפו לאירועי מדיטציה ומיינדפולנס עם חגית הרמון בתל אביב.">
+    <meta name="twitter:image" content="https://hagitharmon.com/images/profile.jpg">
+
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shree+Devanagari+714:wght@400;700&family=Heebo:wght@300;400;500&display=block" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "name": "חגית הרמון",
+          "alternateName": "Hagit Harmon",
+          "jobTitle": "מורה למדיטציה ומטפלת IFS",
+          "url": "https://hagitharmon.com",
+          "image": "https://hagitharmon.com/images/profile.jpg",
+          "sameAs": [
+            "https://www.facebook.com/hagitharmon/",
+            "https://www.instagram.com/hagitharmon/"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "name": "אירועים",
+          "url": "https://hagitharmon.com/events-he.html",
+          "description": "אירועי מדיטציה ומיינדפולנס קרובים",
+          "inLanguage": "he"
+        }
+      ]
+    }
+    </script>
     <style>
         @font-face {
             font-family: 'Assistant';
@@ -48,7 +99,7 @@
         }
 
         html {
-            overflow-x: hidden;
+            overflow-x: clip;
         }
 
         body {
@@ -58,7 +109,7 @@
             font-weight: 450 !important;
             color: #380001;
             background-color: #9CAF88;
-            overflow-x: hidden;
+            overflow-x: clip;
             width: 100%;
         }
 
@@ -75,17 +126,15 @@
             padding: 20px 80px;
             background-color: rgba(245, 240, 213, 0.15);
             backdrop-filter: blur(10px);
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(56, 0, 1, 0.2);
             transition: all 0.3s ease;
         }
 
         nav.scrolled {
-            background-color: rgba(245, 240, 213, 0.75);
+            background-color: rgba(245, 240, 213, 0.4);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
         }
@@ -156,6 +205,9 @@
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
+            background: none;
+            border: none;
+            padding: 0;
         }
 
         .hamburger span {
@@ -221,7 +273,7 @@
         /* Events Section */
         .events-section {
             background-color: #F5F0D5;
-            padding: 120px 80px;
+            padding: 80px 80px;
             min-height: 80vh;
         }
 
@@ -231,7 +283,7 @@
         }
 
         .events-header {
-            margin-bottom: 80px;
+            margin-bottom: 40px;
         }
 
         .events-header h1 {
@@ -256,7 +308,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 60px;
-            margin-bottom: 100px;
+            margin-bottom: 40px;
         }
 
         .past-events-section {
@@ -327,7 +379,7 @@
 
         .event-title {
             font-family: 'Assistant', sans-serif;
-            font-size: 18px !important;
+            font-size: 20px !important;
             font-weight: 400;
             color: #380001;
             text-transform: none;
@@ -775,7 +827,6 @@
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
-                position: relative;
                 height: 67px;
             }
 
@@ -840,7 +891,7 @@
             }
 
             .events-section {
-                padding: 80px 30px;
+                padding: 60px 30px;
             }
 
             .events-grid {
@@ -872,28 +923,28 @@
                 margin-bottom: 30px;
             }
 
-            .footer-logo {
-                grid-column: 1 / -1;
-                grid-row: 1;
-                text-align: center;
-                margin-bottom: 10px;
-            }
-
-            .footer-logo .logo-text {
-                font-size: 18px;
-            }
-
             .footer-left {
                 grid-column: 2;
-                grid-row: 2;
+                grid-row: 1;
                 justify-self: end;
             }
 
             .footer-right {
                 grid-column: 1;
-                grid-row: 2;
+                grid-row: 1;
                 justify-self: start;
                 align-items: flex-start;
+            }
+
+            .footer-logo {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .footer-logo .logo-text {
+                font-size: 18px;
             }
 
             .footer-left ul {
@@ -908,24 +959,32 @@
                 justify-content: flex-start;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <div class="hamburger">
+    <nav role="navigation" aria-label="ניווט ראשי">
+        <button class="hamburger" aria-label="פתח תפריט" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
-        </div>
-        <a href="index-he.html" class="logo"><img src="images/HAGIT HARMON logo.svg" alt="Hagit Harmon" /></a>
-        <a href="events.html" class="lang-switch-mobile">ENG</a>
+        </button>
+        <a href="index-he.html" class="logo" aria-label="חזרה לדף הבית"><img src="images/HAGIT HARMON logo.svg" alt="חגית הרמון לוגו" width="100" height="14" decoding="async" /></a>
+        <a href="events.html" class="lang-switch-mobile" lang="en" aria-label="Switch to English">ENG</a>
         <ul class="nav-links">
             <li><a href="about-he.html">אודות</a></li>
             <li><a href="zen-meditation-he.html">מדיטציה</a></li>
             <li><a href="therapy-he.html">טיפול (IFS)</a></li>
-            <li><a href="events-he.html">אירועים</a></li>
-            <li><a href="events.html" class="hebrew-btn">ENG</a></li>
+            <li><a href="events-he.html" aria-current="page">אירועים</a></li>
+            <li><a href="events.html" class="hebrew-btn" lang="en" aria-label="Switch to English">ENG</a></li>
         </ul>
     </nav>
 
@@ -941,22 +1000,7 @@
             </div>
 
             <div class="events-grid" id="upcoming-events">
-                <!-- Event Card -->
-                <div class="event-card" data-date="2026-02-28" data-recurring="false">
-                    <h2 class="event-title">אהימסה - אי אלימות, שבת מדיטציה במרכז לויג'נאנה</h2>
-                    <div class="event-image">
-                        <img src="images/event.png" alt="תמונת אירוע">
-                    </div>
-                    <div class="event-content">
-                        <div class="event-meta">
-                            <span>תאריך: 28.2.26</span>
-                            <span>מיקום: מאז״ה 22, תל אביב</span>
-                            <span>שפה: עברית</span>
-                        </div>
-                        <p class="event-description">אהימסה הוא העקרון של אי-פגיעה. זו אינה עמדה פסיבית, אלא עמדה אקטיבית של פעולה הנטועה במה שקרוי "שתי כנפי התרגול" – חמלה ותובנה. הפעולה הלא אלימה הזו מתחילה קודם כל בתוכנו וכלפי עצמנו. על פי תיך נאת האן, מורה הזן ומי שהיה גם פעיל שלום בזמן מלחמת וייטנאם, השינוי האמיתי מתחיל בתוכנו וביכולת להתעלות מעבר לקטבים, לצדדים ולמחנות. מתוך התבוננות לעומק, אנחנו רוצים ללמוד איך להתמיר פחד, ייאוש, שנאה ועוינות בתוכנו, ולעזור לאחרים לעשות את אותו הדבר, מתוך כבוד לחיים. בתרגול הזה אין ציפייה למוחלט – אנחנו עושים כמיטב יכולתנו בהתאם לנסיבות. את כל זאת נחקור יחד במדיטציה בישיבה, בתנועה, באכילה ובלימוד משותף במפגש מדיטציה עם מורת הדהרמה חגית הרמון.</p>
-                        <a href="https://yogatlv.co.il/meditation/" target="_blank" class="event-link">הרשמה</a>
-                    </div>
-                </div>
+                <!-- Events will be loaded dynamically -->
             </div>
 
             <div class="past-events-section" id="past-events-section" style="display: none;">
@@ -981,7 +1025,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-content">
             <div class="footer-links footer-right">
                 <ul>
@@ -989,8 +1033,8 @@
                     <li><a href="resources-he.html">משאבים</a></li>
                 </ul>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/hagitharmon/" target="_blank" aria-label="Facebook"><svg width="32" height="32" viewBox="0 0 24 24" fill="#F5F0D5"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-                    <a href="https://www.instagram.com/hagitharmon/" target="_blank" aria-label="Instagram"><svg width="32" height="32" viewBox="0 0 24 24" fill="#F5F0D5"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                    <a href="https://www.facebook.com/hagitharmon/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="32" height="32" viewBox="0 0 24 24" fill="#F5F0D5"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    <a href="https://www.instagram.com/hagitharmon/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="32" height="32" viewBox="0 0 24 24" fill="#F5F0D5"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
                 </div>
             </div>
             <div class="footer-logo">
@@ -1011,7 +1055,7 @@
         </div>
     </footer>
 
-    <div class="cursor-glow"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
 
     <!-- Contact Modal -->
     <div class="contact-modal" id="contact-modal">
@@ -1049,6 +1093,8 @@
         const navLinks = document.querySelector('.nav-links');
 
         hamburger.addEventListener('click', () => {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
@@ -1056,6 +1102,7 @@
         // Close menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
+                hamburger.setAttribute('aria-expanded', 'false');
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
             });
@@ -1067,6 +1114,56 @@
             glow.style.left = e.clientX + 'px';
             glow.style.top = e.clientY + 'px';
         });
+
+        // Load events from JSON
+        async function loadEvents() {
+            try {
+                const response = await fetch('/content/events-he.json');
+                const data = await response.json();
+                const upcomingGrid = document.getElementById('upcoming-events');
+
+                if (!data.events || data.events.length === 0) {
+                    return;
+                }
+
+                data.events.forEach(event => {
+                    const eventCard = document.createElement('div');
+                    eventCard.className = 'event-card';
+
+                    // Set data attributes
+                    if (event.event_date) {
+                        eventCard.setAttribute('data-date', event.event_date.split('T')[0]);
+                    }
+                    eventCard.setAttribute('data-recurring', event.is_recurring ? 'true' : 'false');
+
+                    // Build event card HTML
+                    eventCard.innerHTML = `
+                        <h2 class="event-title">${event.title}</h2>
+                        <div class="event-image">
+                            <img src="${event.image}" alt="${event.title}">
+                        </div>
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <span>תאריך: ${event.date}</span>
+                                <span>מיקום: ${event.location}</span>
+                            </div>
+                            <p class="event-description">${event.description}</p>
+                            ${event.register_link ? `<a href="${event.register_link}" target="_blank" class="event-link">הרשמה</a>` : ''}
+                        </div>
+                    `;
+
+                    upcomingGrid.appendChild(eventCard);
+                });
+
+                // Initialize read more functionality after events are loaded
+                initReadMore();
+
+                // Sort events after loading
+                sortEvents();
+            } catch (error) {
+                console.error('Error loading events:', error);
+            }
+        }
 
         // Move past events automatically
         function sortEvents() {
@@ -1215,8 +1312,7 @@
         }
 
         // Run on page load
-        sortEvents();
-        initReadMore();
+        loadEvents();
 
         // Navbar opacity on scroll
         const nav = document.querySelector('nav');

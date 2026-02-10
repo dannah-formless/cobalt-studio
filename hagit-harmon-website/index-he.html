@@ -3,11 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>חגית הרמון - טיפול ומדיטציה</title>
+    <title>חגית הרמון - מטפלת IFS ומורה למדיטציית זן | תל אביב</title>
+    <meta name="description" content="מטפלת IFS ומורה למדיטציית זן מנוסה בתל אביב. הפכו קונפליקט פנימי לחמלה עצמית באמצעות טיפול משפחה פנימית (IFS) ותרגול מיינדפולנס.">
+
+    <!-- Canonical & Language -->
+    <link rel="canonical" href="https://hagitharmon.com/index-he.html">
+    <link rel="alternate" hreflang="en" href="https://hagitharmon.com/index.html">
+    <link rel="alternate" hreflang="he" href="https://hagitharmon.com/index-he.html">
+    <link rel="alternate" hreflang="x-default" href="https://hagitharmon.com/index.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hagitharmon.com/index-he.html">
+    <meta property="og:title" content="חגית הרמון - מטפלת IFS ומורה למדיטציית זן">
+    <meta property="og:description" content="מטפלת IFS ומורה למדיטציית זן מנוסה בתל אביב. הפכו קונפליקט פנימי לחמלה עצמית באמצעות טיפול משפחה פנימית ותרגול מיינדפולנס.">
+    <meta property="og:image" content="https://hagitharmon.com/images/profile.jpg">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="חגית הרמון - מטפלת IFS ומורה למדיטציית זן">
+    <meta name="twitter:description" content="מטפלת IFS ומורה למדיטציית זן מנוסה בתל אביב. הפכו קונפליקט פנימי לחמלה עצמית באמצעות תרגול מיינדפולנס.">
+    <meta name="twitter:image" content="https://hagitharmon.com/images/profile.jpg">
+
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shree+Devanagari+714:wght@400;700&family=Heebo:wght@300;400;500&display=block" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "name": "Hagit Harmon",
+          "jobTitle": "IFS Therapist & Meditation Teacher",
+          "description": "IFS practitioner and meditation teacher in the Thich Nhat Hanh tradition",
+          "url": "https://hagitharmon.com",
+          "image": "https://hagitharmon.com/images/profile.jpg",
+          "knowsAbout": [
+            "Internal Family Systems Therapy",
+            "IFS Therapy",
+            "Zen Meditation",
+            "Thich Nhat Hanh Tradition",
+            "Mindfulness Practice"
+          ],
+          "sameAs": [
+            "https://www.facebook.com/hagitharmon/",
+            "https://www.instagram.com/hagitharmon/"
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "Hagit Harmon Therapy & Meditation",
+          "description": "IFS therapy and Zen meditation teaching services",
+          "provider": {
+            "@type": "Person",
+            "name": "Hagit Harmon"
+          },
+          "serviceType": [
+            "Internal Family Systems Therapy",
+            "Zen Meditation Instruction",
+            "Mindfulness Teaching"
+          ],
+          "areaServed": {
+            "@type": "City",
+            "name": "Tel Aviv"
+          },
+          "url": "https://hagitharmon.com"
+        },
+        {
+          "@type": "WebSite",
+          "name": "Hagit Harmon",
+          "url": "https://hagitharmon.com",
+          "inLanguage": ["en", "he"],
+          "publisher": {
+            "@type": "Person",
+            "name": "Hagit Harmon"
+          }
+        }
+      ]
+    }
+    </script>
+
     <style>
         @font-face {
             font-family: 'Assistant';
@@ -40,7 +121,7 @@
         }
 
         html {
-            overflow-x: hidden;
+            overflow-x: clip;
         }
 
         body {
@@ -50,9 +131,8 @@
             font-weight: 450 !important;
             color: #380001;
             background-color: #F5F0D5;
-            overflow-x: hidden;
+            overflow-x: clip;
             width: 100%;
-            position: relative;
         }
 
         p {
@@ -93,17 +173,15 @@
             padding: 20px 80px;
             background-color: rgba(245, 240, 213, 0.15);
             backdrop-filter: blur(10px);
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(56, 0, 1, 0.2);
             transition: all 0.3s ease;
         }
 
         nav.scrolled {
-            background-color: rgba(245, 240, 213, 0.75);
+            background-color: rgba(245, 240, 213, 0.4);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -176,6 +254,9 @@
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
+            background: none;
+            border: none;
+            padding: 0;
         }
 
         .hamburger span {
@@ -698,7 +779,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border-bottom: 1px solid #380001;
         }
 
         .guide-container {
@@ -967,7 +1047,6 @@
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
-                position: relative;
                 height: 67px;
             }
 
@@ -1044,6 +1123,7 @@
                 display: flex;
                 flex-direction: column;
                 height: auto;
+                background-color: transparent !important;
             }
 
             .content-section > * {
@@ -1061,16 +1141,20 @@
             .content-section .content-image {
                 order: 2;
                 height: auto;
+                margin: 0;
+                padding: 0;
             }
 
             .content-section.reverse {
                 display: flex;
                 flex-direction: column;
+                background-color: transparent;
             }
 
             .content-section.reverse .content-text {
                 order: 1;
                 margin: 0;
+                background-color: #F7FEBA;
             }
 
             .content-section.reverse .content-image {
@@ -1120,13 +1204,15 @@
             }
 
             .content-image {
-                min-height: 250px;
+                min-height: 0;
+                line-height: 0;
             }
 
             .content-image img {
                 width: 100%;
                 height: 250px;
                 object-fit: cover;
+                display: block;
             }
 
             .content-image-inset img {
@@ -1189,28 +1275,28 @@
                 margin-bottom: 30px;
             }
 
-            .footer-logo {
-                grid-column: 1 / -1;
-                grid-row: 1;
-                text-align: center;
-                margin-bottom: 10px;
-            }
-
-            .footer-logo .logo-text {
-                font-size: 18px;
-            }
-
             .footer-left {
                 grid-column: 2;
-                grid-row: 2;
+                grid-row: 1;
                 justify-self: end;
             }
 
             .footer-right {
                 grid-column: 1;
-                grid-row: 2;
+                grid-row: 1;
                 justify-self: start;
                 align-items: flex-start;
+            }
+
+            .footer-logo {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .footer-logo .logo-text {
+                font-size: 18px;
             }
 
             .footer-left ul {
@@ -1224,119 +1310,112 @@
             .social-icons {
                 justify-content: flex-start;
             }
+        }
 
-            .footer-content {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-                text-align: right;
-            }
-
-            .footer-logo {
-                grid-column: 1 / -1;
-                text-align: center;
-                margin-top: 30px;
+        @media (prefers-reduced-motion: reduce) {
+            .hero-video {
+                animation-play-state: paused;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <div class="hamburger">
+    <nav role="navigation" aria-label="תפריט ראשי">
+        <button class="hamburger" aria-label="פתח/סגור תפריט" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
-        </div>
-        <a href="index-he.html" class="logo"><img src="images/HAGIT HARMON logo.svg" alt="Hagit Harmon" /></a>
-        <a href="index.html" class="lang-switch-mobile">ENG</a>
+        </button>
+        <a href="index-he.html" class="logo" aria-label="חזרה לדף הבית"><img src="images/HAGIT HARMON logo.svg" alt="לוגו חגית הרמון" width="100" height="14" decoding="async" /></a>
+        <a href="index.html" class="lang-switch-mobile" lang="en" aria-label="החלף לאנגלית">ENG</a>
         <ul class="nav-links">
             <li><a href="about-he.html">אודות</a></li>
             <li><a href="zen-meditation-he.html">מדיטציה</a></li>
             <li><a href="therapy-he.html">טיפול (IFS)</a></li>
             <li><a href="events-he.html">אירועים</a></li>
-            <li><a href="index.html" class="hebrew-btn">ENG</a></li>
+            <li><a href="index.html" class="hebrew-btn" lang="en" aria-label="החלף לאנגלית">ENG</a></li>
         </ul>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <section class="hero" aria-label="סקציית היירו">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
             <source src="images/hero-video.mp4" type="video/mp4">
         </video>
-        <div class="hero-overlay"></div>
+        <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-content-wrapper" style="display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center;">
-            <img src="images/meditaiton bell texture copy.png" alt="חגית הרמון" style="max-width: 35%; height: auto; margin-left: 5%;">
+            <img src="images/meditaiton bell texture copy.png" alt="פעמון מדיטציה המסמל תרגול מיינדפולנס" style="max-width: 63%; height: auto; margin-left: 5%;" width="350" height="auto" decoding="async" loading="lazy">
             <p style="font-family: 'Hofesh', serif; font-size: 22px; font-weight: 400; color: #380001; margin-top: 20px; letter-spacing: 0.1em;">מדיטציה ⊙ טיפול</p>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
+    <section class="about" id="about" aria-labelledby="about-heading">
         <div class="about-left">
             <h2>WHAT<br>YOU ARE<br>TRYING<br>TO FIND<br>IS WHAT<br>YOU<br>ALREADY<br>ARE</h2>
         </div>
         <div class="about-right">
-            <h5 style="font-family: 'Hofesh', serif; font-size: 21px; line-height: 26px; color: #F7FEBA; letter-spacing: 0.1em;">טיפול ומדיטציה המבוססים<br>על נוכחות בהווה</h5>
+            <h5 id="about-heading" style="font-family: 'Hofesh', serif; font-size: 21px; line-height: 26px; color: #F7FEBA; letter-spacing: 0.1em;">טיפול ומדיטציה המבוססים<br>על נוכחות בהווה</h5>
             <p style="margin-top: 0; margin-bottom: 40px; max-width: 450px; color: #F7FEBA;">אני מציעה גישות לטיפוח נוכחות, מודעות, חמלה-עצמית והנהגה פנימית. זו גישה של טיפוח מה שאנחנו מייחלים לו והתמרה של ה"זבל" שלנו לפרחים של הבנה ושל אהבה.</p>
         </div>
     </section>
 
     <!-- Internal Family Systems Section -->
-    <section class="content-section" id="therapy">
+    <section class="content-section" id="therapy" aria-labelledby="therapy-heading">
         <div class="content-image">
-            <img src="images/new images/082185AC-EBE7-43C0-99B3-B1D44E7CBD80.jpg" alt="חדר טיפול">
+            <img src="images/new images/082185AC-EBE7-43C0-99B3-B1D44E7CBD80.jpg" alt="חדר טיפול נוח עם סידור ישיבה לטיפול IFS" width="800" height="600" decoding="async" loading="lazy">
         </div>
         <div class="content-text bg-cream">
             <div class="content-label" style="font-family: 'Hofesh', serif; letter-spacing: 0.1em;">טיפול</div>
-            <h2>Internal Family Systems</h2>
-            <p>הגישת של IFS - Internal Family Systems, היא מודל שרואה את התודעה בראייה מערכתית וכריבוי. זו גישה שיכולה להיטמע גם בחיי היומיום והיא מתמקדת בטיפוח הרמוניה מערכתית ככר להנהגה פנימית, העצמה ואמון בעצמי. היא מבוססת על נוכחות בהווה.</p>
-            <a href="therapy-he.html" class="read-more">קראו עוד</a>
+            <h2 id="therapy-heading">Internal Family Systems</h2>
+            <p>הגישת של IFS - Internal Family Systems, היא מודל שרואה את התודעה בראייה מערכתית וכריבוי. זו גישה שיכולה להיטמע גם בחיי היומיום והיא מתמקדת בטיפוח הרמוניה מערכתית ככר להנהגה פנימית, העצמה ואמון בעצמי.</p>
+            <a href="therapy-he.html" class="read-more" aria-label="למידע נוסף על טיפול IFS">קראו עוד</a>
         </div>
     </section>
 
     <!-- Zen Buddhist Meditation Section -->
-    <section class="content-section reverse" id="meditation">
+    <section class="content-section reverse" id="meditation" aria-labelledby="meditation-heading">
         <div class="content-text">
             <div class="content-label" style="font-family: 'Hofesh', serif; letter-spacing: 0.1em;">מדיטציה</div>
-            <h2>תרגול בדרך הזן</h2>
-            <p>מדיטציה בכלל, והמסורת של מאסטר הזן תיך נאת האן בפרט, היא תרגול של נוכחות וחיוּת ברגע ההווה. כל צעד, כל נשימה, וכל פעולה יומיומית הם הזדמנות לחוויה עמוקה של שלווה, צלילות וחיוניות. היא גם היכולת להגיע לתובנות לגבי טבע הסבל והאושר שלנו, כך שנוכל לחיות חופשיים וללא פחד.</p>
-            <a href="zen-meditation-he.html" class="read-more">קראו עוד</a>
+            <h2 id="meditation-heading">תרגול מדיטציה</h2>
+            <p>מדיטציית זן בכלל, והמסורת של מאסטר הזן תיך נאת האן בפרט, היא תרגול של נוכחות וחיוּת ברגע ההווה. כל צעד, כל נשימה, וכל פעולה יומיומית הם הזדמנות לחוויה עמוקה של שלווה, צלילות וחיוניות. היא גם היכולת להגיע לתובנות לגבי טבע הסבל והאושר שלנו, כך שנוכל לחיות חופשיים וללא פחד.</p>
+            <a href="zen-meditation-he.html" class="read-more" aria-label="למידע נוסף על תרגול מדיטציה">קראו עוד</a>
         </div>
         <div class="content-image">
-            <img src="images/new images/UH-Hall-cushions-2048x1365.jpg" alt="כריות מדיטציה">
+            <img src="images/new images/UH-Hall-cushions-2048x1365.jpg" alt="כריות מדיטציית זן מסודרות באולם מדיטציה, מסורת תיך נאת האן" width="2048" height="1365" decoding="async" loading="lazy">
         </div>
     </section>
 
     <!-- Guide Section -->
-    <section class="guide-section">
+    <section class="guide-section" aria-labelledby="guide-heading">
         <div class="guide-container">
-            <div class="guide-text">
-                <h2>חגית הרמון</h2>
-                <p>אני מתרגלת מדיטציה, מורה ומטפלת IFS. כמו שכל הדברים הטובים קורים, נתקלתי בתרגול המדיטציה במקרה, אבל מיד זה הרגיש כמו לחזור הביתה. זה הרגיש כמו משהו שכבר ידעתי מבפנים, ופשוט לקח מישהו להזכיר לי. ככה אני רואה את התרגול: כתזכורת למשהו שכבר נמצא בתוכנו.</p>
-                <a href="about-he.html" class="read-more">קראו עוד</a>
-            </div>
             <div class="guide-image">
-                <img src="images/profile.jpg" alt="חגית הרמון">
+                <img src="images/profile.jpg" alt="חגית הרמון, מטפלת IFS ומורה למדיטציה" width="300" height="300" decoding="async" loading="lazy">
+            </div>
+            <div class="guide-text">
+                <h2 id="guide-heading">חגית הרמון</h2>
+                <p>אני מתרגלת מדיטציה, מורה ומטפלת IFS. כמו שכל הדברים הטובים קורים, נתקלתי בתרגול המדיטציה במקרה, אבל מיד זה הרגיש כמו לחזור הביתה. זה הרגיש כמו משהו שכבר ידעתי מבפנים, ופשוט לקח מישהו להזכיר לי. ככה אני רואה את התרגול: כתזכורת למשהו שכבר נמצא בתוכנו.</p>
+                <a href="about-he.html" class="read-more" aria-label="למידע נוסף על חגית הרמון">קראו עוד</a>
             </div>
         </div>
     </section>
 
     <!-- Newsletter Section -->
-    <section class="newsletter-section">
+    <section class="newsletter-section" aria-labelledby="contact-heading">
         <div class="newsletter-container">
-            <h2>יצירת קשר</h2>
+            <h2 id="contact-heading">יצירת קשר</h2>
             <p>אל תהססו לפנות אלי בקשר לטיפול או בקשר לתרגול מדיטציה. מבטיחה לקרוא ולענות לכל פנייה.</p>
-            <form class="newsletter-form" name="contact" method="POST" action="/success-he.html" data-netlify="true" netlify-honeypot="bot-field">
+            <form class="newsletter-form" name="contact" method="POST" action="/success-he.html" data-netlify="true" netlify-honeypot="bot-field" aria-label="טופס יצירת קשר">
                 <input type="hidden" name="form-name" value="contact" />
                 <input type="hidden" name="bot-field" />
                 <div class="form-group">
                     <label for="name">שם</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" required aria-required="true">
                 </div>
                 <div class="form-group">
                     <label for="email">אימייל</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" required aria-required="true">
                 </div>
                 <div class="form-group">
                     <label for="phone">טלפון</label>
@@ -1344,7 +1423,7 @@
                 </div>
                 <div class="form-group">
                     <label for="message">הודעה</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <textarea id="message" name="message" required aria-required="true"></textarea>
                 </div>
                 <button type="submit" class="submit-btn">שלחו הודעה</button>
             </form>
@@ -1352,7 +1431,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-content">
             <div class="footer-links footer-right">
                 <ul>
@@ -1360,12 +1439,12 @@
                     <li><a href="resources-he.html">משאבים</a></li>
                 </ul>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/hagitharmon/" target="_blank" aria-label="Facebook"><svg width="32" height="32" viewBox="0 0 24 24" fill="#F5F0D5"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-                    <a href="https://www.instagram.com/hagitharmon/" target="_blank" aria-label="Instagram"><svg width="32" height="32" viewBox="0 0 24 24" fill="#F5F0D5"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                    <a href="https://www.facebook.com/hagitharmon/" target="_blank" rel="noopener noreferrer" aria-label="בקרו בעמוד הפייסבוק של חגית הרמון"><svg width="32" height="32" viewBox="0 0 24 24" fill="#F5F0D5" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    <a href="https://www.instagram.com/hagitharmon/" target="_blank" rel="noopener noreferrer" aria-label="בקרו בעמוד האינסטגרם של חגית הרמון"><svg width="32" height="32" viewBox="0 0 24 24" fill="#F5F0D5" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
                 </div>
             </div>
             <div class="footer-logo">
-                <img src="images/HAGIT HARMON logo light.svg" alt="Hagit Harmon" style="height: 18px; width: auto; margin-bottom: 8px;" />
+                <img src="images/HAGIT HARMON logo light.svg" alt="לוגו חגית הרמון" style="height: 18px; width: auto; margin-bottom: 8px;" width="100" height="18" decoding="async" loading="lazy" />
                 <div class="logo-subtitle">מטפלת IFS ומורה למדיטציה</div>
             </div>
             <div class="footer-links footer-left">
@@ -1382,7 +1461,7 @@
         </div>
     </footer>
 
-    <div class="cursor-glow"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
 
     <script>
         // Hamburger menu toggle
@@ -1390,6 +1469,8 @@
         const navLinks = document.querySelector('.nav-links');
 
         hamburger.addEventListener('click', () => {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
@@ -1397,6 +1478,7 @@
         // Close menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
+                hamburger.setAttribute('aria-expanded', 'false');
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
             });

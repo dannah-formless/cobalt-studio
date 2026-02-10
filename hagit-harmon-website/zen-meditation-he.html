@@ -3,11 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מדיטציה - חגית הרמון</title>
+    <title>מדיטציית זן בודהיסטית בתל אביב | מסורת תיך נאת האן | חגית הרמון</title>
+    <meta name="description" content="למדו מדיטציית זן עם חגית הרמון בתל אביב. תרגול מיינדפולנס במסורת של תיך נאת האן. טפחו נוכחות, מודעות ושלווה פנימית באמצעות מדיטציה מודרכת.">
+
+    <!-- Canonical & Language -->
+    <link rel="canonical" href="https://hagitharmon.com/zen-meditation-he.html">
+    <link rel="alternate" hreflang="en" href="https://hagitharmon.com/zen-meditation.html">
+    <link rel="alternate" hreflang="he" href="https://hagitharmon.com/zen-meditation-he.html">
+    <link rel="alternate" hreflang="x-default" href="https://hagitharmon.com/zen-meditation.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hagitharmon.com/zen-meditation-he.html">
+    <meta property="og:title" content="מדיטציית זן בודהיסטית | מסורת תיך נאת האן | חגית הרמון">
+    <meta property="og:description" content="למדו מדיטציית זן עם חגית הרמון בתל אביב. תרגול מיינדפולנס במסורת של תיך נאת האן. טפחו נוכחות, מודעות ושלווה פנימית.">
+    <meta property="og:image" content="https://hagitharmon.com/images/profile.jpg">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="מדיטציית זן בודהיסטית | מסורת תיך נאת האן | חגית הרמון">
+    <meta name="twitter:description" content="למדו מדיטציית זן עם חגית הרמון בתל אביב. תרגול מיינדפולנס במסורת של תיך נאת האן.">
+    <meta name="twitter:image" content="https://hagitharmon.com/images/profile.jpg">
+
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shree+Devanagari+714:wght@400;700&family=Heebo:wght@300;400;500&display=block" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "name": "Hagit Harmon Zen Meditation Teaching",
+          "description": "Zen Buddhist meditation instruction in the Thich Nhat Hanh tradition, focusing on mindfulness, presence, and compassion",
+          "url": "https://hagitharmon.com/zen-meditation-he.html",
+          "serviceType": [
+            "Zen Meditation Instruction",
+            "Mindfulness Teaching",
+            "Buddhist Meditation",
+            "Thich Nhat Hanh Tradition"
+          ],
+          "provider": {
+            "@type": "Person",
+            "name": "Hagit Harmon",
+            "jobTitle": "Meditation Teacher"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Tel Aviv"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Hagit Harmon",
+          "jobTitle": "Meditation Teacher",
+          "url": "https://hagitharmon.com",
+          "image": "https://hagitharmon.com/images/profile.jpg",
+          "sameAs": [
+            "https://www.facebook.com/hagitharmon/",
+            "https://www.instagram.com/hagitharmon/"
+          ]
+        }
+      ]
+    }
+    </script>
     <style>
         @font-face {
             font-family: 'Assistant';
@@ -56,7 +120,7 @@
         }
 
         html {
-            overflow-x: hidden;
+            overflow-x: clip;
         }
 
         body {
@@ -66,8 +130,7 @@
             font-weight: 450 !important;
             color: #380001;
             background-color: #D1D1A7;
-            position: relative;
-            overflow-x: hidden;
+            overflow-x: clip;
             width: 100%;
         }
 
@@ -115,17 +178,15 @@
             padding: 20px 80px;
             background-color: rgba(245, 240, 213, 0.15);
             backdrop-filter: blur(10px);
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(56, 0, 1, 0.2);
             transition: all 0.3s ease;
         }
 
         nav.scrolled {
-            background-color: rgba(245, 240, 213, 0.75);
+            background-color: rgba(245, 240, 213, 0.4);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
         }
@@ -196,6 +257,9 @@
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
+            background: none;
+            border: none;
+            padding: 0;
         }
 
         .hamburger span {
@@ -280,7 +344,7 @@
         .hero-content h2 {
             font-family: 'Assistant', sans-serif;
             font-size: 64px;
-            font-weight: 400;
+            font-weight: 300;
             letter-spacing: 0;
             margin-bottom: 40px;
             color: #380001;
@@ -312,7 +376,7 @@
             font-family: 'Hofesh', serif;
             letter-spacing: 0.1em;
             font-size: 24px;
-            font-weight: 400;
+            font-weight: 300;
             color: #380001;
             margin-bottom: 40px;
         }
@@ -331,10 +395,11 @@
         /* Events Section */
         .events-section {
             background-color: transparent;
-            padding: 120px 80px;
+            padding: 80px 80px;
             min-height: 80vh;
             position: relative;
             z-index: 10;
+            border-top: 1px solid #380001;
         }
 
         .events-container {
@@ -343,14 +408,14 @@
         }
 
         .events-header {
-            margin-bottom: 80px;
+            margin-bottom: 40px;
         }
 
         .events-header h3 {
             font-family: 'Hofesh', serif;
             letter-spacing: 0.1em;
             font-size: 24px;
-            font-weight: 400;
+            font-weight: 300;
             text-transform: none;
             color: #380001;
             margin-bottom: 20px;
@@ -361,23 +426,27 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 60px;
-            margin-bottom: 100px;
+            margin-bottom: 40px;
         }
 
         .event-card {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
 
         .event-image {
             width: 100%;
-            height: 250px;
+            padding-top: 133.33%; /* 3:4 aspect ratio (4/3 * 100) */
+            position: relative;
             overflow: hidden;
             background-color: #946A4E;
         }
 
         .event-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -396,8 +465,17 @@
         }
 
         .event-title {
+            font-family: 'Hofesh', serif;
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            color: #380001;
+            margin: 0;
+        }
+
+        .event-title {
             font-family: 'Assistant', sans-serif;
-            font-size: 18px !important;
+            font-size: 20px !important;
             font-weight: 400;
             color: #380001;
             text-transform: none;
@@ -443,6 +521,33 @@
             font-weight: 300;
             color: #380001;
             line-height: 1.6;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+        }
+
+        .event-description.collapsed {
+            -webkit-line-clamp: 3;
+        }
+
+        .event-description.expanded {
+            -webkit-line-clamp: unset;
+        }
+
+        .read-more-btn {
+            font-size: 12px;
+            font-weight: 300;
+            color: #380001;
+            text-decoration: underline;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            margin-top: 4px;
+        }
+
+        .read-more-btn:hover {
+            opacity: 0.7;
         }
 
         /* Newsletter Section */
@@ -679,7 +784,6 @@
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
-                position: relative;
                 height: 67px;
             }
 
@@ -768,16 +872,13 @@
             }
 
             .events-section {
-                padding: 50px 30px;
+                padding: 60px 30px;
             }
 
             .events-grid {
                 grid-template-columns: 1fr;
             }
 
-            .events-header {
-                margin-bottom: 40px;
-            }
 
             .newsletter-section {
                 padding: 50px 30px;
@@ -804,28 +905,28 @@
                 margin-bottom: 30px;
             }
 
-            .footer-logo {
-                grid-column: 1 / -1;
-                grid-row: 1;
-                text-align: center;
-                margin-bottom: 10px;
-            }
-
-            .footer-logo .logo-text {
-                font-size: 18px;
-            }
-
             .footer-left {
                 grid-column: 2;
-                grid-row: 2;
+                grid-row: 1;
                 justify-self: end;
             }
 
             .footer-right {
                 grid-column: 1;
-                grid-row: 2;
+                grid-row: 1;
                 justify-self: start;
                 align-items: flex-start;
+            }
+
+            .footer-logo {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .footer-logo .logo-text {
+                font-size: 18px;
             }
 
             .footer-left ul {
@@ -840,24 +941,32 @@
                 justify-content: flex-start;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <div class="hamburger">
+    <nav role="navigation" aria-label="תפריט ראשי">
+        <button class="hamburger" aria-label="פתח/סגור תפריט" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
-        </div>
-        <a href="index-he.html" class="logo"><img src="images/HAGIT HARMON logo.svg" alt="Hagit Harmon" /></a>
-        <a href="zen-meditation.html" class="lang-switch-mobile">ENG</a>
+        </button>
+        <a href="index-he.html" class="logo" aria-label="חזרה לדף הבית"><img src="images/HAGIT HARMON logo.svg" alt="לוגו חגית הרמון" width="100" height="14" decoding="async" /></a>
+        <a href="zen-meditation.html" class="lang-switch-mobile" lang="en" aria-label="החלף לאנגלית">ENG</a>
         <ul class="nav-links">
             <li><a href="about-he.html">אודות</a></li>
-            <li><a href="zen-meditation-he.html">מדיטציה</a></li>
+            <li><a href="zen-meditation-he.html" aria-current="page">מדיטציה</a></li>
             <li><a href="therapy-he.html">טיפול (IFS)</a></li>
             <li><a href="events-he.html">אירועים</a></li>
-            <li><a href="zen-meditation.html" class="hebrew-btn">ENG</a></li>
+            <li><a href="zen-meditation.html" class="hebrew-btn" lang="en" aria-label="החלף לאנגלית">ENG</a></li>
         </ul>
     </nav>
 
@@ -907,44 +1016,14 @@
     </section>
 
     <!-- Upcoming Events Section -->
-    <section class="events-section">
+    <section class="events-section" id="meditation-events-section">
         <div class="events-container">
             <div class="events-header">
                 <h3 style="font-family: 'Hofesh', serif; letter-spacing: 0.1em;">אירועים קרובים</h3>
             </div>
 
-            <div class="events-grid">
-                <!-- Event 1 -->
-                <div class="event-card" data-recurring="true">
-                    <div class="event-image">
-                        <img src="images/meditation-cushions.jpg" alt="תמונת אירוע">
-                    </div>
-                    <div class="event-content">
-                        <h2 class="event-title">מבוא למדיטציה</h2>
-                        <div class="event-meta">
-                            <span>תאריך: כל יום שלישי, 19:00</span>
-                            <span>מיקום: סטודיו תל אביב / אונליין</span>
-                        </div>
-                        <p class="event-description">מבוא ידידותי למתחילים לתרגול מדיטציה. למדו טכניקות בסיסיות, יציבה ונשימה כדי להקים תרגול אישי.</p>
-                        <a href="#" class="event-link">הרשמה</a>
-                    </div>
-                </div>
-
-                <!-- Event 2 -->
-                <div class="event-card" data-recurring="true">
-                    <div class="event-image">
-                        <img src="images/lecture.png" alt="תמונת אירוע">
-                    </div>
-                    <div class="event-content">
-                        <h2 class="event-title">סדרת הרצאות זן</h2>
-                        <div class="event-meta">
-                            <span>תאריך: ראשון ראשון בחודש, 10:00</span>
-                            <span>מיקום: סטודיו תל אביב</span>
-                        </div>
-                        <p class="event-description">הרצאות חודשיות העוסקות בפילוסופיה ובתרגול של הבודהיזם הזן. כל מפגש מתמקד בהוראה שונה, עם זמן לשאלות ולדיון.</p>
-                        <a href="#" class="event-link">הרשמה</a>
-                    </div>
-                </div>
+            <div class="events-grid" id="meditation-events-grid">
+                <!-- Events will be loaded dynamically from canonical source -->
             </div>
         </div>
     </section>
@@ -964,7 +1043,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-content">
             <div class="footer-links footer-right">
                 <ul>
@@ -994,7 +1073,7 @@
         </div>
     </footer>
 
-    <div class="cursor-glow"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
 
     <script>
         // Hamburger menu toggle
@@ -1002,6 +1081,8 @@
         const navLinks = document.querySelector('.nav-links');
 
         hamburger.addEventListener('click', () => {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
@@ -1009,6 +1090,7 @@
         // Close menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
+                hamburger.setAttribute('aria-expanded', 'false');
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
             });
@@ -1041,6 +1123,100 @@
                 nav.classList.remove('scrolled');
             }
         });
+
+        // Upcoming Events - Load from canonical source
+        function loadUpcomingEvents() {
+            // Canonical event data source (matches events-he.html)
+            const events = [
+                {
+                    title: "אהימסה - אי-אלימות, שבת מדיטציה במרכז לויג'יאנה",
+                    date: "2026-02-28",
+                    recurring: false,
+                    image: "images/event.png",
+                    meta: [
+                        "תאריך: 28 בפברואר, 2026",
+                        "מיקום: מאזה 22, תל אביב",
+                        "שפה: עברית"
+                    ],
+                    description: "אהימסה היא עקרון אי-הפגיעה. זו לא עמדה פסיבית, אלא עמדה אקטיבית הנובעת ממה שנקרא 'שתי כנפי התרגול' - חמלה ותובנה. הפעולה הלא-אלימה הזו מתחילה קודם כל בתוכנו וכלפי עצמנו. לפי תיך נאת האן, מורה הזן ופעיל השלום במלחמת וייטנאם, שינוי אמיתי מתחיל בתוכנו וביכולת שלנו להתעלות מעל קוטביות, צדדים ומחנות. באמצעות התבוננות עמוקה, אנו רוצים ללמוד כיצד להפוך פחד, יאוש, שנאה ועוינות בתוכנו, ולעזור לאחרים לעשות את אותו הדבר, מתוך כבוד לחיים. בתרגול הזה אין ציפייה למוחלט - אנו עושים את המיטב שלנו בהתאם לנסיבות. את כל זה נחקור יחד דרך מדיטציית ישיבה, תנועה, אכילה ולמידה משותפת במפגש מדיטציה עם מורת הדהרמה חגית הרמון.",
+                    link: "https://yogatlv.co.il/meditation/"
+                }
+            ];
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            const upcomingEvents = events.filter(event => {
+                if (event.recurring) return true;
+                if (!event.date) return true;
+
+                const eventDate = new Date(event.date);
+                eventDate.setHours(0, 0, 0, 0);
+                return eventDate >= today;
+            });
+
+            const section = document.getElementById('meditation-events-section');
+            const grid = document.getElementById('meditation-events-grid');
+
+            if (upcomingEvents.length === 0) {
+                section.style.display = 'none';
+                return;
+            }
+
+            grid.innerHTML = upcomingEvents.map(event => `
+                <div class="event-card" data-date="${event.date || ''}" data-recurring="${event.recurring}">
+                    <h2 class="event-title">${event.title}</h2>
+                    <div class="event-image">
+                        <img src="${event.image}" alt="תמונת אירוע">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-meta">
+                            ${event.meta.map(m => `<span>${m}</span>`).join('')}
+                        </div>
+                        <p class="event-description">${event.description}</p>
+                        <a href="${event.link}" target="_blank" class="event-link">הרשמה</a>
+                    </div>
+                </div>
+            `).join('');
+
+            // Initialize read more functionality after events are loaded
+            initReadMore();
+        }
+
+        // Read more functionality (copied from events-he.html)
+        function initReadMore() {
+            const descriptions = document.querySelectorAll('.event-description');
+
+            descriptions.forEach(desc => {
+                // Check if text exceeds 3 lines
+                const lineHeight = parseInt(window.getComputedStyle(desc).lineHeight);
+                const maxHeight = lineHeight * 3;
+
+                if (desc.scrollHeight > maxHeight) {
+                    desc.classList.add('collapsed');
+
+                    const readMoreBtn = document.createElement('button');
+                    readMoreBtn.className = 'read-more-btn';
+                    readMoreBtn.textContent = 'קרא עוד';
+
+                    desc.parentNode.insertBefore(readMoreBtn, desc.nextSibling);
+
+                    readMoreBtn.addEventListener('click', () => {
+                        if (desc.classList.contains('collapsed')) {
+                            desc.classList.remove('collapsed');
+                            desc.classList.add('expanded');
+                            readMoreBtn.textContent = 'קרא פחות';
+                        } else {
+                            desc.classList.remove('expanded');
+                            desc.classList.add('collapsed');
+                            readMoreBtn.textContent = 'קרא עוד';
+                        }
+                    });
+                }
+            });
+        }
+
+        loadUpcomingEvents();
     </script>
 </body>
 </html>

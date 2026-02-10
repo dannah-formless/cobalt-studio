@@ -1,0 +1,14 @@
+{
+  "events": [
+    {
+      "title": "ahimsa - non-violence, meditation saturday at loygiana center",
+      "image": "/images/event.png",
+      "date": "Every Saturday, 9:00 AM",
+      "location": "Loygiana Center, Tel Aviv",
+      "description": "Join us for a peaceful morning of meditation and mindfulness practice focused on the principle of ahimsa (non-violence). This weekly gathering welcomes practitioners of all levels.",
+      "register_link": "https://yogatlv.co.il/meditation/",
+      "is_recurring": true,
+      "event_date": null
+    }
+  ]
+}
