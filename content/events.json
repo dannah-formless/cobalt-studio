@@ -1,0 +1,22 @@
+{
+  "events": [
+    {
+      "is_recurring": false,
+      "event_date": "2026-02-28T13:54:20.710Z",
+      "en": {
+        "title": "Ahimsa - Non-violence, meditation saturday at the Loygiana Center",
+        "date": "28.2.26",
+        "location": "Maze 22, Tel Aviv",
+        "description": "Ahimsa is the principle of non-harm. It is not a passive stance, but an active position rooted in what is called \"the two wings of practice\" - compassion and insight. This non-violent action begins first within ourselves and towards ourselves. According to Thich Nhat Hanh, the Zen teacher and peace activist during the Vietnam War, true change begins within us and in our ability to rise above polarities, sides, and camps. Through deep observation, we want to learn how to transform fear, despair, hatred and hostility within us, and help others do the same, out of respect for life. In this practice there is no expectation of absolute - we do our best according to the circumstances. All of this we will explore together through sitting meditation, movement, eating and shared learning in a meditation session with Dharma teacher Hagit Harmon."
+      },
+      "he": {
+        "title": "אהימסה - אי אלימות, שבת מדיטציה במרכז לויג'נאנה ",
+        "location": "מזא״ה 22 תל אביב",
+        "date": "28.2.26",
+        "description": "אהימסה הוא העקרון של אי-פגיעה.\nזו אינה עמדה פסיבית, אלא עמדה אקטיבית של פעולה הנטועה במה שקרוי \"שתי כנפי התרגול\" – חמלה ותובנה. הפעולה הלא אלימה הזו מתחילה קודם כל בתוכנו וכלפי עצמנו.\nעל פי תיך נאת האן, מורה הזן ומי שהיה גם פעיל שלום בזמן מלחמת וייטנאם, השינוי האמיתי מתחיל בתוכנו וביכולת להתעלות מעבר לקטבים, לצדדים ולמחנות.\nמתוך התבוננות לעומק, אנחנו רוצים ללמוד איך להתמיר פחד, ייאוש, שנאה ועוינות בתוכנו, ולעזור לאחרים לעשות את אותו הדבר, מתוך כבוד לחיים.\nבתרגול הזה אין ציפייה למוחלט – אנחנו עושים כמיטב יכולתנו בהתאם לנסיבות.\nאת כל זאת נחקור יחד במדיטציה בישיבה, בתנועה, באכילה ובלימוד משותף במפגש מדיטציה עם מורת הדהרמה חגית הרמון. "
+      },
+      "register_link": "https://yogatlv.co.il/meditation/",
+      "image": "/images/screenshot-2026-02-09-at-21.04.21.png"
+    }
+  ]
+}
