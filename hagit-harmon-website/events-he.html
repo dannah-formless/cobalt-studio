@@ -1118,7 +1118,7 @@
         // Load events from JSON
         async function loadEvents() {
             try {
-                const response = await fetch('/content/events-he.json');
+                const response = await fetch('/content/events.json');
                 const data = await response.json();
                 const upcomingGrid = document.getElementById('upcoming-events');
 
@@ -1136,18 +1136,18 @@
                     }
                     eventCard.setAttribute('data-recurring', event.is_recurring ? 'true' : 'false');
 
-                    // Build event card HTML
+                    // Build event card HTML using Hebrew fields
                     eventCard.innerHTML = `
-                        <h2 class="event-title">${event.title}</h2>
+                        <h2 class="event-title">${event.he.title}</h2>
                         <div class="event-image">
-                            <img src="${event.image}" alt="${event.title}">
+                            <img src="${event.image}" alt="${event.he.title}">
                         </div>
                         <div class="event-content">
                             <div class="event-meta">
-                                <span>תאריך: ${event.date}</span>
-                                <span>מיקום: ${event.location}</span>
+                                <span>תאריך: ${event.he.date}</span>
+                                <span>מיקום: ${event.he.location}</span>
                             </div>
-                            <p class="event-description">${event.description}</p>
+                            <p class="event-description">${event.he.description}</p>
                             ${event.register_link ? `<a href="${event.register_link}" target="_blank" class="event-link">הרשמה</a>` : ''}
                         </div>
                     `;
