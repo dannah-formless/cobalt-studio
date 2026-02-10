@@ -1,22 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Lotus flower favicon -->
-  <style>
-    .petal { fill: #946A4E; }
-    .center { fill: #F7FEBA; }
-  </style>
-
-  <!-- Center petals -->
-  <ellipse class="petal" cx="50" cy="55" rx="8" ry="20" transform="rotate(0 50 55)"/>
-  <ellipse class="petal" cx="50" cy="55" rx="8" ry="20" transform="rotate(45 50 55)"/>
-  <ellipse class="petal" cx="50" cy="55" rx="8" ry="20" transform="rotate(90 50 55)"/>
-  <ellipse class="petal" cx="50" cy="55" rx="8" ry="20" transform="rotate(135 50 55)"/>
-
-  <!-- Outer petals -->
-  <ellipse class="petal" cx="50" cy="55" rx="6" ry="25" transform="rotate(22.5 50 55)"/>
-  <ellipse class="petal" cx="50" cy="55" rx="6" ry="25" transform="rotate(67.5 50 55)"/>
-  <ellipse class="petal" cx="50" cy="55" rx="6" ry="25" transform="rotate(112.5 50 55)"/>
-  <ellipse class="petal" cx="50" cy="55" rx="6" ry="25" transform="rotate(157.5 50 55)"/>
-
-  <!-- Center circle -->
-  <circle class="center" cx="50" cy="55" r="10"/>
-</svg>
+version https://git-lfs.github.com/spec/v1
+oid sha256:0832947cf18d8cccacf0617279f7376d5524b3d46f414692a94b4a875cb2d66c
+size 1017
