@@ -17,6 +17,24 @@
       },
       "register_link": "https://yogatlv.co.il/meditation/",
       "image": "/images/event.png"
+    },
+    {
+      "is_recurring": false,
+      "event_date": "2026-04-05T16:22:23.123Z",
+      "he": {
+        "title": "לחצות לגדה השניה: תרגול איכויות מיטיבות בחיי היומיום",
+        "date": "שישה מפגשים בימי שני החל מ-5.4  ",
+        "location": "אונליין",
+        "description": "בקורס זה נפגוש את הלימוד והתרגול  הבודהיסטי של שש השלמויות - הפרמיטות.\nתירגול זה נועד להיות חלק מחיי היומיום.\n \nפירוש המילה פרמיטה הוא \"שלמות\", או \"הבנה שלמה\", או \"לחצות לגדה השניה\".\nכך שהן איכויות המזמינות אותנו לעבור מהתודעה השוהה על חוף הסבל, הכעס, הייאוש והפחד, אל עבר לחוף ההבנה, החמלה, היציבות.\nלשם כך עלינו לעשות משהו –מאמץ מודע.\nלכך קוראים פרמיטה.\n \nזו אינה עשייה חד פעמית, והיא מניחה שאנחנו לא מושלמים, ולכן היא משהו שאפשר לעשות, להגשים, שוב ושוב, מתוך קבלת אנושיותנו.\nהחצייה הזו לגדה השנייה, ההתעוררות, יכולה לקרות בכל רגע."
+      },
+      "register_link": "https://www.educare.co.il/paramita",
+      "en": {
+        "location": " Online",
+        "title": "Crossing to the other shore: Practicing beneficial qualities in everyday life",
+        "date": "Six mondays starting 5.4",
+        "description": "In this course, we will encounter the Buddhist teaching and practice of the Six Perfections — the Paramitas.\n\nThis practice is meant to be part of everyday life.\n\nThe meaning of the word Paramita is “perfection,” or “complete understanding,” or “crossing to the other shore.”\n\nThey are qualities that invite us to move from a state of mind resting on the shore of suffering, anger, despair, and fear, toward the shore of understanding, compassion, and stability.\n\nTo do this, we need to do something — a conscious effort.\n\nThis is what is called Paramita.\n\nThis is not a one-time action. It assumes that we are not perfect, and therefore it is something we can practice, realize, and embody again and again, מתוך acceptance of our humanity.\n\nThis crossing to the other shore, this awakening, can happen in any moment."
+      },
+      "image": "/images/lotus.png"
     }
   ]
 }
