@@ -1009,6 +1009,7 @@
                 <input type="email" name="email" placeholder="your email" required>
                 <button type="submit">subscribe</button>
             </form>
+            <p style="font-size: 14px; font-weight: 300; color: #F7FEBA; line-height: 1.6; margin-top: 20px; text-align: center;">If you would like to join a silent WhatsApp group for updates, <a href="#" id="whatsapp-contact-link" style="color: #F7FEBA; text-decoration: underline; cursor: pointer;">let me know in a message</a>.</p>
         </div>
     </section>
 
@@ -1266,9 +1267,18 @@
         const contactModal = document.getElementById('contact-modal');
         const modalClose = document.getElementById('modal-close');
         const sendMessageLink = document.getElementById('send-message');
+        const whatsappContactLink = document.getElementById('whatsapp-contact-link');
 
         if (sendMessageLink) {
             sendMessageLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                contactModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        if (whatsappContactLink) {
+            whatsappContactLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 contactModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
