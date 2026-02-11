@@ -1297,62 +1297,60 @@
         }
 
         // Upcoming Events - Load from canonical source
-        function loadUpcomingEvents() {
-            // Canonical event data source (matches events-he.html)
-            const events = [
-                {
-                    title: "אהימסה - אי-אלימות, שבת מדיטציה במרכז לויג'יאנה",
-                    date: "2026-02-28",
-                    recurring: false,
-                    image: "images/event.png",
-                    meta: [
-                        "תאריך: 28 בפברואר, 2026",
-                        "מיקום: מאזה 22, תל אביב",
-                        "שפה: עברית"
-                    ],
-                    description: "אהימסה היא עקרון אי-הפגיעה. זו לא עמדה פסיבית, אלא עמדה אקטיבית הנובעת ממה שנקרא 'שתי כנפי התרגול' - חמלה ותובנה. הפעולה הלא-אלימה הזו מתחילה קודם כל בתוכנו וכלפי עצמנו. לפי תיך נאת האן, מורה הזן ופעיל השלום במלחמת וייטנאם, שינוי אמיתי מתחיל בתוכנו וביכולת שלנו להתעלות מעל קוטביות, צדדים ומחנות. באמצעות התבוננות עמוקה, אנו רוצים ללמוד כיצד להפוך פחד, יאוש, שנאה ועוינות בתוכנו, ולעזור לאחרים לעשות את אותו הדבר, מתוך כבוד לחיים. בתרגול הזה אין ציפייה למוחלט - אנו עושים את המיטב שלנו בהתאם לנסיבות. את כל זה נחקור יחד דרך מדיטציית ישיבה, תנועה, אכילה ולמידה משותפת במפגש מדיטציה עם מורת הדהרמה חגית הרמון.",
-                    link: "https://yogatlv.co.il/meditation/"
+        async function loadUpcomingEvents() {
+            try {
+                const response = await fetch('/content/events.json');
+                const data = await response.json();
+
+                if (!data.events || data.events.length === 0) {
+                    document.getElementById('meditation-events-section').style.display = 'none';
+                    return;
                 }
-            ];
 
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
 
-            const upcomingEvents = events.filter(event => {
-                if (event.recurring) return true;
-                if (!event.date) return true;
+                // Filter for upcoming events only
+                const upcomingEvents = data.events.filter(event => {
+                    if (event.is_recurring) return true;
+                    if (!event.event_date) return true;
 
-                const eventDate = new Date(event.date);
-                eventDate.setHours(0, 0, 0, 0);
-                return eventDate >= today;
-            });
+                    const eventDate = new Date(event.event_date);
+                    eventDate.setHours(0, 0, 0, 0);
+                    return eventDate >= today;
+                });
 
-            const section = document.getElementById('meditation-events-section');
-            const grid = document.getElementById('meditation-events-grid');
+                const section = document.getElementById('meditation-events-section');
+                const grid = document.getElementById('meditation-events-grid');
 
-            if (upcomingEvents.length === 0) {
-                section.style.display = 'none';
-                return;
-            }
+                if (upcomingEvents.length === 0) {
+                    section.style.display = 'none';
+                    return;
+                }
 
-            grid.innerHTML = upcomingEvents.map(event => `
-                <div class="event-card" data-date="${event.date || ''}" data-recurring="${event.recurring}">
-                    <h2 class="event-title">${event.title}</h2>
-                    <div class="event-image">
-                        <img src="${event.image}" alt="תמונת אירוע">
-                    </div>
-                    <div class="event-content">
-                        <div class="event-meta">
-                            ${event.meta.map(m => `<span>${m}</span>`).join('')}
+                grid.innerHTML = upcomingEvents.map(event => `
+                    <div class="event-card" data-date="${event.event_date || ''}" data-recurring="${event.is_recurring || false}">
+                        <h2 class="event-title">${event.he.title}</h2>
+                        <div class="event-image">
+                            <img src="${event.image}" alt="${event.he.title}">
                         </div>
-                        <p class="event-description">${event.description}</p>
-                        <a href="${event.link}" target="_blank" class="event-link">הרשמה</a>
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <span>תאריך: ${event.he.date}</span>
+                                <span>מיקום: ${event.he.location}</span>
+                            </div>
+                            <p class="event-description">${event.he.description}</p>
+                            ${event.register_link ? `<a href="${event.register_link}" target="_blank" class="event-link">הרשמה</a>` : ''}
+                        </div>
                     </div>
-                </div>
-            `).join('');
+                `).join('');
 
-            // Initialize read more functionality after events are loaded
-            initReadMore();
+                // Initialize read more functionality after events are loaded
+                initReadMore();
+            } catch (error) {
+                console.error('Error loading events:', error);
+                document.getElementById('meditation-events-section').style.display = 'none';
+            }
         }
 
         // Read more functionality (copied from events-he.html)
