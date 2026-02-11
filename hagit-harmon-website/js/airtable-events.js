@@ -38,20 +38,20 @@ async function fetchAirtableEvents() {
             .map(record => ({
                 id: record.id,
                 isRecurring: record.fields['Is Recurring'] || false,
-                eventDate: record.fields['Event Date'] || null,
+                eventDate: record.fields['date'] || null,
                 en: {
-                    title: record.fields['Title (English)'] || '',
-                    date: record.fields['Date Display (English)'] || '',
-                    location: record.fields['Location (English)'] || '',
-                    language: record.fields['Language'] || '',
-                    description: record.fields['Description (English)'] || ''
+                    title: record.fields['Title (eng)'] || '',
+                    date: record.fields['Date display (eng)'] || '',
+                    location: record.fields['Location (eng)'] || '',
+                    language: record.fields['Language (eng)'] || '',
+                    description: record.fields['Description (eng)'] || ''
                 },
                 he: {
-                    title: record.fields['Title (Hebrew)'] || '',
-                    date: record.fields['Date Display (Hebrew)'] || '',
-                    location: record.fields['Location (Hebrew)'] || '',
-                    language: record.fields['Language (Hebrew)'] || '',
-                    description: record.fields['Description (Hebrew)'] || ''
+                    title: record.fields['Title (heb)'] || '',
+                    date: record.fields['Date display (heb)'] || '',
+                    location: record.fields['Location (heb)'] || '',
+                    language: record.fields['Language (heb)'] || '',
+                    description: record.fields['Description (heb)'] || ''
                 },
                 registerLink: record.fields['Registration Link'] || '',
                 image: record.fields.Image && record.fields.Image.length > 0
