@@ -159,7 +159,7 @@ async function loadEventsHebrew() {
 // Load upcoming events for English meditation page (zen-meditation.html)
 async function loadUpcomingEventsEnglish() {
     const events = await fetchAirtableEvents();
-    const grid = document.getElementById('upcoming-events-grid');
+    const grid = document.getElementById('meditation-events-grid');
 
     if (!grid) return;
 
@@ -207,7 +207,7 @@ async function loadUpcomingEventsEnglish() {
 // Load upcoming events for Hebrew meditation page (zen-meditation-he.html)
 async function loadUpcomingEventsHebrew() {
     const events = await fetchAirtableEvents();
-    const grid = document.getElementById('upcoming-events-grid');
+    const grid = document.getElementById('meditation-events-grid');
 
     if (!grid) return;
 
