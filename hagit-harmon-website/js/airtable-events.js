@@ -4,7 +4,7 @@ const AIRTABLE_CONFIG = {
     baseId: 'apptjSc9CHXlZKntH',
     tableName: 'Events',
     apiKey: 'patgMZR8hTr6EoOr0.5c90d477c43327c823764db5926b2dfa15ba66d3ffaa803b120c3e0c5f5c63d0',
-    view: 'Published'               // Optional: create a view that filters Published=true
+    view: ''               // Empty = use default view (all records)
 };
 
 // Fetch events from Airtable
