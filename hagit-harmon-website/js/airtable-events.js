@@ -77,7 +77,7 @@ async function loadEventsEnglish() {
     upcomingGrid.innerHTML = '';
 
     if (events.length === 0) {
-        upcomingGrid.innerHTML = '<p style="text-align: center; color: #F7FEBA;">No events available at this time.</p>';
+        upcomingGrid.innerHTML = '<p style="text-align: center; color: #CCCCCC; line-height: 1.6;">There\'s no upcoming events right now. Scroll down to stay in touch through email or whatsapp.</p>';
         return;
     }
 
@@ -122,7 +122,7 @@ async function loadEventsHebrew() {
     upcomingGrid.innerHTML = '';
 
     if (events.length === 0) {
-        upcomingGrid.innerHTML = '<p style="text-align: center; color: #F7FEBA;">אין אירועים זמינים כרגע.</p>';
+        upcomingGrid.innerHTML = '<p style="text-align: center; color: #CCCCCC; line-height: 1.6;">אין כרגע אירועים, תשמרו על קשר למטה דרך מייל או וואטסאפ</p>';
         return;
     }
 
@@ -180,7 +180,7 @@ async function loadUpcomingEventsEnglish() {
     });
 
     if (upcomingEvents.length === 0) {
-        grid.innerHTML = '<p style="text-align: center; color: #F7FEBA; grid-column: 1 / -1;">No upcoming events at this time.</p>';
+        grid.innerHTML = '<p style="text-align: center; color: #CCCCCC; line-height: 1.6; grid-column: 1 / -1;">There\'s no upcoming events right now. Scroll down to stay in touch through email or whatsapp.</p>';
         return;
     }
 
@@ -233,7 +233,7 @@ async function loadUpcomingEventsHebrew() {
     });
 
     if (upcomingEvents.length === 0) {
-        grid.innerHTML = '<p style="text-align: center; color: #F7FEBA; grid-column: 1 / -1;">אין אירועים קרובים כרגע.</p>';
+        grid.innerHTML = '<p style="text-align: center; color: #CCCCCC; line-height: 1.6; grid-column: 1 / -1;">אין כרגע אירועים, תשמרו על קשר למטה דרך מייל או וואטסאפ</p>';
         return;
     }
 
