@@ -35,6 +35,24 @@
         "description": "In this course, we will encounter the Buddhist teaching and practice of the Six Perfections — the Paramitas.\n\nThis practice is meant to be part of everyday life.\n\nThe meaning of the word Paramita is “perfection,” or “complete understanding,” or “crossing to the other shore.”\n\nThey are qualities that invite us to move from a state of mind resting on the shore of suffering, anger, despair, and fear, toward the shore of understanding, compassion, and stability.\n\nTo do this, we need to do something — a conscious effort.\n\nThis is what is called Paramita.\n\nThis is not a one-time action. It assumes that we are not perfect, and therefore it is something we can practice, realize, and embody again and again, מתוך acceptance of our humanity.\n\nThis crossing to the other shore, this awakening, can happen in any moment."
       },
       "image": "/images/lotus.png"
+    },
+    {
+      "is_recurring": false,
+      "event_date": "2026-02-11T09:20:00.498Z",
+      "en": {
+        "title": "test",
+        "date": "test",
+        "location": "test",
+        "description": "test"
+      },
+      "he": {
+        "title": "test",
+        "date": "test",
+        "location": "test",
+        "description": "test"
+      },
+      "register_link": "test",
+      "image": "/images/clouds.png"
     }
   ]
 }
