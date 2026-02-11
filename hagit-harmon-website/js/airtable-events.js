@@ -77,7 +77,7 @@ async function loadEventsEnglish() {
     upcomingGrid.innerHTML = '';
 
     if (events.length === 0) {
-        upcomingGrid.innerHTML = '<p style="text-align: left; color: #380001; line-height: 1.6;">There\'s no upcoming events right now. Scroll down to stay in touch through email or whatsapp.</p>';
+        upcomingGrid.innerHTML = '<p style="text-align: left; color: #380001; line-height: 1.6;">There are no upcoming events right now. Scroll down to stay in touch through email or whatsapp.</p>';
         return;
     }
 
@@ -180,7 +180,7 @@ async function loadUpcomingEventsEnglish() {
     });
 
     if (upcomingEvents.length === 0) {
-        grid.innerHTML = '<p style="text-align: left; color: #380001; line-height: 1.6; grid-column: 1 / -1;">There\'s no upcoming events right now. Scroll down to stay in touch through email or whatsapp.</p>';
+        grid.innerHTML = '<p style="text-align: left; color: #380001; line-height: 1.6; grid-column: 1 / -1;">There are no upcoming events right now. Scroll down to stay in touch through email or whatsapp.</p>';
         return;
     }
 
