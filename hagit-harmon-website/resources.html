@@ -658,6 +658,13 @@
                     </div>
                 </div>
             </div>
+
+            <div class="resource-category">
+                <h2>recommended resources</h2>
+                <div id="airtable-resources" class="resource-list">
+                    <!-- Resources loaded from Airtable will appear here -->
+                </div>
+            </div>
         </div>
     </section>
 
@@ -694,7 +701,13 @@
 
     <div class="cursor-glow" aria-hidden="true"></div>
 
+    <script src="/js/airtable-resources.js"></script>
     <script>
+        // Load Airtable resources when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadResourcesEnglish();
+        });
+
         // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
