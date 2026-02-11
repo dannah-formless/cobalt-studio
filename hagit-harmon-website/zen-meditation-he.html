@@ -1386,8 +1386,15 @@
                 }
             });
         }
+    </script>
 
-        loadUpcomingEvents();
+    <!-- Airtable Events Integration -->
+    <script src="/js/airtable-events.js"></script>
+    <script>
+        // Load upcoming events from Airtable when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadUpcomingEventsHebrew();
+        });
     </script>
 </body>
 </html>

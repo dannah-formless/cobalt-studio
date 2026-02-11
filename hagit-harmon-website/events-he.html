@@ -1314,9 +1314,6 @@
             });
         }
 
-        // Run on page load
-        loadEvents();
-
         // Navbar opacity on scroll
         const nav = document.querySelector('nav');
         window.addEventListener('scroll', () => {
@@ -1325,6 +1322,15 @@
             } else {
                 nav.classList.remove('scrolled');
             }
+        });
+    </script>
+
+    <!-- Airtable Events Integration -->
+    <script src="/js/airtable-events.js"></script>
+    <script>
+        // Load events from Airtable when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadEventsHebrew();
         });
     </script>
 </body>

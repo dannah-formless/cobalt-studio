@@ -1,0 +1,253 @@
+// Airtable Events Integration
+// Replace these with your actual Airtable credentials
+const AIRTABLE_CONFIG = {
+    baseId: 'apptjSc9CHXlZKntH',
+    tableName: 'Events',
+    apiKey: 'patgMZR8hTr6EoOr0.5c90d477c43327c823764db5926b2dfa15ba66d3ffaa803b120c3e0c5f5c63d0',
+    view: 'Published'               // Optional: create a view that filters Published=true
+};
+
+// Fetch events from Airtable
+async function fetchAirtableEvents() {
+    try {
+        // Build the API URL
+        const url = `https://api.airtable.com/v0/${AIRTABLE_CONFIG.baseId}/${encodeURIComponent(AIRTABLE_CONFIG.tableName)}`;
+
+        const params = new URLSearchParams();
+        if (AIRTABLE_CONFIG.view) {
+            params.append('view', AIRTABLE_CONFIG.view);
+        }
+
+        // Fetch from Airtable API
+        const response = await fetch(`${url}?${params}`, {
+            headers: {
+                'Authorization': `Bearer ${AIRTABLE_CONFIG.apiKey}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Airtable API error: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+
+        // Transform Airtable records to our format
+        const events = data.records
+            .filter(record => record.fields.Published) // Only published events
+            .map(record => ({
+                id: record.id,
+                isRecurring: record.fields['Is Recurring'] || false,
+                eventDate: record.fields['Event Date'] || null,
+                en: {
+                    title: record.fields['Title (English)'] || '',
+                    date: record.fields['Date Display (English)'] || '',
+                    location: record.fields['Location (English)'] || '',
+                    language: record.fields['Language'] || '',
+                    description: record.fields['Description (English)'] || ''
+                },
+                he: {
+                    title: record.fields['Title (Hebrew)'] || '',
+                    date: record.fields['Date Display (Hebrew)'] || '',
+                    location: record.fields['Location (Hebrew)'] || '',
+                    language: record.fields['Language (Hebrew)'] || '',
+                    description: record.fields['Description (Hebrew)'] || ''
+                },
+                registerLink: record.fields['Registration Link'] || '',
+                image: record.fields.Image && record.fields.Image.length > 0
+                    ? record.fields.Image[0].url
+                    : '/images/event.png' // fallback image
+            }));
+
+        return events;
+    } catch (error) {
+        console.error('Error fetching events from Airtable:', error);
+        return [];
+    }
+}
+
+// Load events for English events page (events.html)
+async function loadEventsEnglish() {
+    const events = await fetchAirtableEvents();
+    const upcomingGrid = document.getElementById('upcoming-events');
+
+    if (!upcomingGrid) return;
+
+    // Clear existing content
+    upcomingGrid.innerHTML = '';
+
+    if (events.length === 0) {
+        upcomingGrid.innerHTML = '<p style="text-align: center; color: #F7FEBA;">No events available at this time.</p>';
+        return;
+    }
+
+    // Render each event
+    events.forEach(event => {
+        const eventCard = document.createElement('div');
+        eventCard.className = 'event-card';
+
+        eventCard.innerHTML = `
+            <h2 class="event-title">${event.en.title}</h2>
+            <div class="event-image">
+                <img src="${event.image}" alt="${event.en.title}">
+            </div>
+            <div class="event-content">
+                <div class="event-meta">
+                    <span>Date: ${event.en.date}</span>
+                    <span>Location: ${event.en.location}</span>
+                    ${event.en.language ? `<span>Language: ${event.en.language}</span>` : ''}
+                </div>
+                <p class="event-description">${event.en.description}</p>
+                ${event.registerLink ? `<a href="${event.registerLink}" target="_blank" rel="noopener noreferrer" class="event-link">Register</a>` : ''}
+            </div>
+        `;
+
+        upcomingGrid.appendChild(eventCard);
+    });
+
+    // Re-initialize read more functionality if it exists
+    if (typeof initReadMore === 'function') {
+        initReadMore();
+    }
+}
+
+// Load events for Hebrew events page (events-he.html)
+async function loadEventsHebrew() {
+    const events = await fetchAirtableEvents();
+    const upcomingGrid = document.getElementById('upcoming-events');
+
+    if (!upcomingGrid) return;
+
+    // Clear existing content
+    upcomingGrid.innerHTML = '';
+
+    if (events.length === 0) {
+        upcomingGrid.innerHTML = '<p style="text-align: center; color: #F7FEBA;">אין אירועים זמינים כרגע.</p>';
+        return;
+    }
+
+    // Render each event
+    events.forEach(event => {
+        const eventCard = document.createElement('div');
+        eventCard.className = 'event-card';
+
+        eventCard.innerHTML = `
+            <h2 class="event-title">${event.he.title}</h2>
+            <div class="event-image">
+                <img src="${event.image}" alt="${event.he.title}">
+            </div>
+            <div class="event-content">
+                <div class="event-meta">
+                    <span>תאריך: ${event.he.date}</span>
+                    <span>מיקום: ${event.he.location}</span>
+                    ${event.he.language ? `<span>שפה: ${event.he.language}</span>` : ''}
+                </div>
+                <p class="event-description">${event.he.description}</p>
+                ${event.registerLink ? `<a href="${event.registerLink}" target="_blank" rel="noopener noreferrer" class="event-link">הרשמה</a>` : ''}
+            </div>
+        `;
+
+        upcomingGrid.appendChild(eventCard);
+    });
+
+    // Re-initialize read more functionality if it exists
+    if (typeof initReadMore === 'function') {
+        initReadMore();
+    }
+}
+
+// Load upcoming events for English meditation page (zen-meditation.html)
+async function loadUpcomingEventsEnglish() {
+    const events = await fetchAirtableEvents();
+    const grid = document.getElementById('upcoming-events-grid');
+
+    if (!grid) return;
+
+    // Clear existing content
+    grid.innerHTML = '';
+
+    // Filter for upcoming events
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const upcomingEvents = events.filter(event => {
+        if (event.isRecurring) return true;
+        if (!event.eventDate) return true;
+
+        const eventDate = new Date(event.eventDate);
+        eventDate.setHours(0, 0, 0, 0);
+        return eventDate >= today;
+    });
+
+    if (upcomingEvents.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: #F7FEBA; grid-column: 1 / -1;">No upcoming events at this time.</p>';
+        return;
+    }
+
+    // Render each event
+    upcomingEvents.forEach(event => {
+        const eventCard = document.createElement('div');
+        eventCard.className = 'event-card';
+
+        eventCard.innerHTML = `
+            <h2>${event.en.title}</h2>
+            <div class="event-meta">
+                <span>Date: ${event.en.date}</span>
+                <span>Location: ${event.en.location}</span>
+                ${event.en.language ? `<span>Language: ${event.en.language}</span>` : ''}
+            </div>
+            <p>${event.en.description}</p>
+            ${event.registerLink ? `<a href="${event.registerLink}" target="_blank" rel="noopener noreferrer">Register</a>` : ''}
+        `;
+
+        grid.appendChild(eventCard);
+    });
+}
+
+// Load upcoming events for Hebrew meditation page (zen-meditation-he.html)
+async function loadUpcomingEventsHebrew() {
+    const events = await fetchAirtableEvents();
+    const grid = document.getElementById('upcoming-events-grid');
+
+    if (!grid) return;
+
+    // Clear existing content
+    grid.innerHTML = '';
+
+    // Filter for upcoming events
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const upcomingEvents = events.filter(event => {
+        if (event.isRecurring) return true;
+        if (!event.eventDate) return true;
+
+        const eventDate = new Date(event.eventDate);
+        eventDate.setHours(0, 0, 0, 0);
+        return eventDate >= today;
+    });
+
+    if (upcomingEvents.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: #F7FEBA; grid-column: 1 / -1;">אין אירועים קרובים כרגע.</p>';
+        return;
+    }
+
+    // Render each event
+    upcomingEvents.forEach(event => {
+        const eventCard = document.createElement('div');
+        eventCard.className = 'event-card';
+
+        eventCard.innerHTML = `
+            <h2>${event.he.title}</h2>
+            <div class="event-meta">
+                <span>תאריך: ${event.he.date}</span>
+                <span>מיקום: ${event.he.location}</span>
+                ${event.he.language ? `<span>שפה: ${event.he.language}</span>` : ''}
+            </div>
+            <p>${event.he.description}</p>
+            ${event.registerLink ? `<a href="${event.registerLink}" target="_blank" rel="noopener noreferrer">הרשמה</a>` : ''}
+        `;
+
+        grid.appendChild(eventCard);
+    });
+}
