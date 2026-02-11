@@ -1296,64 +1296,6 @@
             });
         }
 
-        // Upcoming Events - Load from canonical source
-        async function loadUpcomingEvents() {
-            try {
-                const response = await fetch('/content/events.json');
-                const data = await response.json();
-
-                if (!data.events || data.events.length === 0) {
-                    document.getElementById('meditation-events-section').style.display = 'none';
-                    return;
-                }
-
-                const today = new Date();
-                today.setHours(0, 0, 0, 0);
-
-                // Filter for upcoming events only
-                const upcomingEvents = data.events.filter(event => {
-                    if (event.is_recurring) return true;
-                    if (!event.event_date) return true;
-
-                    const eventDate = new Date(event.event_date);
-                    eventDate.setHours(0, 0, 0, 0);
-                    return eventDate >= today;
-                });
-
-                const section = document.getElementById('meditation-events-section');
-                const grid = document.getElementById('meditation-events-grid');
-
-                if (upcomingEvents.length === 0) {
-                    section.style.display = 'none';
-                    return;
-                }
-
-                grid.innerHTML = upcomingEvents.map(event => `
-                    <div class="event-card" data-date="${event.event_date || ''}" data-recurring="${event.is_recurring || false}">
-                        <h2 class="event-title">${event.he.title}</h2>
-                        <div class="event-image">
-                            <img src="${event.image}" alt="${event.he.title}">
-                        </div>
-                        <div class="event-content">
-                            <div class="event-meta">
-                                <span>תאריך: ${event.he.date}</span>
-                                <span>מיקום: ${event.he.location}</span>
-                                ${event.he.language ? `<span>שפה: ${event.he.language}</span>` : ''}
-                            </div>
-                            <p class="event-description">${event.he.description}</p>
-                            ${event.register_link ? `<a href="${event.register_link}" target="_blank" class="event-link">הרשמה</a>` : ''}
-                        </div>
-                    </div>
-                `).join('');
-
-                // Initialize read more functionality after events are loaded
-                initReadMore();
-            } catch (error) {
-                console.error('Error loading events:', error);
-                document.getElementById('meditation-events-section').style.display = 'none';
-            }
-        }
-
         // Read more functionality (copied from events-he.html)
         function initReadMore() {
             const descriptions = document.querySelectorAll('.event-description');
