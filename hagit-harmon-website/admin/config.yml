@@ -148,6 +148,7 @@ collections:
                   - { label: "Event Title", name: "title", widget: "string" }
                   - { label: "Date", name: "date", widget: "string", hint: "e.g., 'Every Tuesday, 7:00 PM' or 'March 15-17, 2024'" }
                   - { label: "Location", name: "location", widget: "string" }
+                  - { label: "Language", name: "language", widget: "string", hint: "e.g., 'English', 'Hebrew', 'Hebrew with English translation'" }
                   - { label: "Description", name: "description", widget: "text" }
               - label: "Hebrew"
                 name: "he"
@@ -156,6 +157,7 @@ collections:
                   - { label: "כותרת האירוע", name: "title", widget: "string" }
                   - { label: "תאריך", name: "date", widget: "string", hint: "לדוגמה: 'כל יום שלישי, 19:00' או '15-17 במרץ, 2024'" }
                   - { label: "מיקום", name: "location", widget: "string" }
+                  - { label: "שפה", name: "language", widget: "string", hint: "לדוגמה: 'עברית', 'אנגלית', 'עברית עם תרגום לאנגלית'" }
                   - { label: "תיאור", name: "description", widget: "text" }
               - { label: "Event Image", name: "image", widget: "image" }
               - { label: "Registration Link", name: "register_link", widget: "string", required: false, hint: "URL for event registration (optional)" }

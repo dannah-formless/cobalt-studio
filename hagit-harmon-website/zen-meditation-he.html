@@ -1338,6 +1338,7 @@
                             <div class="event-meta">
                                 <span>תאריך: ${event.he.date}</span>
                                 <span>מיקום: ${event.he.location}</span>
+                                ${event.he.language ? `<span>שפה: ${event.he.language}</span>` : ''}
                             </div>
                             <p class="event-description">${event.he.description}</p>
                             ${event.register_link ? `<a href="${event.register_link}" target="_blank" class="event-link">הרשמה</a>` : ''}
