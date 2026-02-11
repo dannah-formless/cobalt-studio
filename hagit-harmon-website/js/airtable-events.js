@@ -190,14 +190,19 @@ async function loadUpcomingEventsEnglish() {
         eventCard.className = 'event-card';
 
         eventCard.innerHTML = `
-            <h2>${event.en.title}</h2>
-            <div class="event-meta">
-                <span>Date: ${event.en.date}</span>
-                <span>Location: ${event.en.location}</span>
-                ${event.en.language ? `<span>Language: ${event.en.language}</span>` : ''}
+            <h2 class="event-title">${event.en.title}</h2>
+            <div class="event-image">
+                <img src="${event.image}" alt="${event.en.title}">
             </div>
-            <p>${event.en.description}</p>
-            ${event.registerLink ? `<a href="${event.registerLink}" target="_blank" rel="noopener noreferrer">Register</a>` : ''}
+            <div class="event-content">
+                <div class="event-meta">
+                    <span>Date: ${event.en.date}</span>
+                    <span>Location: ${event.en.location}</span>
+                    ${event.en.language ? `<span>Language: ${event.en.language}</span>` : ''}
+                </div>
+                <p class="event-description">${event.en.description}</p>
+                ${event.registerLink ? `<a href="${event.registerLink}" target="_blank" rel="noopener noreferrer" class="event-link">Register</a>` : ''}
+            </div>
         `;
 
         grid.appendChild(eventCard);
@@ -238,14 +243,19 @@ async function loadUpcomingEventsHebrew() {
         eventCard.className = 'event-card';
 
         eventCard.innerHTML = `
-            <h2>${event.he.title}</h2>
-            <div class="event-meta">
-                <span>תאריך: ${event.he.date}</span>
-                <span>מיקום: ${event.he.location}</span>
-                ${event.he.language ? `<span>שפה: ${event.he.language}</span>` : ''}
+            <h2 class="event-title">${event.he.title}</h2>
+            <div class="event-image">
+                <img src="${event.image}" alt="${event.he.title}">
             </div>
-            <p>${event.he.description}</p>
-            ${event.registerLink ? `<a href="${event.registerLink}" target="_blank" rel="noopener noreferrer">הרשמה</a>` : ''}
+            <div class="event-content">
+                <div class="event-meta">
+                    <span>תאריך: ${event.he.date}</span>
+                    <span>מיקום: ${event.he.location}</span>
+                    ${event.he.language ? `<span>שפה: ${event.he.language}</span>` : ''}
+                </div>
+                <p class="event-description">${event.he.description}</p>
+                ${event.registerLink ? `<a href="${event.registerLink}" target="_blank" rel="noopener noreferrer" class="event-link">הרשמה</a>` : ''}
+            </div>
         `;
 
         grid.appendChild(eventCard);
