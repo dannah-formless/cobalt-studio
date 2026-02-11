@@ -77,7 +77,7 @@ async function loadEventsEnglish() {
     upcomingGrid.innerHTML = '';
 
     if (events.length === 0) {
-        upcomingGrid.innerHTML = '<p style="text-align: left; color: #380001; line-height: 1.6;">There are no upcoming events right now. Scroll down to stay in touch through email or whatsapp.</p>';
+        upcomingGrid.innerHTML = '<p class="body-text" style="text-align: left; color: #380001; line-height: 1.6;">There are no upcoming events right now. Scroll down to stay in touch through email or whatsapp.</p>';
         return;
     }
 
@@ -122,7 +122,7 @@ async function loadEventsHebrew() {
     upcomingGrid.innerHTML = '';
 
     if (events.length === 0) {
-        upcomingGrid.innerHTML = '<p style="text-align: left; color: #380001; line-height: 1.6;">אין כרגע אירועים, תשמרו על קשר למטה דרך מייל או וואטסאפ</p>';
+        upcomingGrid.innerHTML = '<p class="body-text" style="text-align: right; color: #380001; line-height: 1.6;">אין כרגע אירועים, תשמרו על קשר למטה דרך מייל או וואטסאפ</p>';
         return;
     }
 
@@ -180,7 +180,7 @@ async function loadUpcomingEventsEnglish() {
     });
 
     if (upcomingEvents.length === 0) {
-        grid.innerHTML = '<p style="text-align: left; color: #380001; line-height: 1.6; grid-column: 1 / -1;">There are no upcoming events right now. Scroll down to stay in touch through email or whatsapp.</p>';
+        grid.innerHTML = '<p class="body-text" style="text-align: left; color: #380001; line-height: 1.6; grid-column: 1 / -1;">There are no upcoming events right now. Scroll down to stay in touch through email or whatsapp.</p>';
         return;
     }
 
@@ -233,7 +233,7 @@ async function loadUpcomingEventsHebrew() {
     });
 
     if (upcomingEvents.length === 0) {
-        grid.innerHTML = '<p style="text-align: left; color: #380001; line-height: 1.6; grid-column: 1 / -1;">אין כרגע אירועים, תשמרו על קשר למטה דרך מייל או וואטסאפ</p>';
+        grid.innerHTML = '<p class="body-text" style="text-align: right; color: #380001; line-height: 1.6; grid-column: 1 / -1;">אין כרגע אירועים, תשמרו על קשר למטה דרך מייל או וואטסאפ</p>';
         return;
     }
 
